@@ -2,6 +2,7 @@ import { BlurFade } from '@/components/portfolio/blur-fade';
 import {
     DataAnalysisIcon,
     GitIcon,
+    InertiaIcon,
     LaravelIcon,
     LinuxIcon,
     PythonIcon,
@@ -33,15 +34,18 @@ const ICON_MAP: Record<string, SkillIconComponent> = {
     linux: LinuxIcon,
     python: PythonIcon,
     dataanalysis: DataAnalysisIcon,
+    inertia: InertiaIcon,
+    inertiajs: InertiaIcon,
 };
 
 const FALLBACK_SKILLS: Skill[] = [
     { uuid: 'laravel', name: 'Laravel', icon: 'laravel' },
-    { uuid: 'git', name: 'Git', icon: 'git' },
+    { uuid: 'inertia', name: 'Inertia.js', icon: 'inertia' },
     { uuid: 'react', name: 'React', icon: 'react' },
     { uuid: 'typescript', name: 'TypeScript', icon: 'typescript' },
-    { uuid: 'linux', name: 'Linux', icon: 'linux' },
     { uuid: 'tailwindcss', name: 'Tailwind CSS', icon: 'tailwindcss' },
+    { uuid: 'git', name: 'Git', icon: 'git' },
+    { uuid: 'linux', name: 'Linux', icon: 'linux' },
     { uuid: 'python', name: 'Python', icon: 'python' },
     { uuid: 'dataanalysis', name: 'Data Analysis', icon: 'dataanalysis' },
 ];
