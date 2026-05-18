@@ -1,0 +1,82 @@
+import { BlurFade } from '@/components/portfolio/blur-fade';
+import {
+    DataAnalysisIcon,
+    GitIcon,
+    LaravelIcon,
+    LinuxIcon,
+    PythonIcon,
+    ReactIcon,
+    TailwindCSSIcon,
+    TypeScriptIcon,
+} from '@/components/portfolio/skill-icons';
+import type { SVGProps } from 'react';
+
+interface Skill {
+    uuid: string;
+    name: string;
+    icon: string | null;
+}
+
+interface SkillsSectionProps {
+    skills: Skill[];
+}
+
+type SkillIconComponent = (props: SVGProps<SVGSVGElement>) => React.ReactElement;
+
+const ICON_MAP: Record<string, SkillIconComponent> = {
+    laravel: LaravelIcon,
+    react: ReactIcon,
+    typescript: TypeScriptIcon,
+    tailwind: TailwindCSSIcon,
+    tailwindcss: TailwindCSSIcon,
+    git: GitIcon,
+    linux: LinuxIcon,
+    python: PythonIcon,
+    dataanalysis: DataAnalysisIcon,
+};
+
+const FALLBACK_SKILLS: Skill[] = [
+    { uuid: 'laravel', name: 'Laravel', icon: 'laravel' },
+    { uuid: 'git', name: 'Git', icon: 'git' },
+    { uuid: 'react', name: 'React', icon: 'react' },
+    { uuid: 'typescript', name: 'TypeScript', icon: 'typescript' },
+    { uuid: 'linux', name: 'Linux', icon: 'linux' },
+    { uuid: 'tailwindcss', name: 'Tailwind CSS', icon: 'tailwindcss' },
+    { uuid: 'python', name: 'Python', icon: 'python' },
+    { uuid: 'dataanalysis', name: 'Data Analysis', icon: 'dataanalysis' },
+];
+
+function getIcon(icon: string | null): SkillIconComponent | undefined {
+    if (!icon) {
+        return undefined;
+    }
+    const key = icon.toLowerCase().replace(/[^a-z]/g, '');
+    return ICON_MAP[key];
+}
+
+export function SkillsSection({ skills }: SkillsSectionProps) {
+    const source = skills.length > 0 ? skills : FALLBACK_SKILLS;
+
+    return (
+        <section id="skills" className="w-full">
+            <div className="flex min-h-0 flex-col gap-y-4">
+                <BlurFade delay={320}>
+                    <h2 className="text-xl font-bold">Skills & Technologies</h2>
+                </BlurFade>
+                <div className="flex flex-wrap gap-2">
+                    {source.map((skill, id) => {
+                        const Icon = getIcon(skill.icon);
+                        return (
+                            <BlurFade key={skill.uuid} delay={360 + id * 40} inView>
+                                <div className="border bg-background border-border ring-2 ring-border/20 rounded-xl h-8 w-fit px-4 flex items-center gap-2">
+                                    {Icon && <Icon className="size-4 shrink-0" />}
+                                    <span className="text-foreground text-sm font-medium">{skill.name}</span>
+                                </div>
+                            </BlurFade>
+                        );
+                    })}
+                </div>
+            </div>
+        </section>
+    );
+}
