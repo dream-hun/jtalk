@@ -1,0 +1,1 @@
+import{i as e}from"./react-B8BPhMsX.js";import{t}from"./createLucideIcon-BG-jFP4c.js";var n=e({__iconNode:()=>r,default:()=>i}),r=[[`path`,{d:`M8 22h8`,key:`rmew8v`}],[`path`,{d:`M12 11v11`,key:`ur9y6a`}],[`path`,{d:`m19 3-7 8-7-8Z`,key:`1sgpiw`}]],i=t(`martini`,r);export{n,i as t};

@@ -1,0 +1,1 @@
+import{i as e}from"./react-B8BPhMsX.js";import{t}from"./createLucideIcon-BG-jFP4c.js";var n=e({__iconNode:()=>r,default:()=>i}),r=[[`rect`,{width:`18`,height:`18`,x:`3`,y:`3`,rx:`2`,key:`afitv7`}],[`path`,{d:`M12 12H9.5a2.5 2.5 0 0 1 0-5H17`,key:`1l9586`}],[`path`,{d:`M12 7v10`,key:`jspqdw`}],[`path`,{d:`M16 7v10`,key:`lavkr4`}]],i=t(`square-pilcrow`,r);export{n,i as t};

@@ -1,0 +1,1 @@
+import{i as e}from"./react-B8BPhMsX.js";import{t}from"./createLucideIcon-BG-jFP4c.js";var n=e({__iconNode:()=>r,default:()=>i}),r=[[`path`,{d:`M3 5v14`,key:`1nt18q`}],[`path`,{d:`M8 5v14`,key:`1ybrkv`}],[`path`,{d:`M12 5v14`,key:`s699le`}],[`path`,{d:`M17 5v14`,key:`ycjyhj`}],[`path`,{d:`M21 5v14`,key:`nzette`}]],i=t(`barcode`,r);export{n,i as t};

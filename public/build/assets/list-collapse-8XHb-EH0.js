@@ -1,0 +1,1 @@
+import{i as e}from"./react-B8BPhMsX.js";import{t}from"./createLucideIcon-BG-jFP4c.js";var n=e({__iconNode:()=>r,default:()=>i}),r=[[`path`,{d:`M10 5h11`,key:`1hkqpe`}],[`path`,{d:`M10 12h11`,key:`6m4ad9`}],[`path`,{d:`M10 19h11`,key:`14g2nv`}],[`path`,{d:`m3 10 3-3-3-3`,key:`i7pm08`}],[`path`,{d:`m3 20 3-3-3-3`,key:`20gx1n`}]],i=t(`list-collapse`,r);export{n,i as t};

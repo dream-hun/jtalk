@@ -1,0 +1,1 @@
+import{i as e}from"./react-B8BPhMsX.js";import{t}from"./createLucideIcon-BG-jFP4c.js";var n=e({__iconNode:()=>r,default:()=>i}),r=[[`path`,{d:`m7 7 10 10-5 5V2l5 5L7 17`,key:`1q5490`}]],i=t(`bluetooth`,r);export{n,i as t};

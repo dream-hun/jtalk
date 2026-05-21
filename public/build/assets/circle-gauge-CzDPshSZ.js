@@ -1,0 +1,1 @@
+import{i as e}from"./react-B8BPhMsX.js";import{t}from"./createLucideIcon-BG-jFP4c.js";var n=e({__iconNode:()=>r,default:()=>i}),r=[[`path`,{d:`M15.6 2.7a10 10 0 1 0 5.7 5.7`,key:`1e0p6d`}],[`circle`,{cx:`12`,cy:`12`,r:`2`,key:`1c9p78`}],[`path`,{d:`M13.4 10.6 19 5`,key:`1kr7tw`}]],i=t(`circle-gauge`,r);export{n,i as t};

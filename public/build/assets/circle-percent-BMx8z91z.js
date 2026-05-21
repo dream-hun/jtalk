@@ -1,0 +1,1 @@
+import{i as e}from"./react-B8BPhMsX.js";import{t}from"./createLucideIcon-BG-jFP4c.js";var n=e({__iconNode:()=>r,default:()=>i}),r=[[`circle`,{cx:`12`,cy:`12`,r:`10`,key:`1mglay`}],[`path`,{d:`m15 9-6 6`,key:`1uzhvr`}],[`path`,{d:`M9 9h.01`,key:`1q5me6`}],[`path`,{d:`M15 15h.01`,key:`lqbp3k`}]],i=t(`circle-percent`,r);export{n,i as t};

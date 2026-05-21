@@ -1,0 +1,1 @@
+import{i as e}from"./react-B8BPhMsX.js";import{t}from"./createLucideIcon-BG-jFP4c.js";var n=e({__iconNode:()=>r,default:()=>i}),r=[[`path`,{d:`M11 6 8 9`,key:`7zt14w`}],[`path`,{d:`m16 7-8 8`,key:`tkgtvu`}],[`rect`,{x:`4`,y:`2`,width:`16`,height:`20`,rx:`2`,key:`1uxh74`}]],i=t(`mirror-rectangular`,r);export{n,i as t};

@@ -1,0 +1,1 @@
+import{i as e}from"./react-B8BPhMsX.js";import{t}from"./createLucideIcon-BG-jFP4c.js";var n=e({__iconNode:()=>r,default:()=>i}),r=[[`path`,{d:`m7 11 4.08 10.35a1 1 0 0 0 1.84 0L17 11`,key:`1v6356`}],[`path`,{d:`M17 7A5 5 0 0 0 7 7`,key:`151p3v`}],[`path`,{d:`M17 7a2 2 0 0 1 0 4H7a2 2 0 0 1 0-4`,key:`1sdaij`}]],i=t(`ice-cream-cone`,r);export{n,i as t};

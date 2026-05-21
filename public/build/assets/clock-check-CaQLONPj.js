@@ -1,0 +1,1 @@
+import{i as e}from"./react-B8BPhMsX.js";import{t}from"./createLucideIcon-BG-jFP4c.js";var n=e({__iconNode:()=>r,default:()=>i}),r=[[`path`,{d:`M12 6v6l4 2`,key:`mmk7yg`}],[`path`,{d:`M22 12a10 10 0 1 0-11 9.95`,key:`17dhok`}],[`path`,{d:`m22 16-5.5 5.5L14 19`,key:`1eibut`}]],i=t(`clock-check`,r);export{n,i as t};

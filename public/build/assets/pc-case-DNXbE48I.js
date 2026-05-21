@@ -1,0 +1,1 @@
+import{i as e}from"./react-B8BPhMsX.js";import{t}from"./createLucideIcon-BG-jFP4c.js";var n=e({__iconNode:()=>r,default:()=>i}),r=[[`rect`,{width:`14`,height:`20`,x:`5`,y:`2`,rx:`2`,key:`1uq1d7`}],[`path`,{d:`M15 14h.01`,key:`1kp3bh`}],[`path`,{d:`M9 6h6`,key:`dgm16u`}],[`path`,{d:`M9 10h6`,key:`9gxzsh`}]],i=t(`pc-case`,r);export{n,i as t};

@@ -1,0 +1,1 @@
+import{i as e}from"./react-B8BPhMsX.js";import{t}from"./createLucideIcon-BG-jFP4c.js";var n=e({__iconNode:()=>r,default:()=>i}),r=[[`path`,{d:`M10 14v-4`,key:`suye4c`}],[`path`,{d:`M22 14v-4`,key:`14q9d5`}],[`path`,{d:`M6 14v-4`,key:`14a6bd`}],[`rect`,{x:`2`,y:`6`,width:`16`,height:`12`,rx:`2`,key:`13zb55`}]],i=t(`battery-medium`,r);export{n,i as t};

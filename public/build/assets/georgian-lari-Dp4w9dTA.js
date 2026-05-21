@@ -1,0 +1,1 @@
+import{i as e}from"./react-B8BPhMsX.js";import{t}from"./createLucideIcon-BG-jFP4c.js";var n=e({__iconNode:()=>r,default:()=>i}),r=[[`path`,{d:`M11.5 21a7.5 7.5 0 1 1 7.35-9`,key:`1gyj8k`}],[`path`,{d:`M13 12V3`,key:`18om2a`}],[`path`,{d:`M4 21h16`,key:`1h09gz`}],[`path`,{d:`M9 12V3`,key:`geutu0`}]],i=t(`georgian-lari`,r);export{n,i as t};

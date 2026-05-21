@@ -1,0 +1,1 @@
+import{i as e}from"./react-B8BPhMsX.js";import{t}from"./createLucideIcon-BG-jFP4c.js";var n=e({__iconNode:()=>r,default:()=>i}),r=[[`path`,{d:`M3 5h8`,key:`18g2rq`}],[`path`,{d:`M3 12h8`,key:`1xfjp6`}],[`path`,{d:`M3 19h8`,key:`fpbke4`}],[`path`,{d:`m15 5 3 3 3-3`,key:`1t4thf`}],[`path`,{d:`m15 19 3-3 3 3`,key:`y4ckd2`}]],i=t(`list-chevrons-down-up`,r);export{n,i as t};

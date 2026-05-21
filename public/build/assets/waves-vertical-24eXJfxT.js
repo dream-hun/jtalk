@@ -1,0 +1,1 @@
+import{i as e}from"./react-B8BPhMsX.js";import{t}from"./createLucideIcon-BG-jFP4c.js";var n=e({__iconNode:()=>r,default:()=>i}),r=[[`path`,{d:`M12 2q2 2.5 0 5t0 5 0 5 0 5`,key:`13jdbg`}],[`path`,{d:`M19 2q2 2.5 0 5t0 5 0 5 0 5`,key:`1ozhzu`}],[`path`,{d:`M5 2q2 2.5 0 5t0 5 0 5 0 5`,key:`1bi6v5`}]],i=t(`waves-vertical`,r);export{n,i as t};

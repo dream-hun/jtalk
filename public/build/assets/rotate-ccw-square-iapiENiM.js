@@ -1,0 +1,1 @@
+import{i as e}from"./react-B8BPhMsX.js";import{t}from"./createLucideIcon-BG-jFP4c.js";var n=e({__iconNode:()=>r,default:()=>i}),r=[[`path`,{d:`M20 9V7a2 2 0 0 0-2-2h-6`,key:`19z8uc`}],[`path`,{d:`m15 2-3 3 3 3`,key:`177bxs`}],[`path`,{d:`M20 13v5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h2`,key:`d36hnl`}]],i=t(`rotate-ccw-square`,r);export{n,i as t};

@@ -1,0 +1,1 @@
+import{i as e}from"./react-B8BPhMsX.js";import{t}from"./createLucideIcon-BG-jFP4c.js";var n=e({__iconNode:()=>r,default:()=>i}),r=[[`path`,{d:`M11 14h1v4`,key:`fy54vd`}],[`path`,{d:`M16 2v4`,key:`4m81vk`}],[`path`,{d:`M3 10h18`,key:`8toen8`}],[`path`,{d:`M8 2v4`,key:`1cmpym`}],[`rect`,{x:`3`,y:`4`,width:`18`,height:`18`,rx:`2`,key:`12vinp`}]],i=t(`calendar-1`,r);export{n,i as t};

@@ -1,0 +1,1 @@
+import{i as e}from"./react-B8BPhMsX.js";import{t}from"./createLucideIcon-BG-jFP4c.js";var n=e({__iconNode:()=>r,default:()=>i}),r=[[`path`,{d:`M4 10a7.31 7.31 0 0 0 10 10Z`,key:`1fzpp3`}],[`path`,{d:`m9 15 3-3`,key:`88sc13`}],[`path`,{d:`M17 13a6 6 0 0 0-6-6`,key:`15cc6u`}],[`path`,{d:`M21 13A10 10 0 0 0 11 3`,key:`11nf8s`}]],i=t(`satellite-dish`,r);export{n,i as t};

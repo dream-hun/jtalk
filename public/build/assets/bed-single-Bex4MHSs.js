@@ -1,0 +1,1 @@
+import{i as e}from"./react-B8BPhMsX.js";import{t}from"./createLucideIcon-BG-jFP4c.js";var n=e({__iconNode:()=>r,default:()=>i}),r=[[`path`,{d:`M3 20v-8a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v8`,key:`1wm6mi`}],[`path`,{d:`M5 10V6a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v4`,key:`4k93s5`}],[`path`,{d:`M3 18h18`,key:`1h113x`}]],i=t(`bed-single`,r);export{n,i as t};

@@ -1,0 +1,1 @@
+import{i as e}from"./react-B8BPhMsX.js";import{t}from"./createLucideIcon-BG-jFP4c.js";var n=e({__iconNode:()=>r,default:()=>i}),r=[[`path`,{d:`M18 11h-4a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1h4`,key:`17ldeb`}],[`path`,{d:`M6 7v13a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V7`,key:`nc37y6`}],[`rect`,{width:`16`,height:`5`,x:`4`,y:`2`,rx:`1`,key:`3jeezo`}]],i=t(`pill-bottle`,r);export{n,i as t};

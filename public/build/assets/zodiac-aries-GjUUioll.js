@@ -1,0 +1,1 @@
+import{i as e}from"./react-B8BPhMsX.js";import{t}from"./createLucideIcon-BG-jFP4c.js";var n=e({__iconNode:()=>r,default:()=>i}),r=[[`path`,{d:`M12 7.5a4.5 4.5 0 1 1 5 4.5`,key:`k987hv`}],[`path`,{d:`M7 12a4.5 4.5 0 1 1 5-4.5V21`,key:`mjup0w`}]],i=t(`zodiac-aries`,r);export{n,i as t};

@@ -1,0 +1,1 @@
+import{i as e}from"./react-B8BPhMsX.js";import{t}from"./createLucideIcon-BG-jFP4c.js";var n=e({__iconNode:()=>r,default:()=>i}),r=[[`path`,{d:`M3 10A6.06 6.06 0 0 1 12 10 A6.06 6.06 0 0 0 21 10`,key:`13lfmc`}],[`path`,{d:`M6 3v12a6 6 0 0 0 12 0V3`,key:`1jnivp`}]],i=t(`zodiac-ophiuchus`,r);export{n,i as t};
