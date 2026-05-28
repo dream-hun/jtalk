@@ -8,7 +8,8 @@ import { ProjectsSection } from '@/components/portfolio/projects-section';
 import { SkillsSection } from '@/components/portfolio/skills-section';
 import { WorkSection } from '@/components/portfolio/work-section';
 import { FlickeringGrid } from '@/components/magicui/flickering-grid';
-import { Head, type PageProps } from '@inertiajs/react';
+import { Head } from '@inertiajs/react';
+import type { PageProps } from '@inertiajs/core';
 
 interface Tag {
     uuid: string;
