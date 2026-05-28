@@ -10,7 +10,7 @@ import {
     TailwindCSSIcon,
     TypeScriptIcon,
 } from '@/components/portfolio/skill-icons';
-import type { SVGProps } from 'react';
+import React, { SVGProps } from 'react';
 
 interface Skill {
     uuid: string;
