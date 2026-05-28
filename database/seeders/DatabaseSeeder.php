@@ -21,8 +21,6 @@ final class DatabaseSeeder extends Seeder
             ProjectSeeder::class,
             WorkSeeder::class,
             EducationSeeder::class,
-            SkillSeeder::class,
-            SocialSeeder::class,
             SettingSeeder::class,
         ]);
     }

@@ -11,8 +11,6 @@ use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\RobotsController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\SitemapController;
-use App\Http\Controllers\SkillController;
-use App\Http\Controllers\SocialController;
 use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\WorkController;
 use Illuminate\Support\Facades\Route;
@@ -37,8 +35,6 @@ Route::middleware(['auth', 'verified'])->group(function (): void {
     Route::resource('contacts', ContactController::class)->except('store');
     Route::resource('posts', PostController::class);
     Route::resource('categories', CategoryController::class);
-    Route::resource('skills', SkillController::class);
-    Route::resource('socials', SocialController::class);
 
     Route::get('setting', [SettingController::class, 'edit'])->name('setting.edit');
     Route::put('setting', [SettingController::class, 'update'])->name('setting.update');
