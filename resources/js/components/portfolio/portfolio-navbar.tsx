@@ -62,7 +62,7 @@ const NAV_ITEMS: NavItem[] = [
 
 const SOCIAL_ITEMS: NavItem[] = [
     { label: 'GitHub', href: 'https://github.com/dream-hun', icon: GitHubIcon, external: true },
-    { label: 'YouTube', href: 'https://youtube.com/@yourchannel', icon: YouTubeIcon, external: true },
+    { label: 'YouTube', href: 'www.youtube.com/@3midnightcompiler', icon: YouTubeIcon, external: true },
     { label: 'X', href: 'https://x.com/jack_talk_c', icon: XIcon, external: true },
 ];
 
