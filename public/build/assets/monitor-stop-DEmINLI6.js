@@ -1,1 +1,0 @@
-import{i as e}from"./react-B8BPhMsX.js";import{t}from"./createLucideIcon-BG-jFP4c.js";var n=e({__iconNode:()=>r,default:()=>i}),r=[[`path`,{d:`M12 17v4`,key:`1riwvh`}],[`path`,{d:`M8 21h8`,key:`1ev6f3`}],[`rect`,{x:`2`,y:`3`,width:`20`,height:`14`,rx:`2`,key:`x3v2xh`}],[`rect`,{x:`9`,y:`7`,width:`6`,height:`6`,rx:`1`,key:`5m2oou`}]],i=t(`monitor-stop`,r);export{n,i as t};

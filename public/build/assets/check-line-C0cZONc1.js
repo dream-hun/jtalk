@@ -1,1 +1,0 @@
-import{i as e}from"./react-B8BPhMsX.js";import{t}from"./createLucideIcon-BG-jFP4c.js";var n=e({__iconNode:()=>r,default:()=>i}),r=[[`path`,{d:`M20 4L9 15`,key:`1qkx8z`}],[`path`,{d:`M21 19L3 19`,key:`100sma`}],[`path`,{d:`M9 15L4 10`,key:`9zxff7`}]],i=t(`check-line`,r);export{n,i as t};

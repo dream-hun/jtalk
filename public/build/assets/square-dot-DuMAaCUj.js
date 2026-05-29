@@ -1,1 +1,0 @@
-import{i as e}from"./react-B8BPhMsX.js";import{t}from"./createLucideIcon-BG-jFP4c.js";var n=e({__iconNode:()=>r,default:()=>i}),r=[[`rect`,{width:`18`,height:`18`,x:`3`,y:`3`,rx:`2`,key:`afitv7`}],[`circle`,{cx:`12`,cy:`12`,r:`1`,key:`41hilf`}]],i=t(`square-dot`,r);export{n,i as t};

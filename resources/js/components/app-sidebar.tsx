@@ -1,5 +1,5 @@
 import { Link } from '@inertiajs/react';
-import { BookOpen, Briefcase, FolderGit2, GraduationCap, LayoutGrid, MessageSquare, NotebookPen, Settings, Share2, Star, Tag, Wrench } from 'lucide-react';
+import { BookOpen, Briefcase, FolderGit2, GraduationCap, LayoutGrid, MessageSquare, NotebookPen, Settings, Tag, Wrench } from 'lucide-react';
 import AppLogo from '@/components/app-logo';
 import { NavFooter } from '@/components/nav-footer';
 import { NavMain } from '@/components/nav-main';
@@ -20,8 +20,6 @@ import { index as educationIndex } from '@/routes/education';
 import { index as postsIndex } from '@/routes/posts';
 import { index as projectsIndex } from '@/routes/projects';
 import { edit as settingEdit } from '@/routes/setting';
-import { index as skillsIndex } from '@/routes/skills';
-import { index as socialsIndex } from '@/routes/socials';
 import { index as worksIndex } from '@/routes/works';
 import type { NavItem } from '@/types';
 
@@ -35,11 +33,6 @@ const mainNavItems: NavItem[] = [
         title: 'Projects',
         href: projectsIndex().url,
         icon: Briefcase,
-    },
-    {
-        title: 'Skills',
-        href: skillsIndex().url,
-        icon: Star,
     },
     {
         title: 'Works',
@@ -60,11 +53,6 @@ const mainNavItems: NavItem[] = [
         title: 'Categories',
         href: categoriesIndex().url,
         icon: Tag,
-    },
-    {
-        title: 'Socials',
-        href: socialsIndex().url,
-        icon: Share2,
     },
     {
         title: 'Contacts',

@@ -1,1 +1,0 @@
-import{i as e}from"./react-B8BPhMsX.js";import{t}from"./createLucideIcon-BG-jFP4c.js";var n=e({__iconNode:()=>r,default:()=>i}),r=[[`path`,{d:`M12 20h.01`,key:`zekei9`}]],i=t(`wifi-zero`,r);export{n,i as t};

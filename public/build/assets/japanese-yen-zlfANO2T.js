@@ -1,1 +1,0 @@
-import{i as e}from"./react-B8BPhMsX.js";import{t}from"./createLucideIcon-BG-jFP4c.js";var n=e({__iconNode:()=>r,default:()=>i}),r=[[`path`,{d:`M12 9.5V21m0-11.5L6 3m6 6.5L18 3`,key:`2ej80x`}],[`path`,{d:`M6 15h12`,key:`1hwgt5`}],[`path`,{d:`M6 11h12`,key:`wf4gp6`}]],i=t(`japanese-yen`,r);export{n,i as t};

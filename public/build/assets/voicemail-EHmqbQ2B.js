@@ -1,1 +1,0 @@
-import{i as e}from"./react-B8BPhMsX.js";import{t}from"./createLucideIcon-BG-jFP4c.js";var n=e({__iconNode:()=>r,default:()=>i}),r=[[`circle`,{cx:`6`,cy:`12`,r:`4`,key:`1ehtga`}],[`circle`,{cx:`18`,cy:`12`,r:`4`,key:`4vafl8`}],[`line`,{x1:`6`,x2:`18`,y1:`16`,y2:`16`,key:`pmt8us`}]],i=t(`voicemail`,r);export{n,i as t};

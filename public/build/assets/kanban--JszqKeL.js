@@ -1,1 +1,0 @@
-import{i as e}from"./react-B8BPhMsX.js";import{t}from"./createLucideIcon-BG-jFP4c.js";var n=e({__iconNode:()=>r,default:()=>i}),r=[[`path`,{d:`M5 3v14`,key:`9nsxs2`}],[`path`,{d:`M12 3v8`,key:`1h2ygw`}],[`path`,{d:`M19 3v18`,key:`1sk56x`}]],i=t(`kanban`,r);export{n,i as t};

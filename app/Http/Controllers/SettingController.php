@@ -20,13 +20,13 @@ final class SettingController extends Controller
     public function edit(): Response
     {
         return Inertia::render('setting/edit', [
-            'setting' => Setting::query()->firstOrFail(),
+            'setting' => Setting::query()->firstOrNew([]),
         ]);
     }
 
     public function update(UpdateSettingRequest $request): RedirectResponse
     {
-        $this->updateSetting->handle(Setting::query()->firstOrFail(), $request->validated());
+        $this->updateSetting->handle(Setting::query()->firstOrNew([]), $request->validated());
 
         Inertia::flash('toast', ['type' => 'success', 'message' => __('Settings updated.')]);
 

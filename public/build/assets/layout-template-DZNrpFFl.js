@@ -1,1 +1,0 @@
-import{i as e}from"./react-B8BPhMsX.js";import{t}from"./createLucideIcon-BG-jFP4c.js";var n=e({__iconNode:()=>r,default:()=>i}),r=[[`rect`,{width:`18`,height:`7`,x:`3`,y:`3`,rx:`1`,key:`f1a2em`}],[`rect`,{width:`9`,height:`7`,x:`3`,y:`14`,rx:`1`,key:`jqznyg`}],[`rect`,{width:`5`,height:`7`,x:`16`,y:`14`,rx:`1`,key:`q5h2i8`}]],i=t(`layout-template`,r);export{n,i as t};

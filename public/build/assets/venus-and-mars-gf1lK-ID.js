@@ -1,1 +1,0 @@
-import{i as e}from"./react-B8BPhMsX.js";import{t}from"./createLucideIcon-BG-jFP4c.js";var n=e({__iconNode:()=>r,default:()=>i}),r=[[`path`,{d:`M10 20h4`,key:`ni2waw`}],[`path`,{d:`M12 16v6`,key:`c8a4gj`}],[`path`,{d:`M17 2h4v4`,key:`vhe59`}],[`path`,{d:`m21 2-5.46 5.46`,key:`19kypf`}],[`circle`,{cx:`12`,cy:`11`,r:`5`,key:`16gxyc`}]],i=t(`venus-and-mars`,r);export{n,i as t};

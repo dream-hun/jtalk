@@ -1,1 +1,0 @@
-import{i as e}from"./react-B8BPhMsX.js";import{t}from"./createLucideIcon-BG-jFP4c.js";var n=e({__iconNode:()=>r,default:()=>i}),r=[[`path`,{d:`M3 3v16a2 2 0 0 0 2 2h16`,key:`c24i48`}],[`path`,{d:`M7 11h8`,key:`1feolt`}],[`path`,{d:`M7 16h3`,key:`ur6vzw`}],[`path`,{d:`M7 6h12`,key:`sz5b0d`}]],i=t(`chart-bar-decreasing`,r);export{n,i as t};

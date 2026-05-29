@@ -10,7 +10,7 @@ interface Work {
     company: string;
     logo: string | null;
     location: string;
-    employment_type: { value: string; label?: string } | string;
+    employment_type: string;
     start_date: string;
     end_date: string | null;
     is_current: boolean;

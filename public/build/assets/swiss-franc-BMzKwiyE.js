@@ -1,1 +1,0 @@
-import{i as e}from"./react-B8BPhMsX.js";import{t}from"./createLucideIcon-BG-jFP4c.js";var n=e({__iconNode:()=>r,default:()=>i}),r=[[`path`,{d:`M10 21V3h8`,key:`br2l0g`}],[`path`,{d:`M6 16h9`,key:`2py0wn`}],[`path`,{d:`M10 9.5h7`,key:`13dmhz`}]],i=t(`swiss-franc`,r);export{n,i as t};

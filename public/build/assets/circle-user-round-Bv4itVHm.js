@@ -1,1 +1,0 @@
-import{i as e}from"./react-B8BPhMsX.js";import{t}from"./createLucideIcon-BG-jFP4c.js";var n=e({__iconNode:()=>r,default:()=>i}),r=[[`path`,{d:`M17.925 20.056a6 6 0 0 0-11.851.001`,key:`z69sun`}],[`circle`,{cx:`12`,cy:`11`,r:`4`,key:`1gt34v`}],[`circle`,{cx:`12`,cy:`12`,r:`10`,key:`1mglay`}]],i=t(`circle-user-round`,r);export{n,i as t};

@@ -1,1 +1,0 @@
-import{i as e}from"./react-B8BPhMsX.js";import{t}from"./createLucideIcon-BG-jFP4c.js";var n=e({__iconNode:()=>r,default:()=>i}),r=[[`path`,{d:`M10 2v6.292a7 7 0 1 0 4 0V2`,key:`1s42pc`}],[`path`,{d:`M5 15h14`,key:`m0yey3`}],[`path`,{d:`M8.5 2h7`,key:`csnxdl`}]],i=t(`flask-round`,r);export{n,i as t};

@@ -9,7 +9,6 @@ use App\Models\Education;
 use App\Models\Post;
 use App\Models\Project;
 use App\Models\Setting;
-use App\Models\Skill;
 use App\Models\Work;
 use Inertia\Inertia;
 use Inertia\Response;
@@ -24,11 +23,11 @@ final class WelcomeController extends Controller
             'projects' => Project::with('tags')->latest()->get(),
             'works' => Work::orderBy('start_date', 'desc')->get(),
             'education' => Education::orderBy('start_date', 'desc')->get(),
-            'skills' => Skill::orderBy('name')->get(),
+            'skills' => [],
             'recentPosts' => Post::where('status', PostStatus::Published)
                 ->orderByDesc('published_at')
                 ->limit(3)
-                ->get(['uuid', 'title', 'slug', 'published_at']),
+                ->get(['uuid', 'title', 'slug', 'published_at', 'cover_image']),
             'canRegister' => Features::enabled(Features::registration()),
             'siteUrl' => url('/'),
         ]);

@@ -1,1 +1,0 @@
-import{i as e}from"./react-B8BPhMsX.js";import{t}from"./createLucideIcon-BG-jFP4c.js";var n=e({__iconNode:()=>r,default:()=>i}),r=[[`path`,{d:`m17 18-6-6 6-6`,key:`1yerx2`}],[`path`,{d:`M7 6v12`,key:`1p53r6`}]],i=t(`chevron-first`,r);export{n,i as t};

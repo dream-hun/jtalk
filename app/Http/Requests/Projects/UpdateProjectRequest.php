@@ -30,6 +30,7 @@ final class UpdateProjectRequest extends FormRequest
             'starting_date' => ['required', 'date'],
             'ending_date' => ['required', 'date', 'after_or_equal:starting_date'],
             'live_url' => ['nullable', 'url', 'max:255'],
+            'featured_image' => ['nullable', 'url', 'max:2048'],
             'project_status' => ['required', new Enum(ProjectStatus::class)],
             'tag_ids' => ['nullable', 'array'],
             'tag_ids.*' => ['integer', Rule::exists('tags', 'id')],

@@ -1,1 +1,0 @@
-import{i as e}from"./react-B8BPhMsX.js";import{t}from"./createLucideIcon-BG-jFP4c.js";var n=e({__iconNode:()=>r,default:()=>i}),r=[[`rect`,{width:`10`,height:`14`,x:`3`,y:`8`,rx:`2`,key:`1vrsiq`}],[`path`,{d:`M5 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2h-2.4`,key:`1j4zmg`}],[`path`,{d:`M8 18h.01`,key:`lrp35t`}]],i=t(`tablet-smartphone`,r);export{n,i as t};

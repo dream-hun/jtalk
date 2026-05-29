@@ -1,3 +1,6 @@
+import type { PageProps } from '@inertiajs/core';
+import { Head } from '@inertiajs/react';
+import { FlickeringGrid } from '@/components/magicui/flickering-grid';
 import { AboutSection } from '@/components/portfolio/about-section';
 import { BlogSection } from '@/components/portfolio/blog-section';
 import { ContactSection } from '@/components/portfolio/contact-section';
@@ -7,9 +10,6 @@ import { PortfolioNavbar } from '@/components/portfolio/portfolio-navbar';
 import { ProjectsSection } from '@/components/portfolio/projects-section';
 import { SkillsSection } from '@/components/portfolio/skills-section';
 import { WorkSection } from '@/components/portfolio/work-section';
-import { FlickeringGrid } from '@/components/magicui/flickering-grid';
-import { Head } from '@inertiajs/react';
-import type { PageProps } from '@inertiajs/core';
 
 interface Tag {
     uuid: string;
@@ -34,7 +34,8 @@ interface Project {
     ending_date: string;
     live_url: string | null;
     source_code_url: string | null;
-    project_status: { value: string; label?: string } | string;
+    featured_image: string | null;
+    project_status: string;
     tags: Tag[];
 }
 
@@ -44,7 +45,7 @@ interface Work {
     company: string;
     logo: string | null;
     location: string;
-    employment_type: { value: string; label?: string } | string;
+    employment_type: string;
     start_date: string;
     end_date: string | null;
     is_current: boolean;
@@ -72,6 +73,7 @@ interface Post {
     title: string;
     slug: string;
     published_at: string | null;
+    cover_image: string | null;
 }
 
 interface WelcomeProps extends PageProps {
