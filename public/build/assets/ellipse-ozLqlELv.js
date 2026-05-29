@@ -1,1 +1,0 @@
-import{i as e}from"./react-B8BPhMsX.js";import{t}from"./createLucideIcon-BG-jFP4c.js";var n=e({__iconNode:()=>r,default:()=>i}),r=[[`ellipse`,{cx:`12`,cy:`12`,rx:`10`,ry:`6`,key:`swdkt4`}]],i=t(`ellipse`,r);export{n,i as t};

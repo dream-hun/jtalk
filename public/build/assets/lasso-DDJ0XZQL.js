@@ -1,1 +1,0 @@
-import{i as e}from"./react-B8BPhMsX.js";import{t}from"./createLucideIcon-BG-jFP4c.js";var n=e({__iconNode:()=>r,default:()=>i}),r=[[`path`,{d:`M3.704 14.467a10 8 0 1 1 3.115 2.375`,key:`wxgc5m`}],[`path`,{d:`M7 22a5 5 0 0 1-2-3.994`,key:`1xp6a4`}],[`circle`,{cx:`5`,cy:`16`,r:`2`,key:`18csp3`}]],i=t(`lasso`,r);export{n,i as t};

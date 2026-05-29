@@ -17,7 +17,8 @@ interface Project {
     ending_date: string;
     live_url: string | null;
     source_code_url: string | null;
-    project_status: { value: string; label?: string } | string;
+    featured_image: string | null;
+    project_status: string;
     tags: Tag[];
 }
 
@@ -29,15 +30,15 @@ function formatDate(dateString: string): string {
     return new Date(dateString).toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
 }
 
-function ProjectImage() {
+function ProjectImage({ src }: { src: string | null }) {
+    const [error, setError] = useState(false);
+    if (src && !error) {
+        return <img src={src} alt="" className="w-full h-48 object-cover" onError={() => setError(true)} />;
+    }
     return <div className="w-full h-48 bg-muted" />;
 }
 
 function ProjectCard({ project }: { project: Project }) {
-    const [imageError, setImageError] = useState(false);
-    void imageError;
-    void setImageError;
-
     const dates = `${formatDate(project.starting_date)} – ${formatDate(project.ending_date)}`;
 
     return (
@@ -45,10 +46,10 @@ function ProjectCard({ project }: { project: Project }) {
             <div className="relative shrink-0">
                 {project.live_url ? (
                     <a href={project.live_url} target="_blank" rel="noopener noreferrer" className="block">
-                        <ProjectImage />
+                        <ProjectImage src={project.featured_image} />
                     </a>
                 ) : (
-                    <ProjectImage />
+                    <ProjectImage src={project.featured_image} />
                 )}
                 <div className="absolute top-2 right-2 flex flex-wrap gap-2">
                     {project.source_code_url && (

@@ -13,7 +13,7 @@ final readonly class UpdateSetting
      */
     public function handle(Setting $setting, array $data): Setting
     {
-        $setting->update($data);
+        $setting->fill($data)->save();
 
         return $setting->refresh();
     }

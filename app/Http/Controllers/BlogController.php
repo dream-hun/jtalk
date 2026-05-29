@@ -52,7 +52,7 @@ final class BlogController extends Controller
             'post' => $post,
             'previousPost' => $previousPost ? ['title' => $previousPost->title, 'slug' => $previousPost->slug] : null,
             'nextPost' => $nextPost ? ['title' => $nextPost->title, 'slug' => $nextPost->slug] : null,
-            'authorName' => Setting::value('name'),
+            'authorName' => Setting::value('name') ?? config('app.name'),
             'postUrl' => route('blog.show', $slug),
         ]);
     }

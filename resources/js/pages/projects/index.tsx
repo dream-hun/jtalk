@@ -6,6 +6,7 @@ import InputError from '@/components/input-error';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Checkbox } from '@/components/ui/checkbox';
+import { DatePicker } from '@/components/ui/date-picker';
 import {
     Dialog,
     DialogClose,
@@ -44,6 +45,7 @@ type Project = {
     starting_date: string;
     ending_date: string;
     live_url: string | null;
+    featured_image: string | null;
     project_status: string;
     tags: Tag[];
 };
@@ -76,6 +78,12 @@ function ProjectFormFields({
     const [type, setType] = useState<string>(project?.type ?? 'web-application');
     const [status, setStatus] = useState<string>(project?.project_status ?? 'in-progress');
     const [selectedTagIds, setSelectedTagIds] = useState<number[]>(project ? project.tags.map((t) => t.id) : []);
+    const [startDate, setStartDate] = useState<Date | undefined>(
+        project?.starting_date ? new Date(project.starting_date) : undefined,
+    );
+    const [endDate, setEndDate] = useState<Date | undefined>(
+        project?.ending_date ? new Date(project.ending_date) : undefined,
+    );
 
     function toggleTag(id: number) {
         setSelectedTagIds((prev) => (prev.includes(id) ? prev.filter((t) => t !== id) : [...prev, id]));
@@ -140,25 +148,13 @@ function ProjectFormFields({
             </div>
             <div className="grid grid-cols-2 gap-4">
                 <div className="grid gap-2">
-                    <Label htmlFor="starting_date">Start Date</Label>
-                    <Input
-                        id="starting_date"
-                        name="starting_date"
-                        type="date"
-                        defaultValue={project?.starting_date ?? ''}
-                        required
-                    />
+                    <Label>Start Date</Label>
+                    <DatePicker name="starting_date" value={startDate} onChange={setStartDate} placeholder="Pick start date" />
                     <InputError message={errors.starting_date} />
                 </div>
                 <div className="grid gap-2">
-                    <Label htmlFor="ending_date">End Date</Label>
-                    <Input
-                        id="ending_date"
-                        name="ending_date"
-                        type="date"
-                        defaultValue={project?.ending_date ?? ''}
-                        required
-                    />
+                    <Label>End Date</Label>
+                    <DatePicker name="ending_date" value={endDate} onChange={setEndDate} placeholder="Pick end date" />
                     <InputError message={errors.ending_date} />
                 </div>
             </div>
@@ -185,6 +181,17 @@ function ProjectFormFields({
                     />
                     <InputError message={errors.live_url} />
                 </div>
+            </div>
+            <div className="grid gap-2">
+                <Label htmlFor="featured_image">Featured Image URL</Label>
+                <Input
+                    id="featured_image"
+                    name="featured_image"
+                    type="url"
+                    defaultValue={project?.featured_image ?? ''}
+                    placeholder="https://..."
+                />
+                <InputError message={errors.featured_image} />
             </div>
             {allTags.length > 0 && (
                 <div className="grid gap-2">

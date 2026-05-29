@@ -23,6 +23,7 @@ use Illuminate\Support\Str;
  * @property Carbon $starting_date
  * @property Carbon $ending_date
  * @property string|null $live_url
+ * @property string|null $featured_image
  * @property ProjectStatus $project_status
  * @property Carbon $created_at
  * @property Carbon $updated_at

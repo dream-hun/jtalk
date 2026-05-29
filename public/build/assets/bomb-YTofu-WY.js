@@ -1,1 +1,0 @@
-import{i as e}from"./react-B8BPhMsX.js";import{t}from"./createLucideIcon-BG-jFP4c.js";var n=e({__iconNode:()=>r,default:()=>i}),r=[[`circle`,{cx:`11`,cy:`13`,r:`9`,key:`hd149`}],[`path`,{d:`M14.35 4.65 16.3 2.7a2.41 2.41 0 0 1 3.4 0l1.6 1.6a2.4 2.4 0 0 1 0 3.4l-1.95 1.95`,key:`jp4j1b`}],[`path`,{d:`m22 2-1.5 1.5`,key:`ay92ug`}]],i=t(`bomb`,r);export{n,i as t};

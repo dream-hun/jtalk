@@ -1,1 +1,0 @@
-import{i as e}from"./react-B8BPhMsX.js";import{t}from"./createLucideIcon-BG-jFP4c.js";var n=e({__iconNode:()=>r,default:()=>i}),r=[[`path`,{d:`M18 7c0-5.333-8-5.333-8 0`,key:`1prm2n`}],[`path`,{d:`M10 7v14`,key:`18tmcs`}],[`path`,{d:`M6 21h12`,key:`4dkmi1`}],[`path`,{d:`M6 13h10`,key:`ybwr4a`}]],i=t(`pound-sterling`,r);export{n,i as t};

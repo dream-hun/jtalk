@@ -1,1 +1,0 @@
-import{i as e}from"./react-B8BPhMsX.js";import{t}from"./createLucideIcon-BG-jFP4c.js";var n=e({__iconNode:()=>r,default:()=>i}),r=[[`rect`,{width:`18`,height:`18`,x:`3`,y:`3`,rx:`2`,ry:`2`,key:`1m3agn`}],[`path`,{d:`M15 9h.01`,key:`x1ddxp`}],[`path`,{d:`M9 15h.01`,key:`fzyn71`}]],i=t(`dice-2`,r);export{n,i as t};

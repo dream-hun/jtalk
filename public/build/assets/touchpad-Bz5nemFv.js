@@ -1,1 +1,0 @@
-import{i as e}from"./react-B8BPhMsX.js";import{t}from"./createLucideIcon-BG-jFP4c.js";var n=e({__iconNode:()=>r,default:()=>i}),r=[[`rect`,{width:`20`,height:`16`,x:`2`,y:`4`,rx:`2`,key:`18n3k1`}],[`path`,{d:`M2 14h20`,key:`myj16y`}],[`path`,{d:`M12 20v-6`,key:`1rm09r`}]],i=t(`touchpad`,r);export{n,i as t};

@@ -1,1 +1,0 @@
-import{i as e}from"./react-B8BPhMsX.js";import{t}from"./createLucideIcon-BG-jFP4c.js";var n=e({__iconNode:()=>r,default:()=>i}),r=[[`path`,{d:`M13 17V9`,key:`1fwyjl`}],[`path`,{d:`M18 17v-3`,key:`1sqioe`}],[`path`,{d:`M3 3v16a2 2 0 0 0 2 2h16`,key:`c24i48`}],[`path`,{d:`M8 17V5`,key:`1wzmnc`}]],i=t(`chart-column-decreasing`,r);export{n,i as t};

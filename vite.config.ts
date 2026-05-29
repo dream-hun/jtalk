@@ -28,4 +28,30 @@ export default defineConfig({
             formVariants: true,
         }),
     ],
+    build: {
+        rolldownOptions: {
+            output: {
+                codeSplitting: {
+                    groups: [
+                        // React core — stable, benefits from long-term caching
+                        { name: 'vendor-react', test: /node_modules\/react(?!-|\/)/ },
+                        { name: 'vendor-react', test: /node_modules\/react-dom\// },
+                        { name: 'vendor-react', test: /node_modules\/scheduler\// },
+                        // Inertia + axios
+                        { name: 'vendor-inertia', test: /node_modules\/@inertiajs\// },
+                        { name: 'vendor-inertia', test: /node_modules\/axios\// },
+                        // Motion animation library (minShareCount:1 forces extraction even for a single consumer)
+                        { name: 'vendor-motion', test: /node_modules\/motion\//, minShareCount: 1 },
+                        // Radix UI primitives
+                        { name: 'vendor-radix', test: /node_modules\/@radix-ui\// },
+                        { name: 'vendor-radix', test: /node_modules\/radix-ui\// },
+                        // Date picker + date-fns (only loaded on pages with date inputs)
+                        { name: 'vendor-datepicker', test: /node_modules\/(react-day-picker|date-fns)\// },
+                        // Markdown rendering (only loaded on blog show page)
+                        { name: 'vendor-markdown', test: /node_modules\/(react-markdown|remark|rehype|unified|vfile|micromark|mdast-|hast-|unist-)/ },
+                    ],
+                },
+            },
+        },
+    },
 });

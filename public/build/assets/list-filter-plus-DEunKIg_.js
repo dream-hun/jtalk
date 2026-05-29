@@ -1,1 +1,0 @@
-import{i as e}from"./react-B8BPhMsX.js";import{t}from"./createLucideIcon-BG-jFP4c.js";var n=e({__iconNode:()=>r,default:()=>i}),r=[[`path`,{d:`M12 5H2`,key:`1o22fu`}],[`path`,{d:`M6 12h12`,key:`8npq4p`}],[`path`,{d:`M9 19h6`,key:`456am0`}],[`path`,{d:`M16 5h6`,key:`1vod17`}],[`path`,{d:`M19 8V2`,key:`1wcffq`}]],i=t(`list-filter-plus`,r);export{n,i as t};

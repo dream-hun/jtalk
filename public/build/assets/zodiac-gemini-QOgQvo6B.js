@@ -1,1 +1,0 @@
-import{i as e}from"./react-B8BPhMsX.js";import{t}from"./createLucideIcon-BG-jFP4c.js";var n=e({__iconNode:()=>r,default:()=>i}),r=[[`path`,{d:`M16 4.525v14.948`,key:`bgoxo0`}],[`path`,{d:`M20 3A17 17 0 0 1 4 3`,key:`1djemw`}],[`path`,{d:`M4 21a17 17 0 0 1 16 0`,key:`onoyo7`}],[`path`,{d:`M8 4.525v14.948`,key:`u5iyof`}]],i=t(`zodiac-gemini`,r);export{n,i as t};

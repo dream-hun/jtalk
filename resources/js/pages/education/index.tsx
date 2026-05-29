@@ -5,6 +5,7 @@ import EducationController from '@/actions/App/Http/Controllers/EducationControl
 import InputError from '@/components/input-error';
 import { Button } from '@/components/ui/button';
 import { Checkbox } from '@/components/ui/checkbox';
+import { DatePicker } from '@/components/ui/date-picker';
 import {
     Dialog,
     DialogClose,
@@ -39,6 +40,8 @@ type Education = {
 
 function EducationFormFields({ education, errors }: { education?: Education; errors: Record<string, string> }) {
     const [isCurrent, setIsCurrent] = useState<boolean>(education?.is_current ?? false);
+    const [startDate, setStartDate] = useState<Date | undefined>(education?.start_date ? new Date(education.start_date) : undefined);
+    const [endDate, setEndDate] = useState<Date | undefined>(education?.end_date ? new Date(education.end_date) : undefined);
 
     return (
         <>
@@ -72,19 +75,13 @@ function EducationFormFields({ education, errors }: { education?: Education; err
             </div>
             <div className="grid grid-cols-2 gap-4">
                 <div className="grid gap-2">
-                    <Label htmlFor="start_date">Start Date</Label>
-                    <Input id="start_date" name="start_date" type="date" defaultValue={education?.start_date ?? ''} required />
+                    <Label>Start Date</Label>
+                    <DatePicker name="start_date" value={startDate} onChange={setStartDate} placeholder="Pick start date" />
                     <InputError message={errors.start_date} />
                 </div>
                 <div className="grid gap-2">
-                    <Label htmlFor="end_date">End Date</Label>
-                    <Input
-                        id="end_date"
-                        name="end_date"
-                        type="date"
-                        defaultValue={education?.end_date ?? ''}
-                        disabled={isCurrent}
-                    />
+                    <Label>End Date</Label>
+                    <DatePicker name="end_date" value={endDate} onChange={setEndDate} placeholder="Pick end date" disabled={isCurrent} />
                     <InputError message={errors.end_date} />
                 </div>
             </div>
