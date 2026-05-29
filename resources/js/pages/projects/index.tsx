@@ -1,6 +1,6 @@
 import { Form, Head } from '@inertiajs/react';
 import { MoreHorizontal, Pencil, Plus, Trash2 } from 'lucide-react';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import ProjectController from '@/actions/App/Http/Controllers/ProjectController';
 import InputError from '@/components/input-error';
 import { Badge } from '@/components/ui/badge';
@@ -65,6 +65,53 @@ const projectStatusVariant: Record<string, 'default' | 'secondary' | 'destructiv
     'on-hold': 'outline',
     archived: 'destructive',
 };
+
+function ImageUploadField({
+    name,
+    currentImage,
+    label,
+    error,
+}: {
+    name: string;
+    currentImage?: string | null;
+    label: string;
+    error?: string;
+}) {
+    const currentImageUrl = currentImage ? `/storage/${currentImage}` : null;
+    const [preview, setPreview] = useState<string | null>(currentImageUrl);
+    const objectUrlRef = useRef<string | null>(null);
+
+    useEffect(() => {
+        return () => {
+            if (objectUrlRef.current) URL.revokeObjectURL(objectUrlRef.current);
+        };
+    }, []);
+
+    function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
+        if (objectUrlRef.current) {
+            URL.revokeObjectURL(objectUrlRef.current);
+            objectUrlRef.current = null;
+        }
+        const file = e.target.files?.[0];
+        if (file) {
+            objectUrlRef.current = URL.createObjectURL(file);
+            setPreview(objectUrlRef.current);
+        } else {
+            setPreview(currentImageUrl);
+        }
+    }
+
+    return (
+        <div className="grid gap-2">
+            <Label htmlFor={name}>{label}</Label>
+            {preview && (
+                <img src={preview} alt="Preview" className="h-32 w-full rounded-md border object-cover" />
+            )}
+            <Input id={name} name={name} type="file" accept="image/*,.avif" onChange={handleChange} />
+            <InputError message={error} />
+        </div>
+    );
+}
 
 function ProjectFormFields({
     project,
@@ -182,17 +229,12 @@ function ProjectFormFields({
                     <InputError message={errors.live_url} />
                 </div>
             </div>
-            <div className="grid gap-2">
-                <Label htmlFor="featured_image">Featured Image URL</Label>
-                <Input
-                    id="featured_image"
-                    name="featured_image"
-                    type="url"
-                    defaultValue={project?.featured_image ?? ''}
-                    placeholder="https://..."
-                />
-                <InputError message={errors.featured_image} />
-            </div>
+            <ImageUploadField
+                name="featured_image"
+                currentImage={project?.featured_image}
+                label="Featured Image"
+                error={errors.featured_image}
+            />
             {allTags.length > 0 && (
                 <div className="grid gap-2">
                     <Label>Tags</Label>

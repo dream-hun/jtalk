@@ -1,6 +1,6 @@
 import { Form, Head } from '@inertiajs/react';
 import { MoreHorizontal, Pencil, Plus, Trash2 } from 'lucide-react';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import PostController from '@/actions/App/Http/Controllers/PostController';
 import InputError from '@/components/input-error';
 import { Badge } from '@/components/ui/badge';
@@ -46,6 +46,53 @@ type Post = {
     category: Category | null;
 };
 
+function ImageUploadField({
+    name,
+    currentImage,
+    label,
+    error,
+}: {
+    name: string;
+    currentImage?: string | null;
+    label: string;
+    error?: string;
+}) {
+    const currentImageUrl = currentImage ? `/storage/${currentImage}` : null;
+    const [preview, setPreview] = useState<string | null>(currentImageUrl);
+    const objectUrlRef = useRef<string | null>(null);
+
+    useEffect(() => {
+        return () => {
+            if (objectUrlRef.current) URL.revokeObjectURL(objectUrlRef.current);
+        };
+    }, []);
+
+    function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
+        if (objectUrlRef.current) {
+            URL.revokeObjectURL(objectUrlRef.current);
+            objectUrlRef.current = null;
+        }
+        const file = e.target.files?.[0];
+        if (file) {
+            objectUrlRef.current = URL.createObjectURL(file);
+            setPreview(objectUrlRef.current);
+        } else {
+            setPreview(currentImageUrl);
+        }
+    }
+
+    return (
+        <div className="grid gap-2">
+            <Label htmlFor={name}>{label}</Label>
+            {preview && (
+                <img src={preview} alt="Preview" className="h-32 w-full rounded-md border object-cover" />
+            )}
+            <Input id={name} name={name} type="file" accept="image/*,.avif" onChange={handleChange} />
+            <InputError message={error} />
+        </div>
+    );
+}
+
 function PostFormFields({
     post,
     categories,
@@ -86,11 +133,12 @@ function PostFormFields({
                 />
                 <InputError message={errors.content} />
             </div>
-            <div className="grid gap-2">
-                <Label htmlFor="cover_image">Cover Image URL</Label>
-                <Input id="cover_image" name="cover_image" type="url" defaultValue={post?.cover_image ?? ''} placeholder="https://…" />
-                <InputError message={errors.cover_image} />
-            </div>
+            <ImageUploadField
+                name="cover_image"
+                currentImage={post?.cover_image}
+                label="Cover Image"
+                error={errors.cover_image}
+            />
             <div className="grid grid-cols-2 gap-4">
                 <div className="grid gap-2">
                     <Label>Category</Label>

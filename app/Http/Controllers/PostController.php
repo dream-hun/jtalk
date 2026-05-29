@@ -12,6 +12,7 @@ use App\Http\Requests\Posts\UpdatePostRequest;
 use App\Models\Category;
 use App\Models\Post;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Storage;
 use Inertia\Inertia;
 use Inertia\Response;
 
@@ -40,7 +41,13 @@ final class PostController extends Controller
 
     public function store(StorePostRequest $request): RedirectResponse
     {
-        $this->createPost->handle($request->validated());
+        $data = $request->validated();
+
+        if ($request->hasFile('cover_image')) {
+            $data['cover_image'] = $request->file('cover_image')->store('posts', 'public');
+        }
+
+        $this->createPost->handle($data);
 
         Inertia::flash('toast', ['type' => 'success', 'message' => __('Post created.')]);
 
@@ -64,7 +71,18 @@ final class PostController extends Controller
 
     public function update(UpdatePostRequest $request, Post $post): RedirectResponse
     {
-        $this->updatePost->handle($post, $request->validated());
+        $data = $request->validated();
+
+        if ($request->hasFile('cover_image')) {
+            if ($post->cover_image) {
+                Storage::disk('public')->delete($post->cover_image);
+            }
+            $data['cover_image'] = $request->file('cover_image')->store('posts', 'public');
+        } else {
+            unset($data['cover_image']);
+        }
+
+        $this->updatePost->handle($post, $data);
 
         Inertia::flash('toast', ['type' => 'success', 'message' => __('Post updated.')]);
 
