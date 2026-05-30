@@ -16,8 +16,10 @@ import {
     Link2,
     Undo,
     Redo,
+    FileUp,
 } from 'lucide-react';
-import { useEffect, useRef } from 'react';
+import { marked } from 'marked';
+import { useRef } from 'react';
 import InputError from '@/components/input-error';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
@@ -53,6 +55,13 @@ export function RichTextEditor({
     placeholder?: string;
 }) {
     const hiddenInputRef = useRef<HTMLInputElement>(null);
+    const markdownInputRef = useRef<HTMLInputElement>(null);
+
+    const syncHiddenInput = (editor: ReturnType<typeof useEditor>) => {
+        if (hiddenInputRef.current && editor) {
+            hiddenInputRef.current.value = editor.isEmpty ? '' : editor.getHTML();
+        }
+    };
 
     const editor = useEditor({
         extensions: [
@@ -62,18 +71,24 @@ export function RichTextEditor({
             Placeholder.configure({ placeholder }),
         ],
         content: defaultValue ?? '',
-        onUpdate: ({ editor }) => {
-            if (hiddenInputRef.current) {
-                hiddenInputRef.current.value = editor.getHTML();
-            }
-        },
+        onCreate: ({ editor }) => syncHiddenInput(editor),
+        onUpdate: ({ editor }) => syncHiddenInput(editor),
     });
 
-    useEffect(() => {
-        if (hiddenInputRef.current) {
-            hiddenInputRef.current.value = defaultValue ?? '';
-        }
-    }, [defaultValue]);
+    function handleMarkdownImport(e: React.ChangeEvent<HTMLInputElement>) {
+        const file = e.target.files?.[0];
+        if (!file || !editor) return;
+
+        const reader = new FileReader();
+        reader.onload = (event) => {
+            const markdown = event.target?.result as string;
+            const html = marked(markdown) as string;
+            editor.commands.setContent(html);
+            syncHiddenInput(editor);
+        };
+        reader.readAsText(file);
+        e.target.value = '';
+    }
 
     function setLink() {
         if (!editor) {
@@ -96,7 +111,7 @@ return;
 
     return (
         <div className="grid gap-2">
-            <input type="hidden" name={name} ref={hiddenInputRef} defaultValue={defaultValue ?? ''} />
+            <input type="hidden" name={name} ref={hiddenInputRef} />
 
             <div className="rounded-md border border-input bg-transparent shadow-sm focus-within:ring-1 focus-within:ring-ring">
                 <div className="flex flex-wrap items-center gap-0.5 border-b border-input px-2 py-1.5">
@@ -199,6 +214,19 @@ return;
                     >
                         <Redo className="size-3.5" />
                     </Button>
+
+                    <Separator orientation="vertical" className="mx-1 h-5" />
+
+                    <ToolbarButton title="Import Markdown" onClick={() => markdownInputRef.current?.click()}>
+                        <FileUp className="size-3.5" />
+                    </ToolbarButton>
+                    <input
+                        ref={markdownInputRef}
+                        type="file"
+                        accept=".md"
+                        className="sr-only"
+                        onChange={handleMarkdownImport}
+                    />
                 </div>
 
                 <EditorContent
