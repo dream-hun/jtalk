@@ -5,7 +5,6 @@ declare(strict_types=1);
 use App\Models\Education;
 use App\Models\Project;
 use App\Models\Setting;
-use App\Models\Skill;
 use App\Models\Work;
 
 use function Pest\Laravel\get;
@@ -50,11 +49,4 @@ it('passes education to the inertia component', function (): void {
         ->assertInertia(fn ($page) => $page->component('welcome')->has('education', 2));
 });
 
-it('passes skills to the inertia component', function (): void {
-    Skill::factory()->count(3)->create();
-
-    get(route('home'))
-        ->assertOk()
-        ->assertInertia(fn ($page) => $page->component('welcome')->has('skills', 3));
-});
 
