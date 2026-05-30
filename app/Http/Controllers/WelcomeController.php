@@ -27,7 +27,7 @@ final class WelcomeController extends Controller
             'recentPosts' => Post::where('status', PostStatus::Published)
                 ->orderByDesc('published_at')
                 ->limit(3)
-                ->get(['uuid', 'title', 'slug', 'published_at', 'cover_image']),
+                ->get(['uuid', 'title', 'slug', 'excerpt', 'published_at', 'cover_image']),
             'canRegister' => Features::enabled(Features::registration()),
             'siteUrl' => url('/'),
         ]);

@@ -1,6 +1,5 @@
 import { Head, Link } from '@inertiajs/react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import Markdown from 'react-markdown';
 import { PortfolioNavbar } from '@/components/portfolio/portfolio-navbar';
 import { show as blogShow } from '@/routes/blog';
 
@@ -96,9 +95,10 @@ export default function BlogShow({
                         />
                     </div>
 
-                    <article className="prose max-w-full text-pretty font-sans leading-relaxed text-muted-foreground dark:prose-invert">
-                        <Markdown>{post.content}</Markdown>
-                    </article>
+                    <article
+                        className="prose max-w-full text-pretty font-sans leading-relaxed text-muted-foreground dark:prose-invert"
+                        dangerouslySetInnerHTML={{ __html: post.content }}
+                    />
 
                     <nav className="mt-12 pt-8 border-t border-border">
                         <div className="flex flex-col sm:flex-row justify-between gap-4">

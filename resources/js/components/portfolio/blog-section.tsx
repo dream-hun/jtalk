@@ -6,6 +6,7 @@ interface Post {
     uuid: string;
     title: string;
     slug: string;
+    excerpt: string | null;
     published_at: string | null;
 }
 
@@ -60,6 +61,9 @@ export function BlogSection({ posts }: BlogSectionProps) {
                                                 />
                                             </span>
                                         </p>
+                                        {post.excerpt && (
+                                            <p className="text-sm text-muted-foreground line-clamp-2">{post.excerpt}</p>
+                                        )}
                                         {post.published_at && (
                                             <p className="text-xs text-muted-foreground">
                                                 {new Date(post.published_at).toLocaleDateString('en-US', {
