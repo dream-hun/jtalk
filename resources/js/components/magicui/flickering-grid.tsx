@@ -1,5 +1,5 @@
-import { cn } from '@/lib/utils';
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { cn } from '@/lib/utils';
 
 interface FlickeringGridProps extends React.HTMLAttributes<HTMLDivElement> {
     squareSize?: number;
@@ -44,6 +44,7 @@ export const FlickeringGrid: React.FC<FlickeringGridProps> = ({
             document.body.appendChild(tempEl);
             const computedColor = window.getComputedStyle(tempEl).color;
             document.body.removeChild(tempEl);
+
             return computedColor || 'rgb(0, 0, 0)';
         }
 
@@ -79,15 +80,22 @@ export const FlickeringGrid: React.FC<FlickeringGridProps> = ({
             if (typeof window === 'undefined') {
                 return `rgba(0, 0, 0,`;
             }
+
             const canvas = document.createElement('canvas');
             canvas.width = canvas.height = 1;
             const ctx = canvas.getContext('2d');
-            if (!ctx) return 'rgba(255, 0, 0,';
+
+            if (!ctx) {
+return 'rgba(255, 0, 0,';
+}
+
             ctx.fillStyle = colorValue;
             ctx.fillRect(0, 0, 1, 1);
             const [r, g, b] = Array.from(ctx.getImageData(0, 0, 1, 1).data);
+
             return `rgba(${r}, ${g}, ${b},`;
         };
+
         return toRGBA(resolvedColor);
     }, [resolvedColor]);
 
@@ -102,6 +110,7 @@ export const FlickeringGrid: React.FC<FlickeringGridProps> = ({
             const rows = Math.floor(h / (squareSize + gridGap));
 
             const squares = new Float32Array(cols * rows);
+
             for (let i = 0; i < squares.length; i++) {
                 squares[i] = Math.random() * maxOpacity;
             }
@@ -142,10 +151,16 @@ export const FlickeringGrid: React.FC<FlickeringGridProps> = ({
     useEffect(() => {
         const canvas = canvasRef.current;
         const container = containerRef.current;
-        if (!canvas || !container) return;
+
+        if (!canvas || !container) {
+return;
+}
 
         const ctx = canvas.getContext('2d');
-        if (!ctx) return;
+
+        if (!ctx) {
+return;
+}
 
         let animationFrameId: number;
         let gridParams: ReturnType<typeof setupCanvas>;
@@ -161,7 +176,9 @@ export const FlickeringGrid: React.FC<FlickeringGridProps> = ({
 
         let lastTime = 0;
         const animate = (time: number) => {
-            if (!isInView) return;
+            if (!isInView) {
+return;
+}
 
             const deltaTime = (time - lastTime) / 1000;
             lastTime = time;

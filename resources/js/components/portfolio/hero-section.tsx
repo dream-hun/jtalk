@@ -16,7 +16,7 @@ function getInitials(name: string): string {
         .toUpperCase();
 }
 
-export function HeroSection({ name, title: _title, description }: HeroSectionProps) {
+export function HeroSection({ name, description }: HeroSectionProps) {
     return (
         <section id="hero" className="w-full">
             <div className="gap-2 gap-y-6 flex flex-col md:flex-row justify-between">

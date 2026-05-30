@@ -1,6 +1,8 @@
+import { AnimatePresence, motion, useInView  } from 'motion/react';
+import type {Variants} from 'motion/react';
+import { useRef  } from 'react';
+import type {ReactNode} from 'react';
 import { cn } from '@/lib/utils';
-import { AnimatePresence, motion, useInView, type Variants } from 'motion/react';
-import { useRef, type ReactNode } from 'react';
 
 interface BlurFadeProps {
     children: ReactNode;
@@ -36,6 +38,7 @@ export function BlurFade({
         visible: { y: 0, opacity: 1, filter: `blur(0px)` },
     };
     const combinedVariants = variant || defaultVariants;
+
     return (
         <AnimatePresence>
             <motion.div

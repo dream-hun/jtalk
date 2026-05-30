@@ -26,12 +26,15 @@ function getPageNumbers(current: number, total: number): (number | '...')[] {
     if (total <= 7) {
         return Array.from({ length: total }, (_, i) => i + 1);
     }
+
     if (current <= 4) {
         return [1, 2, 3, 4, 5, '...', total];
     }
+
     if (current >= total - 3) {
         return [1, '...', total - 4, total - 3, total - 2, total - 1, total];
     }
+
     return [1, '...', current - 1, current, current + 1, '...', total];
 }
 
@@ -145,6 +148,7 @@ export default function BlogIndex({ posts, pagination }: { posts: Post[]; pagina
                                 <div className="flex flex-col gap-5">
                                     {posts.map((post, id) => {
                                         const indexNumber = offset + id + 1;
+
                                         return (
                                             <BlurFade delay={BLUR_FADE_DELAY * 3 + id * 50} key={post.uuid}>
                                                 <Link

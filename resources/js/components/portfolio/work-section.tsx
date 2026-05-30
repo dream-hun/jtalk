@@ -1,8 +1,8 @@
+import { ChevronDown, ChevronRight } from 'lucide-react';
+import { useState } from 'react';
 import { BlurFade } from '@/components/portfolio/blur-fade';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { cn } from '@/lib/utils';
-import { ChevronDown, ChevronRight } from 'lucide-react';
-import { useState } from 'react';
 
 interface Work {
     uuid: string;

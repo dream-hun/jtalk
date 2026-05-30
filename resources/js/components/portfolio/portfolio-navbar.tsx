@@ -1,10 +1,10 @@
-import { useAppearance } from '@/hooks/use-appearance';
+import { BookOpen, Home, Moon, NotebookPen, Sun } from 'lucide-react';
+import { AnimatePresence, motion } from 'motion/react';
+import type { ComponentType } from 'react';
 import { Dock, DockIcon } from '@/components/magicui/dock';
 import { Separator } from '@/components/ui/separator';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
-import { AnimatePresence, motion } from 'motion/react';
-import { BookOpen, Home, Moon, NotebookPen, Sun } from 'lucide-react';
-import type { ComponentType } from 'react';
+import { useAppearance } from '@/hooks/use-appearance';
 
 interface NavItem {
     label: string;
@@ -15,6 +15,7 @@ interface NavItem {
 
 function scrollToSection(id: string) {
     const el = document.getElementById(id);
+
     if (el) {
         el.scrollIntoView({ behavior: 'smooth' });
     }

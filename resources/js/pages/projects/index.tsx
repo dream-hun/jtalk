@@ -83,7 +83,9 @@ function ImageUploadField({
 
     useEffect(() => {
         return () => {
-            if (objectUrlRef.current) URL.revokeObjectURL(objectUrlRef.current);
+            if (objectUrlRef.current) {
+URL.revokeObjectURL(objectUrlRef.current);
+}
         };
     }, []);
 
@@ -92,7 +94,9 @@ function ImageUploadField({
             URL.revokeObjectURL(objectUrlRef.current);
             objectUrlRef.current = null;
         }
+
         const file = e.target.files?.[0];
+
         if (file) {
             objectUrlRef.current = URL.createObjectURL(file);
             setPreview(objectUrlRef.current);

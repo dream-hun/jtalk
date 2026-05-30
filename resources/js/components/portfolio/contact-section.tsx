@@ -1,8 +1,8 @@
 import { Form } from '@inertiajs/react';
 import { store } from '@/actions/App/Http/Controllers/ContactController';
-import { BlurFade } from '@/components/portfolio/blur-fade';
-import { FlickeringGrid } from '@/components/magicui/flickering-grid';
 import InputError from '@/components/input-error';
+import { FlickeringGrid } from '@/components/magicui/flickering-grid';
+import { BlurFade } from '@/components/portfolio/blur-fade';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';

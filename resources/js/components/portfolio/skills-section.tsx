@@ -1,3 +1,5 @@
+import type { SVGProps } from 'react';
+import React from 'react';
 import { BlurFade } from '@/components/portfolio/blur-fade';
 import {
     DataAnalysisIcon,
@@ -10,7 +12,6 @@ import {
     TailwindCSSIcon,
     TypeScriptIcon,
 } from '@/components/portfolio/skill-icons';
-import React, { SVGProps } from 'react';
 
 interface Skill {
     uuid: string;
@@ -54,7 +55,9 @@ function getIcon(icon: string | null): SkillIconComponent | undefined {
     if (!icon) {
         return undefined;
     }
+
     const key = icon.toLowerCase().replace(/[^a-z]/g, '');
+
     return ICON_MAP[key];
 }
 
@@ -70,6 +73,7 @@ export function SkillsSection({ skills }: SkillsSectionProps) {
                 <div className="flex flex-wrap gap-2">
                     {source.map((skill, id) => {
                         const Icon = getIcon(skill.icon);
+
                         return (
                             <BlurFade key={skill.uuid} delay={360 + id * 40} inView>
                                 <div className="border bg-background border-border ring-2 ring-border/20 rounded-xl h-8 w-fit px-4 flex items-center gap-2">

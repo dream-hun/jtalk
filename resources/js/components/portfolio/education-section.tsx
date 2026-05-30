@@ -1,6 +1,6 @@
-import { BlurFade } from '@/components/portfolio/blur-fade';
 import { ArrowUpRight } from 'lucide-react';
 import { useState } from 'react';
+import { BlurFade } from '@/components/portfolio/blur-fade';
 
 interface Education {
     uuid: string;

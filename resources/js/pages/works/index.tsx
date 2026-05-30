@@ -251,12 +251,15 @@ function DeleteWorkModal({ work, onClose }: { work: Work; onClose: () => void })
 
 function formatDateRange(startDate: string, endDate: string | null, isCurrent: boolean): string {
     const start = new Date(startDate).getFullYear();
+
     if (isCurrent) {
         return `${start} – Present`;
     }
+
     if (endDate) {
         return `${start} – ${new Date(endDate).getFullYear()}`;
     }
+
     return `${start}`;
 }
 

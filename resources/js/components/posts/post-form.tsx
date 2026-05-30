@@ -1,11 +1,11 @@
 import { useEffect, useRef, useState } from 'react';
 import InputError from '@/components/input-error';
+import { RichTextEditor } from '@/components/posts/rich-text-editor';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Spinner } from '@/components/ui/spinner';
-import { RichTextEditor } from '@/components/posts/rich-text-editor';
 
 type Category = {
     id: number;
@@ -42,7 +42,9 @@ function ImageUploadField({
 
     useEffect(() => {
         return () => {
-            if (objectUrlRef.current) URL.revokeObjectURL(objectUrlRef.current);
+            if (objectUrlRef.current) {
+URL.revokeObjectURL(objectUrlRef.current);
+}
         };
     }, []);
 
@@ -51,7 +53,9 @@ function ImageUploadField({
             URL.revokeObjectURL(objectUrlRef.current);
             objectUrlRef.current = null;
         }
+
         const file = e.target.files?.[0];
+
         if (file) {
             objectUrlRef.current = URL.createObjectURL(file);
             setPreview(objectUrlRef.current);

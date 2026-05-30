@@ -1,8 +1,8 @@
+import Link from '@tiptap/extension-link';
+import Placeholder from '@tiptap/extension-placeholder';
+import Underline from '@tiptap/extension-underline';
 import { useEditor, EditorContent } from '@tiptap/react';
 import StarterKit from '@tiptap/starter-kit';
-import Link from '@tiptap/extension-link';
-import Underline from '@tiptap/extension-underline';
-import Placeholder from '@tiptap/extension-placeholder';
 import {
     Bold,
     Italic,
@@ -19,9 +19,9 @@ import {
 } from 'lucide-react';
 import { useEffect, useRef } from 'react';
 import InputError from '@/components/input-error';
-import { Toggle } from '@/components/ui/toggle';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
+import { Toggle } from '@/components/ui/toggle';
 
 function ToolbarButton({
     onClick,
@@ -73,13 +73,20 @@ export function RichTextEditor({
         if (hiddenInputRef.current) {
             hiddenInputRef.current.value = defaultValue ?? '';
         }
-    }, []);
+    }, [defaultValue]);
 
     function setLink() {
-        if (!editor) return;
+        if (!editor) {
+return;
+}
+
         const prev = editor.getAttributes('link').href as string | undefined;
         const url = window.prompt('URL', prev ?? '');
-        if (url === null) return;
+
+        if (url === null) {
+return;
+}
+
         if (url === '') {
             editor.chain().focus().extendMarkRange('link').unsetLink().run();
         } else {

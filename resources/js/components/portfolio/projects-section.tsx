@@ -1,8 +1,8 @@
+import { ArrowUpRight } from 'lucide-react';
+import { useState } from 'react';
 import { BlurFade } from '@/components/portfolio/blur-fade';
 import { GitHubIcon } from '@/components/portfolio/skill-icons';
 import { Badge } from '@/components/ui/badge';
-import { ArrowUpRight } from 'lucide-react';
-import { useState } from 'react';
 
 interface Tag {
     uuid: string;
@@ -32,9 +32,11 @@ function formatDate(dateString: string): string {
 
 function ProjectImage({ src }: { src: string | null }) {
     const [error, setError] = useState(false);
+
     if (src && !error) {
         return <img src={src} alt="" className="w-full h-48 object-cover" onError={() => setError(true)} />;
     }
+
     return <div className="w-full h-48 bg-muted" />;
 }
 

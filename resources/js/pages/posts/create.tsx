@@ -1,4 +1,4 @@
-import { Form, Head, Link } from '@inertiajs/react';
+import { Form, Head } from '@inertiajs/react';
 import PostController from '@/actions/App/Http/Controllers/PostController';
 import { PostForm } from '@/components/posts/post-form';
 import { index, create } from '@/routes/posts';

@@ -1,6 +1,8 @@
+import { motion,  useMotionValue, useSpring, useTransform } from 'motion/react';
+import type {MotionValue} from 'motion/react';
+import { createContext, useContext, useRef  } from 'react';
+import type {ReactNode} from 'react';
 import { cn } from '@/lib/utils';
-import { motion, type MotionValue, useMotionValue, useSpring, useTransform } from 'motion/react';
-import { createContext, useContext, useRef, type ReactNode } from 'react';
 
 interface DockProps {
     className?: string;
@@ -57,6 +59,7 @@ const DockIcon = ({ className, children }: DockIconProps) => {
 
     const distanceCalc = useTransform(mouseX, (val: number) => {
         const bounds = ref.current?.getBoundingClientRect() ?? { x: 0, width: 0 };
+
         return val - bounds.x - bounds.width / 2;
     });
 
