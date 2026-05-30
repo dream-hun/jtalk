@@ -28,6 +28,7 @@ final class PostController extends Controller
     {
         return Inertia::render('posts/index', [
             'posts' => Post::with('category')->latest()->get(),
+            'categories' => Category::orderBy('name')->get(),
         ]);
     }
 
