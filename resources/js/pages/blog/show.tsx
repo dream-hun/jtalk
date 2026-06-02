@@ -25,21 +25,24 @@ export default function BlogShow({
     nextPost,
     authorName,
     postUrl,
+    defaultOgImage,
 }: {
     post: Post;
     previousPost: AdjacentPost | null;
     nextPost: AdjacentPost | null;
     authorName: string | null;
     postUrl: string;
+    defaultOgImage: string;
 }) {
     const description = post.excerpt ?? '';
+    const ogImage = post.cover_image ?? defaultOgImage;
     const blogPostingSchema = {
         '@context': 'https://schema.org',
         '@type': 'BlogPosting',
         headline: post.title,
         ...(description && { description }),
         ...(post.published_at && { datePublished: post.published_at }),
-        ...(post.cover_image && { image: post.cover_image }),
+        image: ogImage,
         url: postUrl,
         ...(authorName && {
             author: { '@type': 'Person', name: authorName },
@@ -56,13 +59,14 @@ export default function BlogShow({
                 <meta head-key="og:url" property="og:url" content={postUrl} />
                 <meta head-key="og:title" property="og:title" content={post.title} />
                 <meta head-key="og:description" property="og:description" content={description} />
-                {post.cover_image && <meta head-key="og:image" property="og:image" content={post.cover_image} />}
+                <meta head-key="og:image" property="og:image" content={ogImage} />
                 {post.published_at && (
                     <meta head-key="article:published_time" property="article:published_time" content={post.published_at} />
                 )}
                 <meta head-key="twitter:card" name="twitter:card" content={post.cover_image ? 'summary_large_image' : 'summary'} />
                 <meta head-key="twitter:title" name="twitter:title" content={post.title} />
                 <meta head-key="twitter:description" name="twitter:description" content={description} />
+                <meta head-key="twitter:image" name="twitter:image" content={ogImage} />
                 <script
                     type="application/ld+json"
                     dangerouslySetInnerHTML={{ __html: JSON.stringify(blogPostingSchema) }}

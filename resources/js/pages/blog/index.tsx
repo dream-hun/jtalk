@@ -110,16 +110,32 @@ function BlogPagination({ pagination }: { pagination: Pagination }) {
     );
 }
 
-export default function BlogIndex({ posts, pagination }: { posts: Post[]; pagination: Pagination }) {
+export default function BlogIndex({
+    posts,
+    pagination,
+    blogUrl,
+    defaultOgImage,
+}: {
+    posts: Post[];
+    pagination: Pagination;
+    blogUrl: string;
+    defaultOgImage: string;
+}) {
     const offset = (pagination.current_page - 1) * pagination.per_page;
 
     return (
         <>
             <Head title="Blog">
                 <meta head-key="description" name="description" content="My personal reflections about web development, life, and more." />
+                <link head-key="canonical" rel="canonical" href={blogUrl} />
                 <meta head-key="og:type" property="og:type" content="website" />
                 <meta head-key="og:title" property="og:title" content="Blog" />
                 <meta head-key="og:description" property="og:description" content="My personal reflections about web development, life, and more." />
+                <meta head-key="og:image" property="og:image" content={defaultOgImage} />
+                <meta head-key="twitter:card" name="twitter:card" content="summary" />
+                <meta head-key="twitter:title" name="twitter:title" content="Blog" />
+                <meta head-key="twitter:description" name="twitter:description" content="My personal reflections about web development, life, and more." />
+                <meta head-key="twitter:image" name="twitter:image" content={defaultOgImage} />
             </Head>
 
             <div className="min-h-dvh bg-background">

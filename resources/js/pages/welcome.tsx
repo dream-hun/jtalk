@@ -86,9 +86,10 @@ interface WelcomeProps extends PageProps {
     recentPosts: Post[];
     canRegister: boolean;
     siteUrl: string;
+    defaultOgImage: string;
 }
 
-export default function Welcome({ setting, projects, works, education, skills, recentPosts, canRegister, siteUrl }: WelcomeProps) {
+export default function Welcome({ setting, projects, works, education, skills, recentPosts, canRegister, siteUrl, defaultOgImage }: WelcomeProps) {
     if (!setting) {
         return (
             <div className="min-h-dvh flex items-center justify-center text-muted-foreground">
@@ -123,9 +124,11 @@ export default function Welcome({ setting, projects, works, education, skills, r
             <meta head-key="og:url" property="og:url" content={siteUrl} />
             <meta head-key="og:title" property="og:title" content={pageTitle} />
             <meta head-key="og:description" property="og:description" content={setting.description} />
-            <meta head-key="twitter:card" name="twitter:card" content="summary" />
+            <meta head-key="og:image" property="og:image" content={defaultOgImage} />
+            <meta head-key="twitter:card" name="twitter:card" content="summary_large_image" />
             <meta head-key="twitter:title" name="twitter:title" content={pageTitle} />
             <meta head-key="twitter:description" name="twitter:description" content={setting.description} />
+            <meta head-key="twitter:image" name="twitter:image" content={defaultOgImage} />
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}

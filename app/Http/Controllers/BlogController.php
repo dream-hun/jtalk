@@ -7,6 +7,7 @@ namespace App\Http\Controllers;
 use App\Enums\PostStatus;
 use App\Models\Post;
 use App\Models\Setting;
+use Illuminate\Support\Facades\Storage;
 use Inertia\Inertia;
 use Inertia\Response;
 
@@ -29,6 +30,8 @@ final class BlogController extends Controller
                 'has_previous_page' => $paginator->currentPage() > 1,
                 'has_next_page' => $paginator->hasMorePages(),
             ],
+            'blogUrl' => route('blog.index'),
+            'defaultOgImage' => asset('photos/Jacques MBABAZI.avif'),
         ]);
     }
 
@@ -49,11 +52,14 @@ final class BlogController extends Controller
         $nextPost = $currentIndex < $allPosts->count() - 1 ? $allPosts[$currentIndex + 1] : null;
 
         return Inertia::render('blog/show', [
-            'post' => $post,
+            'post' => array_merge($post->toArray(), [
+                'cover_image' => $post->cover_image ? Storage::url($post->cover_image) : null,
+            ]),
             'previousPost' => $previousPost ? ['title' => $previousPost->title, 'slug' => $previousPost->slug] : null,
             'nextPost' => $nextPost ? ['title' => $nextPost->title, 'slug' => $nextPost->slug] : null,
             'authorName' => Setting::value('name') ?? config('app.name'),
             'postUrl' => route('blog.show', $slug),
+            'defaultOgImage' => asset('photos/Jacques MBABAZI.avif'),
         ]);
     }
 }
