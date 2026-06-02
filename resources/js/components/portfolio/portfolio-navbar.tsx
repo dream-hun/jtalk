@@ -63,7 +63,7 @@ const NAV_ITEMS: NavItem[] = [
 
 const SOCIAL_ITEMS: NavItem[] = [
     { label: 'GitHub', href: 'https://github.com/dream-hun', icon: GitHubIcon, external: true },
-    { label: 'YouTube', href: 'www.youtube.com/@3midnightcompiler', icon: YouTubeIcon, external: true },
+    { label: 'YouTube', href: 'https://www.youtube.com/@3midnightcompiler', icon: YouTubeIcon, external: true },
     { label: 'X', href: 'https://x.com/jack_talk_c', icon: XIcon, external: true },
 ];
 
@@ -86,15 +86,15 @@ function NavDockItem({ item }: { item: NavItem }) {
         <Tooltip>
             <TooltipTrigger asChild>
                 {item.external ? (
-                    <a href={item.href} target="_blank" rel="noopener noreferrer">
+                    <a href={item.href} target="_blank" rel="noopener noreferrer" aria-label={item.label}>
                         {iconContent}
                     </a>
                 ) : item.href.startsWith('#') ? (
-                    <button type="button" onClick={handleClick}>
+                    <button type="button" onClick={handleClick} aria-label={item.label}>
                         {iconContent}
                     </button>
                 ) : (
-                    <a href={item.href}>
+                    <a href={item.href} aria-label={item.label}>
                         {iconContent}
                     </a>
                 )}

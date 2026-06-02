@@ -135,6 +135,12 @@ export default function Welcome({ setting, projects, works, education, skills, r
             />
         </Head>
         <div className="min-h-screen bg-background font-sans antialiased relative">
+            <a
+                href="#main-content"
+                className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-primary focus:text-primary-foreground focus:rounded-md focus:text-sm focus:font-medium"
+            >
+                Skip to main content
+            </a>
             <div className="absolute inset-x-0 top-0 h-25 overflow-hidden z-0">
                 <FlickeringGrid
                     className="h-full w-full"
@@ -147,7 +153,7 @@ export default function Welcome({ setting, projects, works, education, skills, r
                 />
             </div>
 
-            <main className="relative z-10 mx-auto w-full max-w-2xl px-6 py-12 pb-24 sm:py-24 space-y-14">
+            <main id="main-content" className="relative z-10 mx-auto w-full max-w-2xl px-6 py-12 pb-24 sm:py-24 space-y-14">
                 <HeroSection name={setting.name} title={setting.title} description={setting.description} />
                 <AboutSection description={setting.description} />
                 <WorkSection works={works} />

@@ -87,7 +87,7 @@ export function BlogSection({ posts }: BlogSectionProps) {
                             className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground border border-border rounded-lg px-4 py-2 transition-colors group"
                         >
                             View all posts
-                            <ChevronRight className="size-3.5 transition-transform group-hover:translate-x-0.5" />
+                            <ChevronRight className="size-3.5 transition-transform group-hover:translate-x-0.5" aria-hidden />
                         </a>
                     </div>
                 </BlurFade>

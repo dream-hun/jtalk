@@ -30,11 +30,11 @@ function formatDate(dateString: string): string {
     return new Date(dateString).toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
 }
 
-function ProjectImage({ src }: { src: string | null }) {
+function ProjectImage({ src, title }: { src: string | null; title: string }) {
     const [error, setError] = useState(false);
 
     if (src && !error) {
-        return <img src={src} alt="" width={800} height={192} loading="lazy" className="w-full h-48 object-cover" onError={() => setError(true)} />;
+        return <img src={src} alt={title} width={800} height={192} loading="lazy" className="w-full h-48 object-cover" onError={() => setError(true)} />;
     }
 
     return <div className="w-full h-48 bg-muted" />;
@@ -48,10 +48,10 @@ function ProjectCard({ project }: { project: Project }) {
             <div className="relative shrink-0">
                 {project.live_url ? (
                     <a href={project.live_url} target="_blank" rel="noopener noreferrer" className="block">
-                        <ProjectImage src={project.featured_image} />
+                        <ProjectImage src={project.featured_image} title={project.title} />
                     </a>
                 ) : (
-                    <ProjectImage src={project.featured_image} />
+                    <ProjectImage src={project.featured_image} title={project.title} />
                 )}
                 <div className="absolute top-2 right-2 flex flex-wrap gap-2">
                     {project.source_code_url && (
