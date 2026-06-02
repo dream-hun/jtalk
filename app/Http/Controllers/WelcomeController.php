@@ -42,7 +42,7 @@ final class WelcomeController extends Controller
                 }),
             'canRegister' => Features::enabled(Features::registration()),
             'siteUrl' => url('/'),
-            'defaultOgImage' => asset('photos/Jacques MBABAZI.avif'),
+            'defaultOgImage' => asset('photos/jacques-mbabazi.avif'),
         ]);
     }
 }

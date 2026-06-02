@@ -31,7 +31,7 @@ final class BlogController extends Controller
                 'has_next_page' => $paginator->hasMorePages(),
             ],
             'blogUrl' => route('blog.index'),
-            'defaultOgImage' => asset('photos/Jacques MBABAZI.avif'),
+            'defaultOgImage' => asset('photos/jacques-mbabazi.avif'),
         ]);
     }
 
@@ -59,7 +59,7 @@ final class BlogController extends Controller
             'nextPost' => $nextPost ? ['title' => $nextPost->title, 'slug' => $nextPost->slug] : null,
             'authorName' => Setting::value('name') ?? config('app.name'),
             'postUrl' => route('blog.show', $slug),
-            'defaultOgImage' => asset('photos/Jacques MBABAZI.avif'),
+            'defaultOgImage' => asset('photos/jacques-mbabazi.avif'),
         ]);
     }
 }

@@ -28,7 +28,7 @@ export function HeroSection({ name, description }: HeroSectionProps) {
                 </BlurFade>
                 <BlurFade delay={100} className="order-1 md:order-2">
                     <Avatar className="size-24 md:size-32 border rounded-full shadow-lg ring-4 ring-muted">
-                        <AvatarImage src="/photos/Jacques MBABAZI.avif" alt={name} className="object-cover object-top" />
+                        <AvatarImage src="/photos/jacques-mbabazi.avif" alt={name} className="object-cover object-top" />
                         <AvatarFallback className="text-2xl font-bold">{getInitials(name)}</AvatarFallback>
                     </Avatar>
                 </BlurFade>
