@@ -47,7 +47,7 @@ function ProjectCard({ project }: { project: Project }) {
         <div className="flex flex-col h-full border border-border rounded-xl overflow-hidden hover:ring-2 cursor-pointer hover:ring-muted transition-all duration-200">
             <div className="relative shrink-0">
                 {project.live_url ? (
-                    <a href={project.live_url} target="_blank" rel="noopener noreferrer" className="block">
+                    <a href={project.live_url} target="_blank" rel="noopener noreferrer" className="block" aria-label={`Visit ${project.title}`}>
                         <ProjectImage src={project.featured_image} title={project.title} />
                     </a>
                 ) : (
