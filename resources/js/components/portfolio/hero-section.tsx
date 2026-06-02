@@ -27,7 +27,7 @@ export function HeroSection({ name, description }: HeroSectionProps) {
                 </div>
                 <div className="order-1 md:order-2">
                     <Avatar className="size-24 md:size-32 border rounded-full shadow-lg ring-4 ring-muted">
-                        <AvatarImage src="/photos/jacques-mbabazi.avif" alt={name} className="object-cover object-top" fetchpriority="high" />
+                        <AvatarImage src="/photos/jacques-mbabazi.avif" alt={name} className="object-cover object-top" fetchpriority="high" width={128} height={128} />
                         <AvatarFallback className="text-2xl font-bold">{getInitials(name)}</AvatarFallback>
                     </Avatar>
                 </div>
