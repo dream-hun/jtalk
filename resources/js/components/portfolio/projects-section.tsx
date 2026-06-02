@@ -34,7 +34,7 @@ function ProjectImage({ src }: { src: string | null }) {
     const [error, setError] = useState(false);
 
     if (src && !error) {
-        return <img src={src} alt="" className="w-full h-48 object-cover" onError={() => setError(true)} />;
+        return <img src={src} alt="" width={800} height={192} loading="lazy" className="w-full h-48 object-cover" onError={() => setError(true)} />;
     }
 
     return <div className="w-full h-48 bg-muted" />;

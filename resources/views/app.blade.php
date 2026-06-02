@@ -36,6 +36,10 @@
 
         @fonts
 
+        @if(($page['component'] ?? '') === 'welcome')
+        <link rel="preload" as="image" href="/photos/jacques-mbabazi.avif" type="image/avif" fetchpriority="high">
+        @endif
+
         @viteReactRefresh
         @vite(['resources/css/app.css', 'resources/js/app.tsx', "resources/js/pages/{$page['component']}.tsx"])
         <x-inertia::head>

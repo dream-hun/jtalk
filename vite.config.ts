@@ -41,7 +41,7 @@ export default defineConfig({
                         { name: 'vendor-inertia', test: /node_modules\/@inertiajs\// },
                         { name: 'vendor-inertia', test: /node_modules\/axios\// },
                         // Motion animation library (minShareCount:1 forces extraction even for a single consumer)
-                        { name: 'vendor-motion', test: /node_modules\/motion\//, minShareCount: 1 },
+                        { name: 'vendor-motion', test: /node_modules\/motion/, minShareCount: 1 },
                         // Radix UI primitives
                         { name: 'vendor-radix', test: /node_modules\/@radix-ui\// },
                         { name: 'vendor-radix', test: /node_modules\/radix-ui\// },
