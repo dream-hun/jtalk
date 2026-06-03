@@ -1,0 +1,1 @@
+import{et as e}from"./vendor-radix-Cz7zOV1I.js";import{a as t}from"./app-BnHAlzGp.js";var n=e();function r({message:e,className:r=``,...i}){return e?(0,n.jsx)(`p`,{...i,className:t(`text-sm text-red-600 dark:text-red-400`,r),children:e}):null}export{r as t};

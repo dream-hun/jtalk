@@ -1,7 +1,6 @@
 import type { PageProps } from '@inertiajs/core';
 import { Head } from '@inertiajs/react';
 import { FlickeringGrid } from '@/components/magicui/flickering-grid';
-import { AboutSection } from '@/components/portfolio/about-section';
 import { BlogSection } from '@/components/portfolio/blog-section';
 import { ContactSection } from '@/components/portfolio/contact-section';
 import { EducationSection } from '@/components/portfolio/education-section';
@@ -155,7 +154,6 @@ export default function Welcome({ setting, projects, works, education, skills, r
 
             <main id="main-content" className="relative z-10 mx-auto w-full max-w-2xl px-6 py-12 pb-24 sm:py-24 space-y-14">
                 <HeroSection name={setting.name} title={setting.title} description={setting.description} />
-                <AboutSection description={setting.description} />
                 <WorkSection works={works} />
                 <EducationSection education={education} />
                 <SkillsSection skills={skills} />

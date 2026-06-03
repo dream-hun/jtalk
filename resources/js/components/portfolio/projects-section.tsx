@@ -127,13 +127,13 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
                         <div className="flex flex-col gap-y-3 items-center justify-center">
                             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">Things I&apos;ve Built</h2>
                             <p className="text-muted-foreground md:text-lg/relaxed lg:text-base/relaxed xl:text-lg/relaxed text-balance text-center">
-                                A collection of projects I&apos;ve worked on — from ideas to shipped products.
+                                A collection of projects I&apos;ve worked on from ideas to shipped products.
                             </p>
                         </div>
                     </div>
                 </BlurFade>
 
-                <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 max-w-[800px] mx-auto auto-rows-fr">
+                <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 max-w-800px mx-auto auto-rows-fr">
                     {projects.map((project, id) => (
                         <BlurFade key={project.uuid} delay={480 + id * 50} className="h-full" inView>
                             <ProjectCard project={project} />
