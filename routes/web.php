@@ -8,6 +8,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\EducationController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\LlmController;
 use App\Http\Controllers\RobotsController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\SitemapController;
@@ -20,6 +21,7 @@ Route::get('/', [WelcomeController::class, 'index'])->name('home');
 
 Route::get('sitemap.xml', [SitemapController::class, 'index'])->name('sitemap');
 Route::get('robots.txt', [RobotsController::class, 'index'])->name('robots');
+Route::get('llm.txt', [LlmController::class, 'index'])->name('llm');
 
 Route::post('contacts', [ContactController::class, 'store'])->name('contacts.store');
 
