@@ -1,1 +1,0 @@
-import{et as e}from"./vendor-radix-Cz7zOV1I.js";var t=e();function n({className:e,...n}){return(0,t.jsx)(`img`,{src:`/favicon.ico`,alt:`Logo`,className:e,...n})}export{n as t};
