@@ -2,6 +2,7 @@ import { Form } from '@inertiajs/react';
 import { REGEXP_ONLY_DIGITS } from 'input-otp';
 import { Check, Copy, ScanLine } from 'lucide-react';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import DOMPurify from 'dompurify';
 import AlertError from '@/components/alert-error';
 import InputError from '@/components/input-error';
 import { Button } from '@/components/ui/button';
@@ -22,6 +23,15 @@ import { useAppearance } from '@/hooks/use-appearance';
 import { useClipboard } from '@/hooks/use-clipboard';
 import { OTP_MAX_LENGTH } from '@/hooks/use-two-factor-auth';
 import { confirm } from '@/routes/two-factor';
+
+function sanitizeHtml(html: string | null | undefined) {
+    return html
+        ? DOMPurify.sanitize(html, {
+              ALLOWED_TAGS: ['span', 'p'],
+              ALLOWED_ATTR: ['class'],
+          })
+        : '';
+}
 
 function GridScanIcon() {
     return (
@@ -79,7 +89,7 @@ function TwoFactorSetupStep({
                                     <div
                                         className="aspect-square w-full rounded-lg bg-white p-2 [&_svg]:size-full"
                                         dangerouslySetInnerHTML={{
-                                            __html: qrCodeSvg,
+                                            __html: sanitizeHtml(qrCodeSvg),
                                         }}
                                         style={{
                                             filter:
