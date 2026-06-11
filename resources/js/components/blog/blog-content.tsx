@@ -11,6 +11,7 @@ import sql from 'highlight.js/lib/languages/sql';
 import typescript from 'highlight.js/lib/languages/typescript';
 import xml from 'highlight.js/lib/languages/xml';
 import { useEffect, useRef } from 'react';
+import DOMPurify from 'dompurify';
 
 hljs.registerLanguage('bash', bash);
 hljs.registerLanguage('sh', bash);
@@ -29,6 +30,15 @@ hljs.registerLanguage('typescript', typescript);
 hljs.registerLanguage('ts', typescript);
 hljs.registerLanguage('html', xml);
 hljs.registerLanguage('xml', xml);
+
+function sanitizeHtml(html: string | null | undefined) {
+    return html
+        ? DOMPurify.sanitize(html, {
+            ALLOWED_TAGS: ['span', 'p'],
+            ALLOWED_ATTR: ['class'],
+        })
+        : '';
+}
 
 export function BlogContent({ content }: { content: string }) {
     const articleRef = useRef<HTMLElement>(null);
@@ -83,7 +93,7 @@ export function BlogContent({ content }: { content: string }) {
         <article
             ref={articleRef}
             className="prose prose-neutral max-w-full text-pretty font-sans leading-relaxed dark:prose-invert"
-            dangerouslySetInnerHTML={{ __html: content }}
+            dangerouslySetInnerHTML={{ __html: sanitizeHtml(content) }}
         />
     );
 }
