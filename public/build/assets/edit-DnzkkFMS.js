@@ -1,1 +1,49 @@
-import{n as e,t}from"./vendor-inertia-C-ctYATJ.js";import{et as n}from"./vendor-radix-C92RFvrB.js";import{t as r}from"./post-form-CH-GUb9S.js";import{n as i,r as a}from"./posts-vWXYxcak.js";import{t as o}from"./PostController-ayihZ9fW.js";var s=n();function c({post:n,categories:i}){return(0,s.jsxs)(s.Fragment,{children:[(0,s.jsx)(e,{title:`Edit: ${n.title}`}),(0,s.jsxs)(`div`,{className:`flex h-full flex-1 flex-col gap-6 p-4 max-w-4xl mx-auto w-full`,children:[(0,s.jsxs)(`div`,{children:[(0,s.jsx)(`h1`,{className:`text-xl font-semibold tracking-tight`,children:`Edit Post`}),(0,s.jsx)(`p`,{className:`text-sm text-muted-foreground`,children:n.title})]}),(0,s.jsx)(t,{...o.update.form(n),children:({processing:e,errors:t})=>(0,s.jsx)(r,{post:n,categories:i,errors:t,processing:e,onCancel:()=>window.location.href=a().url})})]})]})}c.layout=({post:e})=>({breadcrumbs:[{title:`Posts`,href:a().url},{title:e.title,href:i.url(e)}]});export{c as default};
+import { n as e, t } from './vendor-inertia-C-ctYATJ.js';
+import { et as n } from './vendor-radix-C92RFvrB.js';
+import { t as r } from './post-form-CH-GUb9S.js';
+import { n as i, r as a } from './posts-vWXYxcak.js';
+import { t as o } from './PostController-ayihZ9fW.js';
+var s = n();
+function c({ post: n, categories: i }) {
+    return (0, s.jsxs)(s.Fragment, {
+        children: [
+            (0, s.jsx)(e, { title: `Edit: ${n.title}` }),
+            (0, s.jsxs)(`div`, {
+                className: `flex h-full flex-1 flex-col gap-6 p-4 max-w-4xl mx-auto w-full`,
+                children: [
+                    (0, s.jsxs)(`div`, {
+                        children: [
+                            (0, s.jsx)(`h1`, {
+                                className: `text-xl font-semibold tracking-tight`,
+                                children: `Edit Post`,
+                            }),
+                            (0, s.jsx)(`p`, {
+                                className: `text-sm text-muted-foreground`,
+                                children: n.title,
+                            }),
+                        ],
+                    }),
+                    (0, s.jsx)(t, {
+                        ...o.update.form(n),
+                        children: ({ processing: e, errors: t }) =>
+                            (0, s.jsx)(r, {
+                                post: n,
+                                categories: i,
+                                errors: t,
+                                processing: e,
+                                onCancel: () =>
+                                    (window.location.href = a().url),
+                            }),
+                    }),
+                ],
+            }),
+        ],
+    });
+}
+c.layout = ({ post: e }) => ({
+    breadcrumbs: [
+        { title: `Posts`, href: a().url },
+        { title: e.title, href: i.url(e) },
+    ],
+});
+export { c as default };

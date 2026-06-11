@@ -23,7 +23,9 @@ interface SkillsSectionProps {
     skills: Skill[];
 }
 
-type SkillIconComponent = (props: SVGProps<SVGSVGElement>) => React.ReactElement;
+type SkillIconComponent = (
+    props: SVGProps<SVGSVGElement>,
+) => React.ReactElement;
 
 const ICON_MAP: Record<string, SkillIconComponent> = {
     laravel: LaravelIcon,
@@ -75,10 +77,18 @@ export function SkillsSection({ skills }: SkillsSectionProps) {
                         const Icon = getIcon(skill.icon);
 
                         return (
-                            <BlurFade key={skill.uuid} delay={360 + id * 40} inView>
-                                <div className="border bg-background border-border ring-2 ring-border/20 rounded-xl h-8 w-fit px-4 flex items-center gap-2">
-                                    {Icon && <Icon className="size-4 shrink-0" />}
-                                    <span className="text-foreground text-sm font-medium">{skill.name}</span>
+                            <BlurFade
+                                key={skill.uuid}
+                                delay={360 + id * 40}
+                                inView
+                            >
+                                <div className="flex h-8 w-fit items-center gap-2 rounded-xl border border-border bg-background px-4 ring-2 ring-border/20">
+                                    {Icon && (
+                                        <Icon className="size-4 shrink-0" />
+                                    )}
+                                    <span className="text-sm font-medium text-foreground">
+                                        {skill.name}
+                                    </span>
                                 </div>
                             </BlurFade>
                         );

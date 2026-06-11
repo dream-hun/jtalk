@@ -1,7 +1,7 @@
-import { AnimatePresence, motion, useInView  } from 'motion/react';
-import type {Variants} from 'motion/react';
-import { useRef  } from 'react';
-import type {ReactNode} from 'react';
+import { AnimatePresence, motion, useInView } from 'motion/react';
+import type { Variants } from 'motion/react';
+import { useRef } from 'react';
+import type { ReactNode } from 'react';
 import { cn } from '@/lib/utils';
 
 interface BlurFadeProps {
@@ -31,7 +31,16 @@ export function BlurFade({
     blur = '6px',
 }: BlurFadeProps) {
     const ref = useRef(null);
-    const inViewResult = useInView(ref, { once: true, ...(inViewMargin ? { margin: inViewMargin as NonNullable<Parameters<typeof useInView>[1]>['margin'] } : {}) });
+    const inViewResult = useInView(ref, {
+        once: true,
+        ...(inViewMargin
+            ? {
+                  margin: inViewMargin as NonNullable<
+                      Parameters<typeof useInView>[1]
+                  >['margin'],
+              }
+            : {}),
+    });
     const isInView = !inView || inViewResult;
     const defaultVariants: Variants = {
         hidden: { y: -yOffset, opacity: 0, filter: `blur(${blur})` },

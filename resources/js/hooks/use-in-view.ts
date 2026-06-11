@@ -1,7 +1,9 @@
-import {  useEffect, useRef, useState } from 'react';
-import type {RefObject} from 'react';
+import { useEffect, useRef, useState } from 'react';
+import type { RefObject } from 'react';
 
-export function useInView<T extends Element>(options?: IntersectionObserverInit): [RefObject<T | null>, boolean] {
+export function useInView<T extends Element>(
+    options?: IntersectionObserverInit,
+): [RefObject<T | null>, boolean] {
     const ref = useRef<T | null>(null);
     const [isInView, setIsInView] = useState(false);
 

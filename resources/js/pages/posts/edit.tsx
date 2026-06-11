@@ -21,15 +21,25 @@ type Post = {
     category: Category | null;
 };
 
-export default function PostsEdit({ post, categories }: { post: Post; categories: Category[] }) {
+export default function PostsEdit({
+    post,
+    categories,
+}: {
+    post: Post;
+    categories: Category[];
+}) {
     return (
         <>
             <Head title={`Edit: ${post.title}`} />
 
-            <div className="flex h-full flex-1 flex-col gap-6 p-4 max-w-4xl mx-auto w-full">
+            <div className="mx-auto flex h-full w-full max-w-4xl flex-1 flex-col gap-6 p-4">
                 <div>
-                    <h1 className="text-xl font-semibold tracking-tight">Edit Post</h1>
-                    <p className="text-sm text-muted-foreground">{post.title}</p>
+                    <h1 className="text-xl font-semibold tracking-tight">
+                        Edit Post
+                    </h1>
+                    <p className="text-sm text-muted-foreground">
+                        {post.title}
+                    </p>
                 </div>
 
                 <Form {...PostController.update.form(post)}>
@@ -39,7 +49,9 @@ export default function PostsEdit({ post, categories }: { post: Post; categories
                             categories={categories}
                             errors={errors}
                             processing={processing}
-                            onCancel={() => (window.location.href = index().url)}
+                            onCancel={() =>
+                                (window.location.href = index().url)
+                            }
                         />
                     )}
                 </Form>

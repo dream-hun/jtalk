@@ -1,1 +1,3 @@
-import{t as e}from"./createLucideIcon-BEXpI4i1.js";var t=e(`chevron-right`,[[`path`,{d:`m9 18 6-6-6-6`,key:`mthhwq`}]]);export{t};
+import { t as e } from './createLucideIcon-BEXpI4i1.js';
+var t = e(`chevron-right`, [[`path`, { d: `m9 18 6-6-6-6`, key: `mthhwq` }]]);
+export { t };

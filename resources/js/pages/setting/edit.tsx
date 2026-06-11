@@ -24,7 +24,10 @@ export default function SettingEdit({ setting }: { setting: Setting }) {
             <Head title="Setting" />
 
             <div className="flex h-full flex-1 flex-col gap-6 p-4">
-                <Heading title="Site Settings" description="Configure your portfolio's metadata and contact information." />
+                <Heading
+                    title="Site Settings"
+                    description="Configure your portfolio's metadata and contact information."
+                />
 
                 <Form
                     {...SettingController.update.form()}
@@ -35,7 +38,13 @@ export default function SettingEdit({ setting }: { setting: Setting }) {
                         <>
                             <div className="grid gap-2">
                                 <Label htmlFor="name">Name</Label>
-                                <Input id="name" name="name" defaultValue={setting.name} placeholder="Your full name" required />
+                                <Input
+                                    id="name"
+                                    name="name"
+                                    defaultValue={setting.name}
+                                    placeholder="Your full name"
+                                    required
+                                />
                                 <InputError message={errors.name} />
                             </div>
                             <div className="grid gap-2">
@@ -57,7 +66,7 @@ export default function SettingEdit({ setting }: { setting: Setting }) {
                                     defaultValue={setting.description}
                                     placeholder="A short bio about yourself..."
                                     required
-                                    className="border-input placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-ring/50 flex min-h-[100px] w-full min-w-0 rounded-md border bg-transparent px-3 py-2 text-base shadow-xs transition-[color,box-shadow] outline-none focus-visible:ring-[3px] disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm"
+                                    className="flex min-h-[100px] w-full min-w-0 rounded-md border border-input bg-transparent px-3 py-2 text-base shadow-xs transition-[color,box-shadow] outline-none placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm"
                                 />
                                 <InputError message={errors.description} />
                             </div>
@@ -75,7 +84,13 @@ export default function SettingEdit({ setting }: { setting: Setting }) {
                             </div>
                             <div className="grid gap-2">
                                 <Label htmlFor="phone">Phone</Label>
-                                <Input id="phone" name="phone" defaultValue={setting.phone} placeholder="+1 234 567 8900" required />
+                                <Input
+                                    id="phone"
+                                    name="phone"
+                                    defaultValue={setting.phone}
+                                    placeholder="+1 234 567 8900"
+                                    required
+                                />
                                 <InputError message={errors.phone} />
                             </div>
                             <div className="grid gap-2">

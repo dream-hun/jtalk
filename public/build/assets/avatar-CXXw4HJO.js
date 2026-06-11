@@ -1,1 +1,34 @@
-import"./rolldown-runtime-C-57s9n3.js";import{r as e}from"./vendor-react-gF8_I9RY.js";import{D as t,E as n,O as r,et as i}from"./vendor-radix-C92RFvrB.js";import{t as a}from"./utils-DDQLTkD9.js";e();var o=i();function s({className:e,...t}){return(0,o.jsx)(r,{"data-slot":`avatar`,className:a(`relative flex size-8 shrink-0 overflow-hidden rounded-full`,e),...t})}function c({className:e,...n}){return(0,o.jsx)(t,{"data-slot":`avatar-image`,className:a(`aspect-square size-full`,e),...n})}function l({className:e,...t}){return(0,o.jsx)(n,{"data-slot":`avatar-fallback`,className:a(`bg-muted flex size-full items-center justify-center rounded-full`,e),...t})}export{l as n,c as r,s as t};
+import './rolldown-runtime-C-57s9n3.js';
+import { r as e } from './vendor-react-gF8_I9RY.js';
+import { D as t, E as n, O as r, et as i } from './vendor-radix-C92RFvrB.js';
+import { t as a } from './utils-DDQLTkD9.js';
+e();
+var o = i();
+function s({ className: e, ...t }) {
+    return (0, o.jsx)(r, {
+        'data-slot': `avatar`,
+        className: a(
+            `relative flex size-8 shrink-0 overflow-hidden rounded-full`,
+            e,
+        ),
+        ...t,
+    });
+}
+function c({ className: e, ...n }) {
+    return (0, o.jsx)(t, {
+        'data-slot': `avatar-image`,
+        className: a(`aspect-square size-full`, e),
+        ...n,
+    });
+}
+function l({ className: e, ...t }) {
+    return (0, o.jsx)(n, {
+        'data-slot': `avatar-fallback`,
+        className: a(
+            `bg-muted flex size-full items-center justify-center rounded-full`,
+            e,
+        ),
+        ...t,
+    });
+}
+export { l as n, c as r, s as t };

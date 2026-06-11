@@ -1,7 +1,7 @@
-import { motion,  useMotionValue, useSpring, useTransform } from 'motion/react';
-import type {MotionValue} from 'motion/react';
-import { createContext, useContext, useRef  } from 'react';
-import type {ReactNode} from 'react';
+import { motion, useMotionValue, useSpring, useTransform } from 'motion/react';
+import type { MotionValue } from 'motion/react';
+import { createContext, useContext, useRef } from 'react';
+import type { ReactNode } from 'react';
 import { cn } from '@/lib/utils';
 
 interface DockProps {
@@ -31,7 +31,12 @@ interface DockContextValue {
 
 const DockContext = createContext<DockContextValue | null>(null);
 
-const Dock = ({ className, children, magnification = DEFAULT_MAGNIFICATION, distance = DEFAULT_DISTANCE }: DockProps) => {
+const Dock = ({
+    className,
+    children,
+    magnification = DEFAULT_MAGNIFICATION,
+    distance = DEFAULT_DISTANCE,
+}: DockProps) => {
     const mouseX = useMotionValue(Infinity);
 
     return (
@@ -39,7 +44,10 @@ const Dock = ({ className, children, magnification = DEFAULT_MAGNIFICATION, dist
             <motion.div
                 onMouseMove={(e) => mouseX.set(e.pageX)}
                 onMouseLeave={() => mouseX.set(Infinity)}
-                className={cn('mx-auto w-max h-full flex items-end justify-center overflow-visible rounded-full border', className)}
+                className={cn(
+                    'mx-auto flex h-full w-max items-end justify-center overflow-visible rounded-full border',
+                    className,
+                )}
             >
                 {children}
             </motion.div>
@@ -58,14 +66,28 @@ const DockIcon = ({ className, children }: DockIconProps) => {
     const { mouseX, magnification, distance } = context;
 
     const distanceCalc = useTransform(mouseX, (val: number) => {
-        const bounds = ref.current?.getBoundingClientRect() ?? { x: 0, width: 0 };
+        const bounds = ref.current?.getBoundingClientRect() ?? {
+            x: 0,
+            width: 0,
+        };
 
         return val - bounds.x - bounds.width / 2;
     });
 
-    const containerSize = useSpring(useTransform(distanceCalc, [-distance, 0, distance], [BASE_SIZE, magnification, BASE_SIZE]), SPRING);
+    const containerSize = useSpring(
+        useTransform(
+            distanceCalc,
+            [-distance, 0, distance],
+            [BASE_SIZE, magnification, BASE_SIZE],
+        ),
+        SPRING,
+    );
     const iconSize = useSpring(
-        useTransform(distanceCalc, [-distance, 0, distance], [BASE_ICON_SIZE, magnification * ICON_SIZE_RATIO, BASE_ICON_SIZE]),
+        useTransform(
+            distanceCalc,
+            [-distance, 0, distance],
+            [BASE_ICON_SIZE, magnification * ICON_SIZE_RATIO, BASE_ICON_SIZE],
+        ),
         SPRING,
     );
 
@@ -73,9 +95,15 @@ const DockIcon = ({ className, children }: DockIconProps) => {
         <motion.div
             ref={ref}
             style={{ width: containerSize, height: containerSize }}
-            className={cn('relative flex aspect-square items-center justify-center rounded-full shrink-0', className)}
+            className={cn(
+                'relative flex aspect-square shrink-0 items-center justify-center rounded-full',
+                className,
+            )}
         >
-            <motion.div style={{ width: iconSize, height: iconSize }} className="flex items-center justify-center">
+            <motion.div
+                style={{ width: iconSize, height: iconSize }}
+                className="flex items-center justify-center"
+            >
                 {children}
             </motion.div>
         </motion.div>

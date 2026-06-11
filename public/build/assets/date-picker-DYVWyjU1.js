@@ -1,1 +1,253 @@
-import{a as e}from"./rolldown-runtime-C-57s9n3.js";import{r as t}from"./vendor-react-gF8_I9RY.js";import{a as n,et as r,i,n as a,r as o}from"./vendor-radix-C92RFvrB.js";import{t as s}from"./utils-DDQLTkD9.js";import{n as c,t as l}from"./button-DTg8VAj1.js";import{t as u}from"./createLucideIcon-BEXpI4i1.js";import{t as d}from"./chevron-down-BWhPWOV5.js";import{t as f}from"./chevron-left-DXrVgh6h.js";import{t as p}from"./chevron-right-BYoOqPwK.js";import{n as m,r as h,t as g}from"./vendor-datepicker-B0Kn5_lF.js";var _=u(`calendar`,[[`path`,{d:`M8 2v4`,key:`1cmpym`}],[`path`,{d:`M16 2v4`,key:`4m81vk`}],[`rect`,{width:`18`,height:`18`,x:`3`,y:`4`,rx:`2`,key:`1hopcy`}],[`path`,{d:`M3 10h18`,key:`8toen8`}]]),v=e(t(),1),y=r();function b({className:e,classNames:t,showOutsideDays:n=!0,captionLayout:r=`label`,buttonVariant:i=`ghost`,formatters:a,components:o,...l}){let u=m();return(0,y.jsx)(g,{showOutsideDays:n,className:s(`group/calendar bg-background p-3 [--cell-size:--spacing(8)] [[data-slot=card-content]_&]:bg-transparent [[data-slot=popover-content]_&]:bg-transparent`,String.raw`rtl:**:[.rdp-button\_next>svg]:rotate-180`,String.raw`rtl:**:[.rdp-button\_previous>svg]:rotate-180`,e),captionLayout:r,formatters:{formatMonthDropdown:e=>e.toLocaleString(`default`,{month:`short`}),...a},classNames:{root:s(`w-fit`,u.root),months:s(`relative flex flex-col gap-4 md:flex-row`,u.months),month:s(`flex w-full flex-col gap-4`,u.month),nav:s(`absolute inset-x-0 top-0 flex w-full items-center justify-between gap-1`,u.nav),button_previous:s(c({variant:i}),`size-(--cell-size) p-0 select-none aria-disabled:opacity-50`,u.button_previous),button_next:s(c({variant:i}),`size-(--cell-size) p-0 select-none aria-disabled:opacity-50`,u.button_next),month_caption:s(`flex h-(--cell-size) w-full items-center justify-center px-(--cell-size)`,u.month_caption),dropdowns:s(`flex h-(--cell-size) w-full items-center justify-center gap-1.5 text-sm font-medium`,u.dropdowns),dropdown_root:s(`relative rounded-md border border-input shadow-xs has-focus:border-ring has-focus:ring-[3px] has-focus:ring-ring/50`,u.dropdown_root),dropdown:s(`absolute inset-0 bg-popover opacity-0`,u.dropdown),caption_label:s(`font-medium select-none`,r===`label`?`text-sm`:`flex h-8 items-center gap-1 rounded-md pr-1 pl-2 text-sm [&>svg]:size-3.5 [&>svg]:text-muted-foreground`,u.caption_label),month_grid:`w-full border-collapse`,weekdays:s(`flex`,u.weekdays),weekday:s(`flex-1 rounded-md text-[0.8rem] font-normal text-muted-foreground select-none`,u.weekday),week:s(`mt-2 flex w-full`,u.week),week_number_header:s(`w-(--cell-size) select-none`,u.week_number_header),week_number:s(`text-[0.8rem] text-muted-foreground select-none`,u.week_number),day:s(`group/day relative aspect-square h-full w-full p-0 text-center select-none [&:last-child[data-selected=true]_button]:rounded-r-md`,l.showWeekNumber?`[&:nth-child(2)[data-selected=true]_button]:rounded-l-md`:`[&:first-child[data-selected=true]_button]:rounded-l-md`,u.day),range_start:s(`rounded-l-md bg-accent`,u.range_start),range_middle:s(`rounded-none`,u.range_middle),range_end:s(`rounded-r-md bg-accent`,u.range_end),today:s(`rounded-md bg-accent text-accent-foreground data-[selected=true]:rounded-none`,u.today),outside:s(`text-muted-foreground aria-selected:text-muted-foreground`,u.outside),disabled:s(`text-muted-foreground opacity-50`,u.disabled),hidden:s(`invisible`,u.hidden),...t},components:{Root:({className:e,rootRef:t,...n})=>(0,y.jsx)(`div`,{"data-slot":`calendar`,ref:t,className:s(e),...n}),Chevron:({className:e,orientation:t,...n})=>t===`left`?(0,y.jsx)(f,{className:s(`size-4`,e),...n}):t===`right`?(0,y.jsx)(p,{className:s(`size-4`,e),...n}):(0,y.jsx)(d,{className:s(`size-4`,e),...n}),DayButton:x,WeekNumber:({children:e,...t})=>(0,y.jsx)(`td`,{...t,children:(0,y.jsx)(`div`,{className:`flex size-(--cell-size) items-center justify-center text-center`,children:e})}),...o},...l})}function x({className:e,day:t,modifiers:n,...r}){let i=m(),a=v.useRef(null);return v.useEffect(()=>{n.focused&&a.current?.focus()},[n.focused]),(0,y.jsx)(l,{ref:a,variant:`ghost`,size:`icon`,"data-day":t.date.toLocaleDateString(),"data-selected-single":n.selected&&!n.range_start&&!n.range_end&&!n.range_middle,"data-range-start":n.range_start,"data-range-end":n.range_end,"data-range-middle":n.range_middle,className:s(`flex aspect-square size-auto w-full min-w-(--cell-size) flex-col gap-1 leading-none font-normal group-data-[focused=true]/day:relative group-data-[focused=true]/day:z-10 group-data-[focused=true]/day:border-ring group-data-[focused=true]/day:ring-[3px] group-data-[focused=true]/day:ring-ring/50 data-[range-end=true]:rounded-md data-[range-end=true]:rounded-r-md data-[range-end=true]:bg-primary data-[range-end=true]:text-primary-foreground data-[range-middle=true]:rounded-none data-[range-middle=true]:bg-accent data-[range-middle=true]:text-accent-foreground data-[range-start=true]:rounded-md data-[range-start=true]:rounded-l-md data-[range-start=true]:bg-primary data-[range-start=true]:text-primary-foreground data-[selected-single=true]:bg-primary data-[selected-single=true]:text-primary-foreground dark:hover:text-accent-foreground [&>span]:text-xs [&>span]:opacity-70`,i.day,e),...r})}function S({...e}){return(0,y.jsx)(i,{"data-slot":`popover`,...e})}function C({...e}){return(0,y.jsx)(n,{"data-slot":`popover-trigger`,...e})}function w({className:e,align:t=`center`,sideOffset:n=4,...r}){return(0,y.jsx)(o,{children:(0,y.jsx)(a,{"data-slot":`popover-content`,align:t,sideOffset:n,className:s(`bg-popover text-popover-foreground data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 z-50 w-72 rounded-md border p-4 shadow-md outline-hidden`,e),...r})})}function T({name:e,value:t,onChange:n,placeholder:r=`Pick a date`,disabled:i=!1,className:a}){return(0,y.jsxs)(y.Fragment,{children:[(0,y.jsx)(`input`,{type:`hidden`,name:e,value:t?h(t,`yyyy-MM-dd`):``}),(0,y.jsxs)(S,{children:[(0,y.jsx)(C,{asChild:!0,children:(0,y.jsxs)(l,{type:`button`,variant:`outline`,disabled:i,className:s(`w-full justify-start text-left font-normal`,!t&&`text-muted-foreground`,a),children:[(0,y.jsx)(_,{className:`mr-2 size-4`}),t?h(t,`PPP`):(0,y.jsx)(`span`,{children:r})]})}),(0,y.jsx)(w,{className:`w-auto p-0`,align:`start`,children:(0,y.jsx)(b,{mode:`single`,selected:t,onSelect:n})})]})]})}export{T as t};
+import { a as e } from './rolldown-runtime-C-57s9n3.js';
+import { r as t } from './vendor-react-gF8_I9RY.js';
+import { a as n, et as r, i, n as a, r as o } from './vendor-radix-C92RFvrB.js';
+import { t as s } from './utils-DDQLTkD9.js';
+import { n as c, t as l } from './button-DTg8VAj1.js';
+import { t as u } from './createLucideIcon-BEXpI4i1.js';
+import { t as d } from './chevron-down-BWhPWOV5.js';
+import { t as f } from './chevron-left-DXrVgh6h.js';
+import { t as p } from './chevron-right-BYoOqPwK.js';
+import { n as m, r as h, t as g } from './vendor-datepicker-B0Kn5_lF.js';
+var _ = u(`calendar`, [
+        [`path`, { d: `M8 2v4`, key: `1cmpym` }],
+        [`path`, { d: `M16 2v4`, key: `4m81vk` }],
+        [
+            `rect`,
+            {
+                width: `18`,
+                height: `18`,
+                x: `3`,
+                y: `4`,
+                rx: `2`,
+                key: `1hopcy`,
+            },
+        ],
+        [`path`, { d: `M3 10h18`, key: `8toen8` }],
+    ]),
+    v = e(t(), 1),
+    y = r();
+function b({
+    className: e,
+    classNames: t,
+    showOutsideDays: n = !0,
+    captionLayout: r = `label`,
+    buttonVariant: i = `ghost`,
+    formatters: a,
+    components: o,
+    ...l
+}) {
+    let u = m();
+    return (0, y.jsx)(g, {
+        showOutsideDays: n,
+        className: s(
+            `group/calendar bg-background p-3 [--cell-size:--spacing(8)] [[data-slot=card-content]_&]:bg-transparent [[data-slot=popover-content]_&]:bg-transparent`,
+            String.raw`rtl:**:[.rdp-button\_next>svg]:rotate-180`,
+            String.raw`rtl:**:[.rdp-button\_previous>svg]:rotate-180`,
+            e,
+        ),
+        captionLayout: r,
+        formatters: {
+            formatMonthDropdown: (e) =>
+                e.toLocaleString(`default`, { month: `short` }),
+            ...a,
+        },
+        classNames: {
+            root: s(`w-fit`, u.root),
+            months: s(`relative flex flex-col gap-4 md:flex-row`, u.months),
+            month: s(`flex w-full flex-col gap-4`, u.month),
+            nav: s(
+                `absolute inset-x-0 top-0 flex w-full items-center justify-between gap-1`,
+                u.nav,
+            ),
+            button_previous: s(
+                c({ variant: i }),
+                `size-(--cell-size) p-0 select-none aria-disabled:opacity-50`,
+                u.button_previous,
+            ),
+            button_next: s(
+                c({ variant: i }),
+                `size-(--cell-size) p-0 select-none aria-disabled:opacity-50`,
+                u.button_next,
+            ),
+            month_caption: s(
+                `flex h-(--cell-size) w-full items-center justify-center px-(--cell-size)`,
+                u.month_caption,
+            ),
+            dropdowns: s(
+                `flex h-(--cell-size) w-full items-center justify-center gap-1.5 text-sm font-medium`,
+                u.dropdowns,
+            ),
+            dropdown_root: s(
+                `relative rounded-md border border-input shadow-xs has-focus:border-ring has-focus:ring-[3px] has-focus:ring-ring/50`,
+                u.dropdown_root,
+            ),
+            dropdown: s(`absolute inset-0 bg-popover opacity-0`, u.dropdown),
+            caption_label: s(
+                `font-medium select-none`,
+                r === `label`
+                    ? `text-sm`
+                    : `flex h-8 items-center gap-1 rounded-md pr-1 pl-2 text-sm [&>svg]:size-3.5 [&>svg]:text-muted-foreground`,
+                u.caption_label,
+            ),
+            month_grid: `w-full border-collapse`,
+            weekdays: s(`flex`, u.weekdays),
+            weekday: s(
+                `flex-1 rounded-md text-[0.8rem] font-normal text-muted-foreground select-none`,
+                u.weekday,
+            ),
+            week: s(`mt-2 flex w-full`, u.week),
+            week_number_header: s(
+                `w-(--cell-size) select-none`,
+                u.week_number_header,
+            ),
+            week_number: s(
+                `text-[0.8rem] text-muted-foreground select-none`,
+                u.week_number,
+            ),
+            day: s(
+                `group/day relative aspect-square h-full w-full p-0 text-center select-none [&:last-child[data-selected=true]_button]:rounded-r-md`,
+                l.showWeekNumber
+                    ? `[&:nth-child(2)[data-selected=true]_button]:rounded-l-md`
+                    : `[&:first-child[data-selected=true]_button]:rounded-l-md`,
+                u.day,
+            ),
+            range_start: s(`rounded-l-md bg-accent`, u.range_start),
+            range_middle: s(`rounded-none`, u.range_middle),
+            range_end: s(`rounded-r-md bg-accent`, u.range_end),
+            today: s(
+                `rounded-md bg-accent text-accent-foreground data-[selected=true]:rounded-none`,
+                u.today,
+            ),
+            outside: s(
+                `text-muted-foreground aria-selected:text-muted-foreground`,
+                u.outside,
+            ),
+            disabled: s(`text-muted-foreground opacity-50`, u.disabled),
+            hidden: s(`invisible`, u.hidden),
+            ...t,
+        },
+        components: {
+            Root: ({ className: e, rootRef: t, ...n }) =>
+                (0, y.jsx)(`div`, {
+                    'data-slot': `calendar`,
+                    ref: t,
+                    className: s(e),
+                    ...n,
+                }),
+            Chevron: ({ className: e, orientation: t, ...n }) =>
+                t === `left`
+                    ? (0, y.jsx)(f, { className: s(`size-4`, e), ...n })
+                    : t === `right`
+                      ? (0, y.jsx)(p, { className: s(`size-4`, e), ...n })
+                      : (0, y.jsx)(d, { className: s(`size-4`, e), ...n }),
+            DayButton: x,
+            WeekNumber: ({ children: e, ...t }) =>
+                (0, y.jsx)(`td`, {
+                    ...t,
+                    children: (0, y.jsx)(`div`, {
+                        className: `flex size-(--cell-size) items-center justify-center text-center`,
+                        children: e,
+                    }),
+                }),
+            ...o,
+        },
+        ...l,
+    });
+}
+function x({ className: e, day: t, modifiers: n, ...r }) {
+    let i = m(),
+        a = v.useRef(null);
+    return (
+        v.useEffect(() => {
+            n.focused && a.current?.focus();
+        }, [n.focused]),
+        (0, y.jsx)(l, {
+            ref: a,
+            variant: `ghost`,
+            size: `icon`,
+            'data-day': t.date.toLocaleDateString(),
+            'data-selected-single':
+                n.selected && !n.range_start && !n.range_end && !n.range_middle,
+            'data-range-start': n.range_start,
+            'data-range-end': n.range_end,
+            'data-range-middle': n.range_middle,
+            className: s(
+                `flex aspect-square size-auto w-full min-w-(--cell-size) flex-col gap-1 leading-none font-normal group-data-[focused=true]/day:relative group-data-[focused=true]/day:z-10 group-data-[focused=true]/day:border-ring group-data-[focused=true]/day:ring-[3px] group-data-[focused=true]/day:ring-ring/50 data-[range-end=true]:rounded-md data-[range-end=true]:rounded-r-md data-[range-end=true]:bg-primary data-[range-end=true]:text-primary-foreground data-[range-middle=true]:rounded-none data-[range-middle=true]:bg-accent data-[range-middle=true]:text-accent-foreground data-[range-start=true]:rounded-md data-[range-start=true]:rounded-l-md data-[range-start=true]:bg-primary data-[range-start=true]:text-primary-foreground data-[selected-single=true]:bg-primary data-[selected-single=true]:text-primary-foreground dark:hover:text-accent-foreground [&>span]:text-xs [&>span]:opacity-70`,
+                i.day,
+                e,
+            ),
+            ...r,
+        })
+    );
+}
+function S({ ...e }) {
+    return (0, y.jsx)(i, { 'data-slot': `popover`, ...e });
+}
+function C({ ...e }) {
+    return (0, y.jsx)(n, { 'data-slot': `popover-trigger`, ...e });
+}
+function w({ className: e, align: t = `center`, sideOffset: n = 4, ...r }) {
+    return (0, y.jsx)(o, {
+        children: (0, y.jsx)(a, {
+            'data-slot': `popover-content`,
+            align: t,
+            sideOffset: n,
+            className: s(
+                `bg-popover text-popover-foreground data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 z-50 w-72 rounded-md border p-4 shadow-md outline-hidden`,
+                e,
+            ),
+            ...r,
+        }),
+    });
+}
+function T({
+    name: e,
+    value: t,
+    onChange: n,
+    placeholder: r = `Pick a date`,
+    disabled: i = !1,
+    className: a,
+}) {
+    return (0, y.jsxs)(y.Fragment, {
+        children: [
+            (0, y.jsx)(`input`, {
+                type: `hidden`,
+                name: e,
+                value: t ? h(t, `yyyy-MM-dd`) : ``,
+            }),
+            (0, y.jsxs)(S, {
+                children: [
+                    (0, y.jsx)(C, {
+                        asChild: !0,
+                        children: (0, y.jsxs)(l, {
+                            type: `button`,
+                            variant: `outline`,
+                            disabled: i,
+                            className: s(
+                                `w-full justify-start text-left font-normal`,
+                                !t && `text-muted-foreground`,
+                                a,
+                            ),
+                            children: [
+                                (0, y.jsx)(_, { className: `mr-2 size-4` }),
+                                t
+                                    ? h(t, `PPP`)
+                                    : (0, y.jsx)(`span`, { children: r }),
+                            ],
+                        }),
+                    }),
+                    (0, y.jsx)(w, {
+                        className: `w-auto p-0`,
+                        align: `start`,
+                        children: (0, y.jsx)(b, {
+                            mode: `single`,
+                            selected: t,
+                            onSelect: n,
+                        }),
+                    }),
+                ],
+            }),
+        ],
+    });
+}
+export { T as t };

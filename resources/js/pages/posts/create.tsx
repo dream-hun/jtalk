@@ -9,15 +9,23 @@ type Category = {
     name: string;
 };
 
-export default function PostsCreate({ categories }: { categories: Category[] }) {
+export default function PostsCreate({
+    categories,
+}: {
+    categories: Category[];
+}) {
     return (
         <>
             <Head title="New Post" />
 
-            <div className="flex h-full flex-1 flex-col gap-6 p-4 max-w-4xl mx-auto w-full">
+            <div className="mx-auto flex h-full w-full max-w-4xl flex-1 flex-col gap-6 p-4">
                 <div>
-                    <h1 className="text-xl font-semibold tracking-tight">New Post</h1>
-                    <p className="text-sm text-muted-foreground">Create a new blog post.</p>
+                    <h1 className="text-xl font-semibold tracking-tight">
+                        New Post
+                    </h1>
+                    <p className="text-sm text-muted-foreground">
+                        Create a new blog post.
+                    </p>
                 </div>
 
                 <Form {...PostController.store.form()}>
@@ -26,7 +34,9 @@ export default function PostsCreate({ categories }: { categories: Category[] }) 
                             categories={categories}
                             errors={errors}
                             processing={processing}
-                            onCancel={() => (window.location.href = index().url)}
+                            onCancel={() =>
+                                (window.location.href = index().url)
+                            }
                         />
                     )}
                 </Form>

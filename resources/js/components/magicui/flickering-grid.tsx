@@ -1,4 +1,10 @@
-import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import React, {
+    useCallback,
+    useEffect,
+    useMemo,
+    useRef,
+    useState,
+} from 'react';
 import { cn } from '@/lib/utils';
 
 interface FlickeringGridProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -29,27 +35,30 @@ export const FlickeringGrid: React.FC<FlickeringGridProps> = ({
     const [canvasSize, setCanvasSize] = useState({ width: 0, height: 0 });
     const [resolvedColor, setResolvedColor] = useState<string>('rgb(0, 0, 0)');
 
-    const resolveColor = useCallback((colorValue: string | undefined): string => {
-        if (typeof window === 'undefined') {
-            return 'rgb(0, 0, 0)';
-        }
+    const resolveColor = useCallback(
+        (colorValue: string | undefined): string => {
+            if (typeof window === 'undefined') {
+                return 'rgb(0, 0, 0)';
+            }
 
-        const colorToResolve = colorValue || 'var(--foreground)';
+            const colorToResolve = colorValue || 'var(--foreground)';
 
-        if (colorToResolve.startsWith('var(')) {
-            const tempEl = document.createElement('div');
-            tempEl.style.color = colorToResolve;
-            tempEl.style.position = 'absolute';
-            tempEl.style.visibility = 'hidden';
-            document.body.appendChild(tempEl);
-            const computedColor = window.getComputedStyle(tempEl).color;
-            document.body.removeChild(tempEl);
+            if (colorToResolve.startsWith('var(')) {
+                const tempEl = document.createElement('div');
+                tempEl.style.color = colorToResolve;
+                tempEl.style.position = 'absolute';
+                tempEl.style.visibility = 'hidden';
+                document.body.appendChild(tempEl);
+                const computedColor = window.getComputedStyle(tempEl).color;
+                document.body.removeChild(tempEl);
 
-            return computedColor || 'rgb(0, 0, 0)';
-        }
+                return computedColor || 'rgb(0, 0, 0)';
+            }
 
-        return colorToResolve;
-    }, []);
+            return colorToResolve;
+        },
+        [],
+    );
 
     useEffect(() => {
         const updateColor = () => {
@@ -86,8 +95,8 @@ export const FlickeringGrid: React.FC<FlickeringGridProps> = ({
             const ctx = canvas.getContext('2d');
 
             if (!ctx) {
-return 'rgba(255, 0, 0,';
-}
+                return 'rgba(255, 0, 0,';
+            }
 
             ctx.fillStyle = colorValue;
             ctx.fillRect(0, 0, 1, 1);
@@ -132,7 +141,15 @@ return 'rgba(255, 0, 0,';
     );
 
     const drawGrid = useCallback(
-        (ctx: CanvasRenderingContext2D, w: number, h: number, cols: number, rows: number, squares: Float32Array, dpr: number) => {
+        (
+            ctx: CanvasRenderingContext2D,
+            w: number,
+            h: number,
+            cols: number,
+            rows: number,
+            squares: Float32Array,
+            dpr: number,
+        ) => {
             ctx.clearRect(0, 0, w, h);
             ctx.fillStyle = 'transparent';
             ctx.fillRect(0, 0, w, h);
@@ -141,7 +158,12 @@ return 'rgba(255, 0, 0,';
                 for (let j = 0; j < rows; j++) {
                     const opacity = squares[i * rows + j];
                     ctx.fillStyle = `${memoizedColor}${opacity})`;
-                    ctx.fillRect(i * (squareSize + gridGap) * dpr, j * (squareSize + gridGap) * dpr, squareSize * dpr, squareSize * dpr);
+                    ctx.fillRect(
+                        i * (squareSize + gridGap) * dpr,
+                        j * (squareSize + gridGap) * dpr,
+                        squareSize * dpr,
+                        squareSize * dpr,
+                    );
                 }
             }
         },
@@ -153,14 +175,14 @@ return 'rgba(255, 0, 0,';
         const container = containerRef.current;
 
         if (!canvas || !container) {
-return;
-}
+            return;
+        }
 
         const ctx = canvas.getContext('2d');
 
         if (!ctx) {
-return;
-}
+            return;
+        }
 
         let animationFrameId: number;
         let gridParams: ReturnType<typeof setupCanvas>;
@@ -177,14 +199,22 @@ return;
         let lastTime = 0;
         const animate = (time: number) => {
             if (!isInView) {
-return;
-}
+                return;
+            }
 
             const deltaTime = (time - lastTime) / 1000;
             lastTime = time;
 
             updateSquares(gridParams.squares, deltaTime);
-            drawGrid(ctx, canvas.width, canvas.height, gridParams.cols, gridParams.rows, gridParams.squares, gridParams.dpr);
+            drawGrid(
+                ctx,
+                canvas.width,
+                canvas.height,
+                gridParams.cols,
+                gridParams.rows,
+                gridParams.squares,
+                gridParams.dpr,
+            );
             animationFrameId = requestAnimationFrame(animate);
         };
 
@@ -215,7 +245,11 @@ return;
     }, [setupCanvas, updateSquares, drawGrid, width, height, isInView]);
 
     return (
-        <div ref={containerRef} className={cn(`h-full w-full ${className}`)} {...props}>
+        <div
+            ref={containerRef}
+            className={cn(`h-full w-full ${className}`)}
+            {...props}
+        >
             <canvas
                 ref={canvasRef}
                 className="pointer-events-none"

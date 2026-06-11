@@ -1,1 +1,153 @@
-import{n as e,t}from"./vendor-inertia-C-ctYATJ.js";import{et as n}from"./vendor-radix-C92RFvrB.js";import{t as r}from"./button-DTg8VAj1.js";import{t as i}from"./password-input-DblKbCf8.js";import{t as a}from"./input-D7RkL3Of.js";import{n as o}from"./wayfinder-D3ymjKEV.js";import{r as s}from"./routes-DWAnLukZ.js";import{t as c}from"./input-error-0fpqe6UA.js";import{t as l}from"./label-Bi32WZ_t.js";import{t as u}from"./spinner-Co1CPAeO.js";import{t as d}from"./text-link-Ca_Eg3Oe.js";var f=e=>({url:f.url(e),method:`post`});f.definition={methods:[`post`],url:`/register`},f.url=e=>f.definition.url+o(e),f.post=e=>({url:f.url(e),method:`post`});var p=e=>({action:f.url(e),method:`post`});p.post=e=>({action:f.url(e),method:`post`}),f.form=p,Object.assign(f,f);var m=n();function h(){return(0,m.jsxs)(m.Fragment,{children:[(0,m.jsx)(e,{title:`Register`}),(0,m.jsx)(t,{...f.form(),resetOnSuccess:[`password`,`password_confirmation`],disableWhileProcessing:!0,className:`flex flex-col gap-6`,children:({processing:e,errors:t})=>(0,m.jsxs)(m.Fragment,{children:[(0,m.jsxs)(`div`,{className:`grid gap-6`,children:[(0,m.jsxs)(`div`,{className:`grid gap-2`,children:[(0,m.jsx)(l,{htmlFor:`name`,children:`Name`}),(0,m.jsx)(a,{id:`name`,type:`text`,required:!0,autoFocus:!0,tabIndex:1,autoComplete:`name`,name:`name`,placeholder:`Full name`}),(0,m.jsx)(c,{message:t.name,className:`mt-2`})]}),(0,m.jsxs)(`div`,{className:`grid gap-2`,children:[(0,m.jsx)(l,{htmlFor:`email`,children:`Email address`}),(0,m.jsx)(a,{id:`email`,type:`email`,required:!0,tabIndex:2,autoComplete:`email`,name:`email`,placeholder:`email@example.com`}),(0,m.jsx)(c,{message:t.email})]}),(0,m.jsxs)(`div`,{className:`grid gap-2`,children:[(0,m.jsx)(l,{htmlFor:`password`,children:`Password`}),(0,m.jsx)(i,{id:`password`,required:!0,tabIndex:3,autoComplete:`new-password`,name:`password`,placeholder:`Password`}),(0,m.jsx)(c,{message:t.password})]}),(0,m.jsxs)(`div`,{className:`grid gap-2`,children:[(0,m.jsx)(l,{htmlFor:`password_confirmation`,children:`Confirm password`}),(0,m.jsx)(i,{id:`password_confirmation`,required:!0,tabIndex:4,autoComplete:`new-password`,name:`password_confirmation`,placeholder:`Confirm password`}),(0,m.jsx)(c,{message:t.password_confirmation})]}),(0,m.jsxs)(r,{type:`submit`,className:`mt-2 w-full`,tabIndex:5,"data-test":`register-user-button`,children:[e&&(0,m.jsx)(u,{}),`Create account`]})]}),(0,m.jsxs)(`div`,{className:`text-center text-sm text-muted-foreground`,children:[`Already have an account?`,` `,(0,m.jsx)(d,{href:s(),tabIndex:6,children:`Log in`})]})]})})]})}h.layout={title:`Create an account`,description:`Enter your details below to create your account`};export{h as default};
+import { n as e, t } from './vendor-inertia-C-ctYATJ.js';
+import { et as n } from './vendor-radix-C92RFvrB.js';
+import { t as r } from './button-DTg8VAj1.js';
+import { t as i } from './password-input-DblKbCf8.js';
+import { t as a } from './input-D7RkL3Of.js';
+import { n as o } from './wayfinder-D3ymjKEV.js';
+import { r as s } from './routes-DWAnLukZ.js';
+import { t as c } from './input-error-0fpqe6UA.js';
+import { t as l } from './label-Bi32WZ_t.js';
+import { t as u } from './spinner-Co1CPAeO.js';
+import { t as d } from './text-link-Ca_Eg3Oe.js';
+var f = (e) => ({ url: f.url(e), method: `post` });
+((f.definition = { methods: [`post`], url: `/register` }),
+    (f.url = (e) => f.definition.url + o(e)),
+    (f.post = (e) => ({ url: f.url(e), method: `post` })));
+var p = (e) => ({ action: f.url(e), method: `post` });
+((p.post = (e) => ({ action: f.url(e), method: `post` })),
+    (f.form = p),
+    Object.assign(f, f));
+var m = n();
+function h() {
+    return (0, m.jsxs)(m.Fragment, {
+        children: [
+            (0, m.jsx)(e, { title: `Register` }),
+            (0, m.jsx)(t, {
+                ...f.form(),
+                resetOnSuccess: [`password`, `password_confirmation`],
+                disableWhileProcessing: !0,
+                className: `flex flex-col gap-6`,
+                children: ({ processing: e, errors: t }) =>
+                    (0, m.jsxs)(m.Fragment, {
+                        children: [
+                            (0, m.jsxs)(`div`, {
+                                className: `grid gap-6`,
+                                children: [
+                                    (0, m.jsxs)(`div`, {
+                                        className: `grid gap-2`,
+                                        children: [
+                                            (0, m.jsx)(l, {
+                                                htmlFor: `name`,
+                                                children: `Name`,
+                                            }),
+                                            (0, m.jsx)(a, {
+                                                id: `name`,
+                                                type: `text`,
+                                                required: !0,
+                                                autoFocus: !0,
+                                                tabIndex: 1,
+                                                autoComplete: `name`,
+                                                name: `name`,
+                                                placeholder: `Full name`,
+                                            }),
+                                            (0, m.jsx)(c, {
+                                                message: t.name,
+                                                className: `mt-2`,
+                                            }),
+                                        ],
+                                    }),
+                                    (0, m.jsxs)(`div`, {
+                                        className: `grid gap-2`,
+                                        children: [
+                                            (0, m.jsx)(l, {
+                                                htmlFor: `email`,
+                                                children: `Email address`,
+                                            }),
+                                            (0, m.jsx)(a, {
+                                                id: `email`,
+                                                type: `email`,
+                                                required: !0,
+                                                tabIndex: 2,
+                                                autoComplete: `email`,
+                                                name: `email`,
+                                                placeholder: `email@example.com`,
+                                            }),
+                                            (0, m.jsx)(c, { message: t.email }),
+                                        ],
+                                    }),
+                                    (0, m.jsxs)(`div`, {
+                                        className: `grid gap-2`,
+                                        children: [
+                                            (0, m.jsx)(l, {
+                                                htmlFor: `password`,
+                                                children: `Password`,
+                                            }),
+                                            (0, m.jsx)(i, {
+                                                id: `password`,
+                                                required: !0,
+                                                tabIndex: 3,
+                                                autoComplete: `new-password`,
+                                                name: `password`,
+                                                placeholder: `Password`,
+                                            }),
+                                            (0, m.jsx)(c, {
+                                                message: t.password,
+                                            }),
+                                        ],
+                                    }),
+                                    (0, m.jsxs)(`div`, {
+                                        className: `grid gap-2`,
+                                        children: [
+                                            (0, m.jsx)(l, {
+                                                htmlFor: `password_confirmation`,
+                                                children: `Confirm password`,
+                                            }),
+                                            (0, m.jsx)(i, {
+                                                id: `password_confirmation`,
+                                                required: !0,
+                                                tabIndex: 4,
+                                                autoComplete: `new-password`,
+                                                name: `password_confirmation`,
+                                                placeholder: `Confirm password`,
+                                            }),
+                                            (0, m.jsx)(c, {
+                                                message:
+                                                    t.password_confirmation,
+                                            }),
+                                        ],
+                                    }),
+                                    (0, m.jsxs)(r, {
+                                        type: `submit`,
+                                        className: `mt-2 w-full`,
+                                        tabIndex: 5,
+                                        'data-test': `register-user-button`,
+                                        children: [
+                                            e && (0, m.jsx)(u, {}),
+                                            `Create account`,
+                                        ],
+                                    }),
+                                ],
+                            }),
+                            (0, m.jsxs)(`div`, {
+                                className: `text-center text-sm text-muted-foreground`,
+                                children: [
+                                    `Already have an account?`,
+                                    ` `,
+                                    (0, m.jsx)(d, {
+                                        href: s(),
+                                        tabIndex: 6,
+                                        children: `Log in`,
+                                    }),
+                                ],
+                            }),
+                        ],
+                    }),
+            }),
+        ],
+    });
+}
+h.layout = {
+    title: `Create an account`,
+    description: `Enter your details below to create your account`,
+};
+export { h as default };

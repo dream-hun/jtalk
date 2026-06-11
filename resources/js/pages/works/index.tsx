@@ -25,7 +25,13 @@ import {
 } from '@/components/ui/dropdown-menu';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import {
+    Select,
+    SelectContent,
+    SelectItem,
+    SelectTrigger,
+    SelectValue,
+} from '@/components/ui/select';
 import { Spinner } from '@/components/ui/spinner';
 import { index } from '@/routes/works';
 
@@ -50,32 +56,72 @@ const employmentTypeLabels: Record<string, string> = {
     internship: 'Internship',
 };
 
-function WorkFormFields({ work, errors }: { work?: Work; errors: Record<string, string> }) {
-    const [employmentType, setEmploymentType] = useState<string>(work?.employment_type ?? 'full_time');
-    const [isCurrent, setIsCurrent] = useState<boolean>(work?.is_current ?? false);
-    const [startDate, setStartDate] = useState<Date | undefined>(work?.start_date ? new Date(work.start_date) : undefined);
-    const [endDate, setEndDate] = useState<Date | undefined>(work?.end_date ? new Date(work.end_date) : undefined);
+function WorkFormFields({
+    work,
+    errors,
+}: {
+    work?: Work;
+    errors: Record<string, string>;
+}) {
+    const [employmentType, setEmploymentType] = useState<string>(
+        work?.employment_type ?? 'full_time',
+    );
+    const [isCurrent, setIsCurrent] = useState<boolean>(
+        work?.is_current ?? false,
+    );
+    const [startDate, setStartDate] = useState<Date | undefined>(
+        work?.start_date ? new Date(work.start_date) : undefined,
+    );
+    const [endDate, setEndDate] = useState<Date | undefined>(
+        work?.end_date ? new Date(work.end_date) : undefined,
+    );
 
     return (
         <>
-            <input type="hidden" name="employment_type" value={employmentType} />
-            <input type="hidden" name="is_current" value={isCurrent ? '1' : '0'} />
+            <input
+                type="hidden"
+                name="employment_type"
+                value={employmentType}
+            />
+            <input
+                type="hidden"
+                name="is_current"
+                value={isCurrent ? '1' : '0'}
+            />
             <div className="grid grid-cols-2 gap-4">
                 <div className="grid gap-2">
                     <Label htmlFor="title">Title</Label>
-                    <Input id="title" name="title" defaultValue={work?.title ?? ''} placeholder="e.g. Software Engineer" required />
+                    <Input
+                        id="title"
+                        name="title"
+                        defaultValue={work?.title ?? ''}
+                        placeholder="e.g. Software Engineer"
+                        required
+                    />
                     <InputError message={errors.title} />
                 </div>
                 <div className="grid gap-2">
                     <Label htmlFor="company">Company</Label>
-                    <Input id="company" name="company" defaultValue={work?.company ?? ''} placeholder="e.g. Acme Inc." required />
+                    <Input
+                        id="company"
+                        name="company"
+                        defaultValue={work?.company ?? ''}
+                        placeholder="e.g. Acme Inc."
+                        required
+                    />
                     <InputError message={errors.company} />
                 </div>
             </div>
             <div className="grid grid-cols-2 gap-4">
                 <div className="grid gap-2">
                     <Label htmlFor="logo">Logo</Label>
-                    <Input id="logo" name="logo" defaultValue={work?.logo ?? ''} placeholder="Logo URL or name" required />
+                    <Input
+                        id="logo"
+                        name="logo"
+                        defaultValue={work?.logo ?? ''}
+                        placeholder="Logo URL or name"
+                        required
+                    />
                     <InputError message={errors.logo} />
                 </div>
                 <div className="grid gap-2">
@@ -92,7 +138,10 @@ function WorkFormFields({ work, errors }: { work?: Work; errors: Record<string, 
             </div>
             <div className="grid gap-2">
                 <Label htmlFor="employment_type">Employment Type</Label>
-                <Select value={employmentType} onValueChange={setEmploymentType}>
+                <Select
+                    value={employmentType}
+                    onValueChange={setEmploymentType}
+                >
                     <SelectTrigger id="employment_type" className="w-full">
                         <SelectValue />
                     </SelectTrigger>
@@ -109,12 +158,23 @@ function WorkFormFields({ work, errors }: { work?: Work; errors: Record<string, 
             <div className="grid grid-cols-2 gap-4">
                 <div className="grid gap-2">
                     <Label>Start Date</Label>
-                    <DatePicker name="start_date" value={startDate} onChange={setStartDate} placeholder="Pick start date" />
+                    <DatePicker
+                        name="start_date"
+                        value={startDate}
+                        onChange={setStartDate}
+                        placeholder="Pick start date"
+                    />
                     <InputError message={errors.start_date} />
                 </div>
                 <div className="grid gap-2">
                     <Label>End Date</Label>
-                    <DatePicker name="end_date" value={endDate} onChange={setEndDate} placeholder="Pick end date" disabled={isCurrent} />
+                    <DatePicker
+                        name="end_date"
+                        value={endDate}
+                        onChange={setEndDate}
+                        placeholder="Pick end date"
+                        disabled={isCurrent}
+                    />
                     <InputError message={errors.end_date} />
                 </div>
             </div>
@@ -122,7 +182,9 @@ function WorkFormFields({ work, errors }: { work?: Work; errors: Record<string, 
                 <Checkbox
                     id="is_current"
                     checked={isCurrent}
-                    onCheckedChange={(checked) => setIsCurrent(checked === true)}
+                    onCheckedChange={(checked) =>
+                        setIsCurrent(checked === true)
+                    }
                 />
                 <Label htmlFor="is_current">Currently working here</Label>
             </div>
@@ -134,7 +196,7 @@ function WorkFormFields({ work, errors }: { work?: Work; errors: Record<string, 
                     defaultValue={work?.description ?? ''}
                     placeholder="Describe your role and responsibilities..."
                     required
-                    className="border-input placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-ring/50 flex min-h-[100px] w-full min-w-0 rounded-md border bg-transparent px-3 py-2 text-base shadow-xs transition-[color,box-shadow] outline-none focus-visible:ring-[3px] disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm"
+                    className="flex min-h-[100px] w-full min-w-0 rounded-md border border-input bg-transparent px-3 py-2 text-base shadow-xs transition-[color,box-shadow] outline-none placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm"
                 />
                 <InputError message={errors.description} />
             </div>
@@ -142,13 +204,21 @@ function WorkFormFields({ work, errors }: { work?: Work; errors: Record<string, 
     );
 }
 
-function CreateWorkModal({ open, onClose }: { open: boolean; onClose: () => void }) {
+function CreateWorkModal({
+    open,
+    onClose,
+}: {
+    open: boolean;
+    onClose: () => void;
+}) {
     return (
         <Dialog open={open} onOpenChange={(o) => !o && onClose()}>
             <DialogContent className="sm:max-w-lg">
                 <DialogHeader>
                     <DialogTitle>New Work Experience</DialogTitle>
-                    <DialogDescription>Add a work experience entry to your portfolio.</DialogDescription>
+                    <DialogDescription>
+                        Add a work experience entry to your portfolio.
+                    </DialogDescription>
                 </DialogHeader>
                 <Form
                     {...WorkController.store.form()}
@@ -184,7 +254,9 @@ function EditWorkModal({ work, onClose }: { work: Work; onClose: () => void }) {
             <DialogContent className="sm:max-w-lg">
                 <DialogHeader>
                     <DialogTitle>Edit Work Experience</DialogTitle>
-                    <DialogDescription>Update the work experience entry.</DialogDescription>
+                    <DialogDescription>
+                        Update the work experience entry.
+                    </DialogDescription>
                 </DialogHeader>
                 <Form
                     {...WorkController.update.form(work)}
@@ -214,15 +286,23 @@ function EditWorkModal({ work, onClose }: { work: Work; onClose: () => void }) {
     );
 }
 
-function DeleteWorkModal({ work, onClose }: { work: Work; onClose: () => void }) {
+function DeleteWorkModal({
+    work,
+    onClose,
+}: {
+    work: Work;
+    onClose: () => void;
+}) {
     return (
         <Dialog open onOpenChange={(o) => !o && onClose()}>
             <DialogContent>
                 <DialogHeader>
                     <DialogTitle>Delete Work Experience</DialogTitle>
                     <DialogDescription>
-                        Are you sure you want to delete <strong>{work.title}</strong> at{' '}
-                        <strong>{work.company}</strong>? This action cannot be undone.
+                        Are you sure you want to delete{' '}
+                        <strong>{work.title}</strong> at{' '}
+                        <strong>{work.company}</strong>? This action cannot be
+                        undone.
                     </DialogDescription>
                 </DialogHeader>
                 <Form
@@ -237,7 +317,11 @@ function DeleteWorkModal({ work, onClose }: { work: Work; onClose: () => void })
                                     Cancel
                                 </Button>
                             </DialogClose>
-                            <Button type="submit" variant="destructive" disabled={processing}>
+                            <Button
+                                type="submit"
+                                variant="destructive"
+                                disabled={processing}
+                            >
                                 {processing && <Spinner />}
                                 Delete
                             </Button>
@@ -249,7 +333,11 @@ function DeleteWorkModal({ work, onClose }: { work: Work; onClose: () => void })
     );
 }
 
-function formatDateRange(startDate: string, endDate: string | null, isCurrent: boolean): string {
+function formatDateRange(
+    startDate: string,
+    endDate: string | null,
+    isCurrent: boolean,
+): string {
     const start = new Date(startDate).getFullYear();
 
     if (isCurrent) {
@@ -275,8 +363,12 @@ export default function WorksIndex({ works }: { works: Work[] }) {
             <div className="flex h-full flex-1 flex-col gap-4 p-4">
                 <div className="flex items-center justify-between">
                     <div>
-                        <h1 className="text-xl font-semibold tracking-tight">Works</h1>
-                        <p className="text-sm text-muted-foreground">Manage your work experience.</p>
+                        <h1 className="text-xl font-semibold tracking-tight">
+                            Works
+                        </h1>
+                        <p className="text-sm text-muted-foreground">
+                            Manage your work experience.
+                        </p>
                     </div>
                     <Button onClick={() => setCreateOpen(true)}>
                         <Plus />
@@ -288,49 +380,89 @@ export default function WorksIndex({ works }: { works: Work[] }) {
                     <table className="w-full text-sm">
                         <thead>
                             <tr className="border-b bg-muted/50">
-                                <th className="px-4 py-3 text-left font-medium">Title</th>
-                                <th className="px-4 py-3 text-left font-medium">Company</th>
-                                <th className="px-4 py-3 text-left font-medium">Type</th>
-                                <th className="px-4 py-3 text-left font-medium">Period</th>
-                                <th className="px-4 py-3 text-right font-medium">Actions</th>
+                                <th className="px-4 py-3 text-left font-medium">
+                                    Title
+                                </th>
+                                <th className="px-4 py-3 text-left font-medium">
+                                    Company
+                                </th>
+                                <th className="px-4 py-3 text-left font-medium">
+                                    Type
+                                </th>
+                                <th className="px-4 py-3 text-left font-medium">
+                                    Period
+                                </th>
+                                <th className="px-4 py-3 text-right font-medium">
+                                    Actions
+                                </th>
                             </tr>
                         </thead>
                         <tbody>
                             {works.length === 0 && (
                                 <tr>
-                                    <td colSpan={5} className="px-4 py-8 text-center text-muted-foreground">
-                                        No work experience found. Add one to get started.
+                                    <td
+                                        colSpan={5}
+                                        className="px-4 py-8 text-center text-muted-foreground"
+                                    >
+                                        No work experience found. Add one to get
+                                        started.
                                     </td>
                                 </tr>
                             )}
                             {works.map((work) => (
-                                <tr key={work.uuid} className="border-b last:border-0 hover:bg-muted/30">
-                                    <td className="px-4 py-3 font-medium">{work.title}</td>
-                                    <td className="px-4 py-3 text-muted-foreground">{work.company}</td>
-                                    <td className="px-4 py-3 text-muted-foreground">
-                                        {employmentTypeLabels[work.employment_type] ?? work.employment_type}
+                                <tr
+                                    key={work.uuid}
+                                    className="border-b last:border-0 hover:bg-muted/30"
+                                >
+                                    <td className="px-4 py-3 font-medium">
+                                        {work.title}
                                     </td>
                                     <td className="px-4 py-3 text-muted-foreground">
-                                        {formatDateRange(work.start_date, work.end_date, work.is_current)}
+                                        {work.company}
+                                    </td>
+                                    <td className="px-4 py-3 text-muted-foreground">
+                                        {employmentTypeLabels[
+                                            work.employment_type
+                                        ] ?? work.employment_type}
+                                    </td>
+                                    <td className="px-4 py-3 text-muted-foreground">
+                                        {formatDateRange(
+                                            work.start_date,
+                                            work.end_date,
+                                            work.is_current,
+                                        )}
                                     </td>
                                     <td className="px-4 py-3 text-right">
                                         <DropdownMenu>
                                             <DropdownMenuTrigger asChild>
-                                                <Button variant="ghost" size="icon">
+                                                <Button
+                                                    variant="ghost"
+                                                    size="icon"
+                                                >
                                                     <MoreHorizontal />
-                                                    <span className="sr-only">Actions</span>
+                                                    <span className="sr-only">
+                                                        Actions
+                                                    </span>
                                                 </Button>
                                             </DropdownMenuTrigger>
                                             <DropdownMenuContent align="end">
                                                 <DropdownMenuGroup>
-                                                    <DropdownMenuItem onClick={() => setEditTarget(work)}>
+                                                    <DropdownMenuItem
+                                                        onClick={() =>
+                                                            setEditTarget(work)
+                                                        }
+                                                    >
                                                         <Pencil />
                                                         Edit
                                                     </DropdownMenuItem>
                                                     <DropdownMenuSeparator />
                                                     <DropdownMenuItem
                                                         variant="destructive"
-                                                        onClick={() => setDeleteTarget(work)}
+                                                        onClick={() =>
+                                                            setDeleteTarget(
+                                                                work,
+                                                            )
+                                                        }
                                                     >
                                                         <Trash2 />
                                                         Delete
@@ -346,10 +478,23 @@ export default function WorksIndex({ works }: { works: Work[] }) {
                 </div>
             </div>
 
-            <CreateWorkModal open={createOpen} onClose={() => setCreateOpen(false)} />
-            {editTarget && <EditWorkModal key={editTarget.uuid} work={editTarget} onClose={() => setEditTarget(null)} />}
+            <CreateWorkModal
+                open={createOpen}
+                onClose={() => setCreateOpen(false)}
+            />
+            {editTarget && (
+                <EditWorkModal
+                    key={editTarget.uuid}
+                    work={editTarget}
+                    onClose={() => setEditTarget(null)}
+                />
+            )}
             {deleteTarget && (
-                <DeleteWorkModal key={deleteTarget.uuid} work={deleteTarget} onClose={() => setDeleteTarget(null)} />
+                <DeleteWorkModal
+                    key={deleteTarget.uuid}
+                    work={deleteTarget}
+                    onClose={() => setDeleteTarget(null)}
+                />
             )}
         </>
     );

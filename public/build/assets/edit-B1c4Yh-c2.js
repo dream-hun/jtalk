@@ -1,1 +1,4 @@
-function e(){return null}export{e as default};
+function e() {
+    return null;
+}
+export { e as default };

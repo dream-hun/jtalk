@@ -1,1 +1,24 @@
-import"./rolldown-runtime-C-57s9n3.js";import{r as e}from"./vendor-react-gF8_I9RY.js";import{K as t,et as n}from"./vendor-radix-C92RFvrB.js";import{t as r}from"./utils-DDQLTkD9.js";e();var i=n();function a({className:e,orientation:n=`horizontal`,decorative:a=!0,...o}){return(0,i.jsx)(t,{"data-slot":`separator-root`,decorative:a,orientation:n,className:r(`bg-border shrink-0 data-[orientation=horizontal]:h-px data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-full data-[orientation=vertical]:w-px`,e),...o})}export{a as t};
+import './rolldown-runtime-C-57s9n3.js';
+import { r as e } from './vendor-react-gF8_I9RY.js';
+import { K as t, et as n } from './vendor-radix-C92RFvrB.js';
+import { t as r } from './utils-DDQLTkD9.js';
+e();
+var i = n();
+function a({
+    className: e,
+    orientation: n = `horizontal`,
+    decorative: a = !0,
+    ...o
+}) {
+    return (0, i.jsx)(t, {
+        'data-slot': `separator-root`,
+        decorative: a,
+        orientation: n,
+        className: r(
+            `bg-border shrink-0 data-[orientation=horizontal]:h-px data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-full data-[orientation=vertical]:w-px`,
+            e,
+        ),
+        ...o,
+    });
+}
+export { a as t };

@@ -1,5 +1,16 @@
 import { Link } from '@inertiajs/react';
-import { BookOpen, Briefcase, FolderGit2, GraduationCap, LayoutGrid, MessageSquare, NotebookPen, Settings, Tag, Wrench } from 'lucide-react';
+import {
+    BookOpen,
+    Briefcase,
+    FolderGit2,
+    GraduationCap,
+    LayoutGrid,
+    MessageSquare,
+    NotebookPen,
+    Settings,
+    Tag,
+    Wrench,
+} from 'lucide-react';
 import AppLogo from '@/components/app-logo';
 import { NavFooter } from '@/components/nav-footer';
 import { NavMain } from '@/components/nav-main';

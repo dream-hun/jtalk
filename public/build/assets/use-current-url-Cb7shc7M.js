@@ -1,1 +1,27 @@
-import{s as e}from"./vendor-inertia-C-ctYATJ.js";import{n as t}from"./utils-DDQLTkD9.js";function n(){let n=e(),r=new URL(n.url,typeof window<`u`?window.location.origin:`http://localhost`).pathname,i=(e,n,i=!1)=>{let a=n??r,o=t(e),s=e=>i?a.startsWith(e):e===a;if(!o.startsWith(`http`))return s(o);try{return s(new URL(o).pathname)}catch{return!1}};return{currentUrl:r,isCurrentUrl:i,isCurrentOrParentUrl:(e,t)=>i(e,t,!0),whenCurrentUrl:(e,t,n=null)=>i(e)?t:n}}export{n as t};
+import { s as e } from './vendor-inertia-C-ctYATJ.js';
+import { n as t } from './utils-DDQLTkD9.js';
+function n() {
+    let n = e(),
+        r = new URL(
+            n.url,
+            typeof window < `u` ? window.location.origin : `http://localhost`,
+        ).pathname,
+        i = (e, n, i = !1) => {
+            let a = n ?? r,
+                o = t(e),
+                s = (e) => (i ? a.startsWith(e) : e === a);
+            if (!o.startsWith(`http`)) return s(o);
+            try {
+                return s(new URL(o).pathname);
+            } catch {
+                return !1;
+            }
+        };
+    return {
+        currentUrl: r,
+        isCurrentUrl: i,
+        isCurrentOrParentUrl: (e, t) => i(e, t, !0),
+        whenCurrentUrl: (e, t, n = null) => (i(e) ? t : n),
+    };
+}
+export { n as t };

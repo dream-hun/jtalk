@@ -1,1 +1,48 @@
-import{n as e,t}from"./vendor-inertia-C-ctYATJ.js";import{et as n}from"./vendor-radix-C92RFvrB.js";import{t as r}from"./post-form-CH-GUb9S.js";import{r as i,t as a}from"./posts-vWXYxcak.js";import{t as o}from"./PostController-ayihZ9fW.js";var s=n();function c({categories:n}){return(0,s.jsxs)(s.Fragment,{children:[(0,s.jsx)(e,{title:`New Post`}),(0,s.jsxs)(`div`,{className:`flex h-full flex-1 flex-col gap-6 p-4 max-w-4xl mx-auto w-full`,children:[(0,s.jsxs)(`div`,{children:[(0,s.jsx)(`h1`,{className:`text-xl font-semibold tracking-tight`,children:`New Post`}),(0,s.jsx)(`p`,{className:`text-sm text-muted-foreground`,children:`Create a new blog post.`})]}),(0,s.jsx)(t,{...o.store.form(),children:({processing:e,errors:t})=>(0,s.jsx)(r,{categories:n,errors:t,processing:e,onCancel:()=>window.location.href=i().url})})]})]})}c.layout={breadcrumbs:[{title:`Posts`,href:i().url},{title:`New Post`,href:a().url}]};export{c as default};
+import { n as e, t } from './vendor-inertia-C-ctYATJ.js';
+import { et as n } from './vendor-radix-C92RFvrB.js';
+import { t as r } from './post-form-CH-GUb9S.js';
+import { r as i, t as a } from './posts-vWXYxcak.js';
+import { t as o } from './PostController-ayihZ9fW.js';
+var s = n();
+function c({ categories: n }) {
+    return (0, s.jsxs)(s.Fragment, {
+        children: [
+            (0, s.jsx)(e, { title: `New Post` }),
+            (0, s.jsxs)(`div`, {
+                className: `flex h-full flex-1 flex-col gap-6 p-4 max-w-4xl mx-auto w-full`,
+                children: [
+                    (0, s.jsxs)(`div`, {
+                        children: [
+                            (0, s.jsx)(`h1`, {
+                                className: `text-xl font-semibold tracking-tight`,
+                                children: `New Post`,
+                            }),
+                            (0, s.jsx)(`p`, {
+                                className: `text-sm text-muted-foreground`,
+                                children: `Create a new blog post.`,
+                            }),
+                        ],
+                    }),
+                    (0, s.jsx)(t, {
+                        ...o.store.form(),
+                        children: ({ processing: e, errors: t }) =>
+                            (0, s.jsx)(r, {
+                                categories: n,
+                                errors: t,
+                                processing: e,
+                                onCancel: () =>
+                                    (window.location.href = i().url),
+                            }),
+                    }),
+                ],
+            }),
+        ],
+    });
+}
+c.layout = {
+    breadcrumbs: [
+        { title: `Posts`, href: i().url },
+        { title: `New Post`, href: a().url },
+    ],
+};
+export { c as default };

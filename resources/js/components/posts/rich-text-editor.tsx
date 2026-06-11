@@ -37,7 +37,13 @@ function ToolbarButton({
     children: React.ReactNode;
 }) {
     return (
-        <Toggle size="sm" pressed={active} onPressedChange={onClick} title={title} type="button">
+        <Toggle
+            size="sm"
+            pressed={active}
+            onPressedChange={onClick}
+            title={title}
+            type="button"
+        >
             {children}
         </Toggle>
     );
@@ -59,7 +65,9 @@ export function RichTextEditor({
 
     const syncHiddenInput = (editor: ReturnType<typeof useEditor>) => {
         if (hiddenInputRef.current && editor) {
-            hiddenInputRef.current.value = editor.isEmpty ? '' : editor.getHTML();
+            hiddenInputRef.current.value = editor.isEmpty
+                ? ''
+                : editor.getHTML();
         }
     };
 
@@ -77,7 +85,10 @@ export function RichTextEditor({
 
     function handleMarkdownImport(e: React.ChangeEvent<HTMLInputElement>) {
         const file = e.target.files?.[0];
-        if (!file || !editor) return;
+
+        if (!file || !editor) {
+            return;
+        }
 
         const reader = new FileReader();
         reader.onload = (event) => {
@@ -92,20 +103,25 @@ export function RichTextEditor({
 
     function setLink() {
         if (!editor) {
-return;
-}
+            return;
+        }
 
         const prev = editor.getAttributes('link').href as string | undefined;
         const url = window.prompt('URL', prev ?? '');
 
         if (url === null) {
-return;
-}
+            return;
+        }
 
         if (url === '') {
             editor.chain().focus().extendMarkRange('link').unsetLink().run();
         } else {
-            editor.chain().focus().extendMarkRange('link').setLink({ href: url }).run();
+            editor
+                .chain()
+                .focus()
+                .extendMarkRange('link')
+                .setLink({ href: url })
+                .run();
         }
     }
 
@@ -118,21 +134,27 @@ return;
                     <ToolbarButton
                         title="Bold"
                         active={editor?.isActive('bold')}
-                        onClick={() => editor?.chain().focus().toggleBold().run()}
+                        onClick={() =>
+                            editor?.chain().focus().toggleBold().run()
+                        }
                     >
                         <Bold className="size-3.5" />
                     </ToolbarButton>
                     <ToolbarButton
                         title="Italic"
                         active={editor?.isActive('italic')}
-                        onClick={() => editor?.chain().focus().toggleItalic().run()}
+                        onClick={() =>
+                            editor?.chain().focus().toggleItalic().run()
+                        }
                     >
                         <Italic className="size-3.5" />
                     </ToolbarButton>
                     <ToolbarButton
                         title="Underline"
                         active={editor?.isActive('underline')}
-                        onClick={() => editor?.chain().focus().toggleUnderline().run()}
+                        onClick={() =>
+                            editor?.chain().focus().toggleUnderline().run()
+                        }
                     >
                         <UnderlineIcon className="size-3.5" />
                     </ToolbarButton>
@@ -142,14 +164,26 @@ return;
                     <ToolbarButton
                         title="Heading 2"
                         active={editor?.isActive('heading', { level: 2 })}
-                        onClick={() => editor?.chain().focus().toggleHeading({ level: 2 }).run()}
+                        onClick={() =>
+                            editor
+                                ?.chain()
+                                .focus()
+                                .toggleHeading({ level: 2 })
+                                .run()
+                        }
                     >
                         <Heading2 className="size-3.5" />
                     </ToolbarButton>
                     <ToolbarButton
                         title="Heading 3"
                         active={editor?.isActive('heading', { level: 3 })}
-                        onClick={() => editor?.chain().focus().toggleHeading({ level: 3 }).run()}
+                        onClick={() =>
+                            editor
+                                ?.chain()
+                                .focus()
+                                .toggleHeading({ level: 3 })
+                                .run()
+                        }
                     >
                         <Heading3 className="size-3.5" />
                     </ToolbarButton>
@@ -159,34 +193,46 @@ return;
                     <ToolbarButton
                         title="Bullet list"
                         active={editor?.isActive('bulletList')}
-                        onClick={() => editor?.chain().focus().toggleBulletList().run()}
+                        onClick={() =>
+                            editor?.chain().focus().toggleBulletList().run()
+                        }
                     >
                         <List className="size-3.5" />
                     </ToolbarButton>
                     <ToolbarButton
                         title="Ordered list"
                         active={editor?.isActive('orderedList')}
-                        onClick={() => editor?.chain().focus().toggleOrderedList().run()}
+                        onClick={() =>
+                            editor?.chain().focus().toggleOrderedList().run()
+                        }
                     >
                         <ListOrdered className="size-3.5" />
                     </ToolbarButton>
                     <ToolbarButton
                         title="Blockquote"
                         active={editor?.isActive('blockquote')}
-                        onClick={() => editor?.chain().focus().toggleBlockquote().run()}
+                        onClick={() =>
+                            editor?.chain().focus().toggleBlockquote().run()
+                        }
                     >
                         <Quote className="size-3.5" />
                     </ToolbarButton>
                     <ToolbarButton
                         title="Horizontal rule"
-                        onClick={() => editor?.chain().focus().setHorizontalRule().run()}
+                        onClick={() =>
+                            editor?.chain().focus().setHorizontalRule().run()
+                        }
                     >
                         <Minus className="size-3.5" />
                     </ToolbarButton>
 
                     <Separator orientation="vertical" className="mx-1 h-5" />
 
-                    <ToolbarButton title="Link" active={editor?.isActive('link')} onClick={setLink}>
+                    <ToolbarButton
+                        title="Link"
+                        active={editor?.isActive('link')}
+                        onClick={setLink}
+                    >
                         <Link2 className="size-3.5" />
                     </ToolbarButton>
 
@@ -217,7 +263,10 @@ return;
 
                     <Separator orientation="vertical" className="mx-1 h-5" />
 
-                    <ToolbarButton title="Import Markdown" onClick={() => markdownInputRef.current?.click()}>
+                    <ToolbarButton
+                        title="Import Markdown"
+                        onClick={() => markdownInputRef.current?.click()}
+                    >
                         <FileUp className="size-3.5" />
                     </ToolbarButton>
                     <input
@@ -231,7 +280,7 @@ return;
 
                 <EditorContent
                     editor={editor}
-                    className="prose prose-sm dark:prose-invert max-w-full min-h-64 px-3 py-2 text-sm focus-within:outline-none [&_.tiptap]:min-h-64 [&_.tiptap]:outline-none [&_.tiptap_p.is-editor-empty:first-child::before]:text-muted-foreground [&_.tiptap_p.is-editor-empty:first-child::before]:float-left [&_.tiptap_p.is-editor-empty:first-child::before]:content-[attr(data-placeholder)] [&_.tiptap_p.is-editor-empty:first-child::before]:pointer-events-none"
+                    className="prose prose-sm min-h-64 max-w-full px-3 py-2 text-sm focus-within:outline-none dark:prose-invert [&_.tiptap]:min-h-64 [&_.tiptap]:outline-none [&_.tiptap_p.is-editor-empty:first-child::before]:pointer-events-none [&_.tiptap_p.is-editor-empty:first-child::before]:float-left [&_.tiptap_p.is-editor-empty:first-child::before]:text-muted-foreground [&_.tiptap_p.is-editor-empty:first-child::before]:content-[attr(data-placeholder)]"
                 />
             </div>
 

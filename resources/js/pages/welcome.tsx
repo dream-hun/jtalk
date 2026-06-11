@@ -92,19 +92,32 @@ interface WelcomeProps extends PageProps {
 function sanitizeHtml(html: string | null | undefined) {
     return html
         ? DOMPurify.sanitize(html, {
-            ALLOWED_TAGS: ['span', 'p'],
-            ALLOWED_ATTR: ['class'],
-        })
+              ALLOWED_TAGS: ['span', 'p'],
+              ALLOWED_ATTR: ['class'],
+          })
         : '';
 }
 
-export default function Welcome({ setting, projects, works, education, skills, recentPosts, canRegister, siteUrl, defaultOgImage }: WelcomeProps) {
+export default function Welcome({
+    setting,
+    projects,
+    works,
+    education,
+    skills,
+    recentPosts,
+    canRegister,
+    siteUrl,
+    defaultOgImage,
+}: WelcomeProps) {
     if (!setting) {
         return (
-            <div className="min-h-dvh flex items-center justify-center text-muted-foreground">
+            <div className="flex min-h-dvh items-center justify-center text-muted-foreground">
                 <p>Portfolio not configured yet.</p>
                 {canRegister && (
-                    <a href="/register" className="ml-2 underline hover:text-foreground transition-colors">
+                    <a
+                        href="/register"
+                        className="ml-2 underline transition-colors hover:text-foreground"
+                    >
                         Set it up
                     </a>
                 )}
@@ -125,55 +138,98 @@ export default function Welcome({ setting, projects, works, education, skills, r
 
     return (
         <>
-        <Head>
-            <title>{pageTitle}</title>
-            <meta head-key="description" name="description" content={setting.description} />
-            <link head-key="canonical" rel="canonical" href={siteUrl} />
-            <meta head-key="og:type" property="og:type" content="website" />
-            <meta head-key="og:url" property="og:url" content={siteUrl} />
-            <meta head-key="og:title" property="og:title" content={pageTitle} />
-            <meta head-key="og:description" property="og:description" content={setting.description} />
-            <meta head-key="og:image" property="og:image" content={defaultOgImage} />
-            <meta head-key="twitter:card" name="twitter:card" content="summary_large_image" />
-            <meta head-key="twitter:title" name="twitter:title" content={pageTitle} />
-            <meta head-key="twitter:description" name="twitter:description" content={setting.description} />
-            <meta head-key="twitter:image" name="twitter:image" content={defaultOgImage} />
-            <script
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: sanitizeHtml(JSON.stringify(personSchema)) }}
-            />
-        </Head>
-        <div className="min-h-screen bg-background font-sans antialiased relative">
-            <a
-                href="#main-content"
-                className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-primary focus:text-primary-foreground focus:rounded-md focus:text-sm focus:font-medium"
-            >
-                Skip to main content
-            </a>
-            <div className="absolute inset-x-0 top-0 h-25 overflow-hidden z-0">
-                <FlickeringGrid
-                    className="h-full w-full"
-                    squareSize={2}
-                    gridGap={2}
-                    style={{
-                        maskImage: 'linear-gradient(to bottom, black, transparent)',
-                        WebkitMaskImage: 'linear-gradient(to bottom, black, transparent)',
+            <Head>
+                <title>{pageTitle}</title>
+                <meta
+                    head-key="description"
+                    name="description"
+                    content={setting.description}
+                />
+                <link head-key="canonical" rel="canonical" href={siteUrl} />
+                <meta head-key="og:type" property="og:type" content="website" />
+                <meta head-key="og:url" property="og:url" content={siteUrl} />
+                <meta
+                    head-key="og:title"
+                    property="og:title"
+                    content={pageTitle}
+                />
+                <meta
+                    head-key="og:description"
+                    property="og:description"
+                    content={setting.description}
+                />
+                <meta
+                    head-key="og:image"
+                    property="og:image"
+                    content={defaultOgImage}
+                />
+                <meta
+                    head-key="twitter:card"
+                    name="twitter:card"
+                    content="summary_large_image"
+                />
+                <meta
+                    head-key="twitter:title"
+                    name="twitter:title"
+                    content={pageTitle}
+                />
+                <meta
+                    head-key="twitter:description"
+                    name="twitter:description"
+                    content={setting.description}
+                />
+                <meta
+                    head-key="twitter:image"
+                    name="twitter:image"
+                    content={defaultOgImage}
+                />
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{
+                        __html: sanitizeHtml(JSON.stringify(personSchema)),
                     }}
                 />
+            </Head>
+            <div className="relative min-h-screen bg-background font-sans antialiased">
+                <a
+                    href="#main-content"
+                    className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:rounded-md focus:bg-primary focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-primary-foreground"
+                >
+                    Skip to main content
+                </a>
+                <div className="absolute inset-x-0 top-0 z-0 h-25 overflow-hidden">
+                    <FlickeringGrid
+                        className="h-full w-full"
+                        squareSize={2}
+                        gridGap={2}
+                        style={{
+                            maskImage:
+                                'linear-gradient(to bottom, black, transparent)',
+                            WebkitMaskImage:
+                                'linear-gradient(to bottom, black, transparent)',
+                        }}
+                    />
+                </div>
+
+                <main
+                    id="main-content"
+                    className="relative z-10 mx-auto w-full max-w-2xl space-y-14 px-6 py-12 pb-24 sm:py-24"
+                >
+                    <HeroSection
+                        name={setting.name}
+                        title={setting.title}
+                        description={setting.description}
+                    />
+                    <WorkSection works={works} />
+                    <EducationSection education={education} />
+                    <SkillsSection skills={skills} />
+                    <ProjectsSection projects={projects} />
+                    <BlogSection posts={recentPosts} />
+                    <ContactSection setting={setting} />
+                </main>
+
+                <PortfolioNavbar />
             </div>
-
-            <main id="main-content" className="relative z-10 mx-auto w-full max-w-2xl px-6 py-12 pb-24 sm:py-24 space-y-14">
-                <HeroSection name={setting.name} title={setting.title} description={setting.description} />
-                <WorkSection works={works} />
-                <EducationSection education={education} />
-                <SkillsSection skills={skills} />
-                <ProjectsSection projects={projects} />
-                <BlogSection posts={recentPosts} />
-                <ContactSection setting={setting} />
-            </main>
-
-            <PortfolioNavbar />
-        </div>
         </>
     );
 }

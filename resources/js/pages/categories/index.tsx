@@ -33,13 +33,21 @@ type Category = {
     posts_count: number;
 };
 
-function CreateCategoryModal({ open, onClose }: { open: boolean; onClose: () => void }) {
+function CreateCategoryModal({
+    open,
+    onClose,
+}: {
+    open: boolean;
+    onClose: () => void;
+}) {
     return (
         <Dialog open={open} onOpenChange={(o) => !o && onClose()}>
             <DialogContent>
                 <DialogHeader>
                     <DialogTitle>New Category</DialogTitle>
-                    <DialogDescription>Add a new blog category.</DialogDescription>
+                    <DialogDescription>
+                        Add a new blog category.
+                    </DialogDescription>
                 </DialogHeader>
                 <Form
                     {...CategoryController.store.form()}
@@ -51,7 +59,12 @@ function CreateCategoryModal({ open, onClose }: { open: boolean; onClose: () => 
                         <div className="space-y-4">
                             <div className="grid gap-2">
                                 <Label htmlFor="name">Name</Label>
-                                <Input id="name" name="name" placeholder="e.g. Technology" required />
+                                <Input
+                                    id="name"
+                                    name="name"
+                                    placeholder="e.g. Technology"
+                                    required
+                                />
                                 <InputError message={errors.name} />
                             </div>
                             <DialogFooter>
@@ -73,13 +86,21 @@ function CreateCategoryModal({ open, onClose }: { open: boolean; onClose: () => 
     );
 }
 
-function EditCategoryModal({ category, onClose }: { category: Category; onClose: () => void }) {
+function EditCategoryModal({
+    category,
+    onClose,
+}: {
+    category: Category;
+    onClose: () => void;
+}) {
     return (
         <Dialog open onOpenChange={(o) => !o && onClose()}>
             <DialogContent>
                 <DialogHeader>
                     <DialogTitle>Edit Category</DialogTitle>
-                    <DialogDescription>Update the category name.</DialogDescription>
+                    <DialogDescription>
+                        Update the category name.
+                    </DialogDescription>
                 </DialogHeader>
                 <Form
                     {...CategoryController.update.form(category)}
@@ -91,7 +112,12 @@ function EditCategoryModal({ category, onClose }: { category: Category; onClose:
                         <div className="space-y-4">
                             <div className="grid gap-2">
                                 <Label htmlFor="edit-name">Name</Label>
-                                <Input id="edit-name" name="name" defaultValue={category.name} required />
+                                <Input
+                                    id="edit-name"
+                                    name="name"
+                                    defaultValue={category.name}
+                                    required
+                                />
                                 <InputError message={errors.name} />
                             </div>
                             <DialogFooter>
@@ -113,15 +139,22 @@ function EditCategoryModal({ category, onClose }: { category: Category; onClose:
     );
 }
 
-function DeleteCategoryModal({ category, onClose }: { category: Category; onClose: () => void }) {
+function DeleteCategoryModal({
+    category,
+    onClose,
+}: {
+    category: Category;
+    onClose: () => void;
+}) {
     return (
         <Dialog open onOpenChange={(o) => !o && onClose()}>
             <DialogContent>
                 <DialogHeader>
                     <DialogTitle>Delete Category</DialogTitle>
                     <DialogDescription>
-                        Are you sure you want to delete <strong>{category.name}</strong>? Posts in this category will become
-                        uncategorized.
+                        Are you sure you want to delete{' '}
+                        <strong>{category.name}</strong>? Posts in this category
+                        will become uncategorized.
                     </DialogDescription>
                 </DialogHeader>
                 <Form
@@ -136,7 +169,11 @@ function DeleteCategoryModal({ category, onClose }: { category: Category; onClos
                                     Cancel
                                 </Button>
                             </DialogClose>
-                            <Button type="submit" variant="destructive" disabled={processing}>
+                            <Button
+                                type="submit"
+                                variant="destructive"
+                                disabled={processing}
+                            >
                                 {processing && <Spinner />}
                                 Delete
                             </Button>
@@ -148,7 +185,11 @@ function DeleteCategoryModal({ category, onClose }: { category: Category; onClos
     );
 }
 
-export default function CategoriesIndex({ categories }: { categories: Category[] }) {
+export default function CategoriesIndex({
+    categories,
+}: {
+    categories: Category[];
+}) {
     const [createOpen, setCreateOpen] = useState(false);
     const [editTarget, setEditTarget] = useState<Category | null>(null);
     const [deleteTarget, setDeleteTarget] = useState<Category | null>(null);
@@ -160,8 +201,12 @@ export default function CategoriesIndex({ categories }: { categories: Category[]
             <div className="flex h-full flex-1 flex-col gap-4 p-4">
                 <div className="flex items-center justify-between">
                     <div>
-                        <h1 className="text-xl font-semibold tracking-tight">Categories</h1>
-                        <p className="text-sm text-muted-foreground">Manage blog post categories.</p>
+                        <h1 className="text-xl font-semibold tracking-tight">
+                            Categories
+                        </h1>
+                        <p className="text-sm text-muted-foreground">
+                            Manage blog post categories.
+                        </p>
                     </div>
                     <Button onClick={() => setCreateOpen(true)}>
                         <Plus />
@@ -173,43 +218,79 @@ export default function CategoriesIndex({ categories }: { categories: Category[]
                     <table className="w-full text-sm">
                         <thead>
                             <tr className="border-b bg-muted/50">
-                                <th className="px-4 py-3 text-left font-medium">Name</th>
-                                <th className="px-4 py-3 text-left font-medium">Slug</th>
-                                <th className="px-4 py-3 text-left font-medium">Posts</th>
-                                <th className="px-4 py-3 text-right font-medium">Actions</th>
+                                <th className="px-4 py-3 text-left font-medium">
+                                    Name
+                                </th>
+                                <th className="px-4 py-3 text-left font-medium">
+                                    Slug
+                                </th>
+                                <th className="px-4 py-3 text-left font-medium">
+                                    Posts
+                                </th>
+                                <th className="px-4 py-3 text-right font-medium">
+                                    Actions
+                                </th>
                             </tr>
                         </thead>
                         <tbody>
                             {categories.length === 0 && (
                                 <tr>
-                                    <td colSpan={4} className="px-4 py-8 text-center text-muted-foreground">
-                                        No categories found. Add one to get started.
+                                    <td
+                                        colSpan={4}
+                                        className="px-4 py-8 text-center text-muted-foreground"
+                                    >
+                                        No categories found. Add one to get
+                                        started.
                                     </td>
                                 </tr>
                             )}
                             {categories.map((category) => (
-                                <tr key={category.uuid} className="border-b last:border-0 hover:bg-muted/30">
-                                    <td className="px-4 py-3 font-medium">{category.name}</td>
-                                    <td className="px-4 py-3 font-mono text-xs text-muted-foreground">{category.slug}</td>
-                                    <td className="px-4 py-3 text-muted-foreground">{category.posts_count}</td>
+                                <tr
+                                    key={category.uuid}
+                                    className="border-b last:border-0 hover:bg-muted/30"
+                                >
+                                    <td className="px-4 py-3 font-medium">
+                                        {category.name}
+                                    </td>
+                                    <td className="px-4 py-3 font-mono text-xs text-muted-foreground">
+                                        {category.slug}
+                                    </td>
+                                    <td className="px-4 py-3 text-muted-foreground">
+                                        {category.posts_count}
+                                    </td>
                                     <td className="px-4 py-3 text-right">
                                         <DropdownMenu>
                                             <DropdownMenuTrigger asChild>
-                                                <Button variant="ghost" size="icon">
+                                                <Button
+                                                    variant="ghost"
+                                                    size="icon"
+                                                >
                                                     <MoreHorizontal />
-                                                    <span className="sr-only">Actions</span>
+                                                    <span className="sr-only">
+                                                        Actions
+                                                    </span>
                                                 </Button>
                                             </DropdownMenuTrigger>
                                             <DropdownMenuContent align="end">
                                                 <DropdownMenuGroup>
-                                                    <DropdownMenuItem onClick={() => setEditTarget(category)}>
+                                                    <DropdownMenuItem
+                                                        onClick={() =>
+                                                            setEditTarget(
+                                                                category,
+                                                            )
+                                                        }
+                                                    >
                                                         <Pencil />
                                                         Edit
                                                     </DropdownMenuItem>
                                                     <DropdownMenuSeparator />
                                                     <DropdownMenuItem
                                                         variant="destructive"
-                                                        onClick={() => setDeleteTarget(category)}
+                                                        onClick={() =>
+                                                            setDeleteTarget(
+                                                                category,
+                                                            )
+                                                        }
                                                     >
                                                         <Trash2 />
                                                         Delete
@@ -225,9 +306,16 @@ export default function CategoriesIndex({ categories }: { categories: Category[]
                 </div>
             </div>
 
-            <CreateCategoryModal open={createOpen} onClose={() => setCreateOpen(false)} />
+            <CreateCategoryModal
+                open={createOpen}
+                onClose={() => setCreateOpen(false)}
+            />
             {editTarget && (
-                <EditCategoryModal key={editTarget.uuid} category={editTarget} onClose={() => setEditTarget(null)} />
+                <EditCategoryModal
+                    key={editTarget.uuid}
+                    category={editTarget}
+                    onClose={() => setEditTarget(null)}
+                />
             )}
             {deleteTarget && (
                 <DeleteCategoryModal

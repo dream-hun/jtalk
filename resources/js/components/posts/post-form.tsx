@@ -4,7 +4,13 @@ import { RichTextEditor } from '@/components/posts/rich-text-editor';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import {
+    Select,
+    SelectContent,
+    SelectItem,
+    SelectTrigger,
+    SelectValue,
+} from '@/components/ui/select';
 import { Spinner } from '@/components/ui/spinner';
 
 type Category = {
@@ -43,8 +49,8 @@ function ImageUploadField({
     useEffect(() => {
         return () => {
             if (objectUrlRef.current) {
-URL.revokeObjectURL(objectUrlRef.current);
-}
+                URL.revokeObjectURL(objectUrlRef.current);
+            }
         };
     }, []);
 
@@ -67,8 +73,20 @@ URL.revokeObjectURL(objectUrlRef.current);
     return (
         <div className="grid gap-2">
             <Label htmlFor={name}>{label}</Label>
-            {preview && <img src={preview} alt="Preview" className="h-40 w-full rounded-md border object-cover" />}
-            <Input id={name} name={name} type="file" accept="image/*,.avif" onChange={handleChange} />
+            {preview && (
+                <img
+                    src={preview}
+                    alt="Preview"
+                    className="h-40 w-full rounded-md border object-cover"
+                />
+            )}
+            <Input
+                id={name}
+                name={name}
+                type="file"
+                accept="image/*,.avif"
+                onChange={handleChange}
+            />
             <InputError message={error} />
         </div>
     );
@@ -89,28 +107,49 @@ export function PostForm({
 }) {
     const NONE = '__none__';
     const [status, setStatus] = useState<string>(post?.status ?? 'draft');
-    const [categoryId, setCategoryId] = useState<string>(post?.category?.id?.toString() ?? NONE);
+    const [categoryId, setCategoryId] = useState<string>(
+        post?.category?.id?.toString() ?? NONE,
+    );
 
     return (
         <div className="space-y-6">
             <input type="hidden" name="status" value={status} />
-            <input type="hidden" name="category_id" value={categoryId === NONE ? '' : categoryId} />
+            <input
+                type="hidden"
+                name="category_id"
+                value={categoryId === NONE ? '' : categoryId}
+            />
 
             <div className="grid gap-2">
                 <Label htmlFor="title">Title</Label>
-                <Input id="title" name="title" defaultValue={post?.title ?? ''} placeholder="Post title" required />
+                <Input
+                    id="title"
+                    name="title"
+                    defaultValue={post?.title ?? ''}
+                    placeholder="Post title"
+                    required
+                />
                 <InputError message={errors.title} />
             </div>
 
             <div className="grid gap-2">
                 <Label htmlFor="excerpt">Excerpt</Label>
-                <Input id="excerpt" name="excerpt" defaultValue={post?.excerpt ?? ''} placeholder="Short description…" />
+                <Input
+                    id="excerpt"
+                    name="excerpt"
+                    defaultValue={post?.excerpt ?? ''}
+                    placeholder="Short description…"
+                />
                 <InputError message={errors.excerpt} />
             </div>
 
             <div className="grid gap-2">
                 <Label>Content</Label>
-                <RichTextEditor name="content" defaultValue={post?.content ?? ''} error={errors.content} />
+                <RichTextEditor
+                    name="content"
+                    defaultValue={post?.content ?? ''}
+                    error={errors.content}
+                />
             </div>
 
             <ImageUploadField
@@ -130,7 +169,10 @@ export function PostForm({
                         <SelectContent>
                             <SelectItem value={NONE}>None</SelectItem>
                             {categories.map((cat) => (
-                                <SelectItem key={cat.id} value={cat.id.toString()}>
+                                <SelectItem
+                                    key={cat.id}
+                                    value={cat.id.toString()}
+                                >
                                     {cat.name}
                                 </SelectItem>
                             ))}

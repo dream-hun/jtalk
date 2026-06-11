@@ -12,7 +12,7 @@ export function AboutSection({ description }: AboutSectionProps) {
                     <h2 className="text-xl font-bold">About</h2>
                 </BlurFade>
                 <BlurFade delay={160}>
-                    <p className="prose max-w-full text-pretty font-sans leading-relaxed text-muted-foreground dark:prose-invert">
+                    <p className="prose max-w-full font-sans leading-relaxed text-pretty text-muted-foreground dark:prose-invert">
                         {description}
                     </p>
                 </BlurFade>

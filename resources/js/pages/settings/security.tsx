@@ -242,7 +242,10 @@ export default function Security({
                 </div>
             )}
 
-            <ManagePasskeys canManagePasskeys={canManagePasskeys} passkeys={passkeys} />
+            <ManagePasskeys
+                canManagePasskeys={canManagePasskeys}
+                passkeys={passkeys}
+            />
         </>
     );
 }

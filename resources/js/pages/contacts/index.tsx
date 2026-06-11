@@ -23,7 +23,13 @@ import {
     DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { Label } from '@/components/ui/label';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import {
+    Select,
+    SelectContent,
+    SelectItem,
+    SelectTrigger,
+    SelectValue,
+} from '@/components/ui/select';
 import { Spinner } from '@/components/ui/spinner';
 import { index } from '@/routes/contacts';
 
@@ -36,13 +42,22 @@ type Contact = {
     created_at: string;
 };
 
-const statusVariant: Record<string, 'default' | 'secondary' | 'destructive' | 'outline'> = {
+const statusVariant: Record<
+    string,
+    'default' | 'secondary' | 'destructive' | 'outline'
+> = {
     lead: 'default',
     replied: 'secondary',
     archived: 'outline',
 };
 
-function UpdateStatusModal({ contact, onClose }: { contact: Contact; onClose: () => void }) {
+function UpdateStatusModal({
+    contact,
+    onClose,
+}: {
+    contact: Contact;
+    onClose: () => void;
+}) {
     const [status, setStatus] = useState<string>(contact.status);
 
     return (
@@ -51,7 +66,8 @@ function UpdateStatusModal({ contact, onClose }: { contact: Contact; onClose: ()
                 <DialogHeader>
                     <DialogTitle>Update Status</DialogTitle>
                     <DialogDescription>
-                        Update the status for the message from <strong>{contact.name}</strong>.
+                        Update the status for the message from{' '}
+                        <strong>{contact.name}</strong>.
                     </DialogDescription>
                 </DialogHeader>
                 <Form
@@ -65,14 +81,26 @@ function UpdateStatusModal({ contact, onClose }: { contact: Contact; onClose: ()
                             <input type="hidden" name="status" value={status} />
                             <div className="grid gap-2">
                                 <Label htmlFor="status">Status</Label>
-                                <Select value={status} onValueChange={setStatus}>
-                                    <SelectTrigger id="status" className="w-full">
+                                <Select
+                                    value={status}
+                                    onValueChange={setStatus}
+                                >
+                                    <SelectTrigger
+                                        id="status"
+                                        className="w-full"
+                                    >
                                         <SelectValue />
                                     </SelectTrigger>
                                     <SelectContent>
-                                        <SelectItem value="lead">Lead</SelectItem>
-                                        <SelectItem value="replied">Replied</SelectItem>
-                                        <SelectItem value="archived">Archived</SelectItem>
+                                        <SelectItem value="lead">
+                                            Lead
+                                        </SelectItem>
+                                        <SelectItem value="replied">
+                                            Replied
+                                        </SelectItem>
+                                        <SelectItem value="archived">
+                                            Archived
+                                        </SelectItem>
                                     </SelectContent>
                                 </Select>
                                 <InputError message={errors.status} />
@@ -96,15 +124,22 @@ function UpdateStatusModal({ contact, onClose }: { contact: Contact; onClose: ()
     );
 }
 
-function DeleteContactModal({ contact, onClose }: { contact: Contact; onClose: () => void }) {
+function DeleteContactModal({
+    contact,
+    onClose,
+}: {
+    contact: Contact;
+    onClose: () => void;
+}) {
     return (
         <Dialog open onOpenChange={(o) => !o && onClose()}>
             <DialogContent>
                 <DialogHeader>
                     <DialogTitle>Delete Contact</DialogTitle>
                     <DialogDescription>
-                        Are you sure you want to delete the message from <strong>{contact.name}</strong>? This action
-                        cannot be undone.
+                        Are you sure you want to delete the message from{' '}
+                        <strong>{contact.name}</strong>? This action cannot be
+                        undone.
                     </DialogDescription>
                 </DialogHeader>
                 <Form
@@ -119,7 +154,11 @@ function DeleteContactModal({ contact, onClose }: { contact: Contact; onClose: (
                                     Cancel
                                 </Button>
                             </DialogClose>
-                            <Button type="submit" variant="destructive" disabled={processing}>
+                            <Button
+                                type="submit"
+                                variant="destructive"
+                                disabled={processing}
+                            >
                                 {processing && <Spinner />}
                                 Delete
                             </Button>
@@ -142,8 +181,12 @@ export default function ContactsIndex({ contacts }: { contacts: Contact[] }) {
             <div className="flex h-full flex-1 flex-col gap-4 p-4">
                 <div className="flex items-center justify-between">
                     <div>
-                        <h1 className="text-xl font-semibold tracking-tight">Contacts</h1>
-                        <p className="text-sm text-muted-foreground">Manage incoming contact messages.</p>
+                        <h1 className="text-xl font-semibold tracking-tight">
+                            Contacts
+                        </h1>
+                        <p className="text-sm text-muted-foreground">
+                            Manage incoming contact messages.
+                        </p>
                     </div>
                 </div>
 
@@ -151,55 +194,99 @@ export default function ContactsIndex({ contacts }: { contacts: Contact[] }) {
                     <table className="w-full text-sm">
                         <thead>
                             <tr className="border-b bg-muted/50">
-                                <th className="px-4 py-3 text-left font-medium">Name</th>
-                                <th className="px-4 py-3 text-left font-medium">Email</th>
-                                <th className="px-4 py-3 text-left font-medium">Message</th>
-                                <th className="px-4 py-3 text-left font-medium">Status</th>
-                                <th className="px-4 py-3 text-left font-medium">Date</th>
-                                <th className="px-4 py-3 text-right font-medium">Actions</th>
+                                <th className="px-4 py-3 text-left font-medium">
+                                    Name
+                                </th>
+                                <th className="px-4 py-3 text-left font-medium">
+                                    Email
+                                </th>
+                                <th className="px-4 py-3 text-left font-medium">
+                                    Message
+                                </th>
+                                <th className="px-4 py-3 text-left font-medium">
+                                    Status
+                                </th>
+                                <th className="px-4 py-3 text-left font-medium">
+                                    Date
+                                </th>
+                                <th className="px-4 py-3 text-right font-medium">
+                                    Actions
+                                </th>
                             </tr>
                         </thead>
                         <tbody>
                             {contacts.length === 0 && (
                                 <tr>
-                                    <td colSpan={6} className="px-4 py-8 text-center text-muted-foreground">
+                                    <td
+                                        colSpan={6}
+                                        className="px-4 py-8 text-center text-muted-foreground"
+                                    >
                                         No contact messages yet.
                                     </td>
                                 </tr>
                             )}
                             {contacts.map((contact) => (
-                                <tr key={contact.uuid} className="border-b last:border-0 hover:bg-muted/30">
-                                    <td className="px-4 py-3 font-medium">{contact.name}</td>
-                                    <td className="px-4 py-3 text-muted-foreground">{contact.email}</td>
+                                <tr
+                                    key={contact.uuid}
+                                    className="border-b last:border-0 hover:bg-muted/30"
+                                >
+                                    <td className="px-4 py-3 font-medium">
+                                        {contact.name}
+                                    </td>
+                                    <td className="px-4 py-3 text-muted-foreground">
+                                        {contact.email}
+                                    </td>
                                     <td className="max-w-xs truncate px-4 py-3 text-muted-foreground">
                                         {contact.message}
                                     </td>
                                     <td className="px-4 py-3">
-                                        <Badge variant={statusVariant[contact.status] ?? 'secondary'}>
+                                        <Badge
+                                            variant={
+                                                statusVariant[contact.status] ??
+                                                'secondary'
+                                            }
+                                        >
                                             {contact.status}
                                         </Badge>
                                     </td>
                                     <td className="px-4 py-3 text-muted-foreground">
-                                        {new Date(contact.created_at).toLocaleDateString()}
+                                        {new Date(
+                                            contact.created_at,
+                                        ).toLocaleDateString()}
                                     </td>
                                     <td className="px-4 py-3 text-right">
                                         <DropdownMenu>
                                             <DropdownMenuTrigger asChild>
-                                                <Button variant="ghost" size="icon">
+                                                <Button
+                                                    variant="ghost"
+                                                    size="icon"
+                                                >
                                                     <MoreHorizontal />
-                                                    <span className="sr-only">Actions</span>
+                                                    <span className="sr-only">
+                                                        Actions
+                                                    </span>
                                                 </Button>
                                             </DropdownMenuTrigger>
                                             <DropdownMenuContent align="end">
                                                 <DropdownMenuGroup>
-                                                    <DropdownMenuItem onClick={() => setUpdateTarget(contact)}>
+                                                    <DropdownMenuItem
+                                                        onClick={() =>
+                                                            setUpdateTarget(
+                                                                contact,
+                                                            )
+                                                        }
+                                                    >
                                                         <RefreshCw />
                                                         Update Status
                                                     </DropdownMenuItem>
                                                     <DropdownMenuSeparator />
                                                     <DropdownMenuItem
                                                         variant="destructive"
-                                                        onClick={() => setDeleteTarget(contact)}
+                                                        onClick={() =>
+                                                            setDeleteTarget(
+                                                                contact,
+                                                            )
+                                                        }
                                                     >
                                                         <Trash2 />
                                                         Delete
@@ -216,10 +303,18 @@ export default function ContactsIndex({ contacts }: { contacts: Contact[] }) {
             </div>
 
             {updateTarget && (
-                <UpdateStatusModal key={updateTarget.uuid} contact={updateTarget} onClose={() => setUpdateTarget(null)} />
+                <UpdateStatusModal
+                    key={updateTarget.uuid}
+                    contact={updateTarget}
+                    onClose={() => setUpdateTarget(null)}
+                />
             )}
             {deleteTarget && (
-                <DeleteContactModal key={deleteTarget.uuid} contact={deleteTarget} onClose={() => setDeleteTarget(null)} />
+                <DeleteContactModal
+                    key={deleteTarget.uuid}
+                    contact={deleteTarget}
+                    onClose={() => setDeleteTarget(null)}
+                />
             )}
         </>
     );

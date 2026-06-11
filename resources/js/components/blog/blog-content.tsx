@@ -1,3 +1,4 @@
+import DOMPurify from 'dompurify';
 import hljs from 'highlight.js/lib/core';
 import bash from 'highlight.js/lib/languages/bash';
 import css from 'highlight.js/lib/languages/css';
@@ -11,7 +12,6 @@ import sql from 'highlight.js/lib/languages/sql';
 import typescript from 'highlight.js/lib/languages/typescript';
 import xml from 'highlight.js/lib/languages/xml';
 import { useEffect, useRef } from 'react';
-import DOMPurify from 'dompurify';
 
 hljs.registerLanguage('bash', bash);
 hljs.registerLanguage('sh', bash);
@@ -34,9 +34,9 @@ hljs.registerLanguage('xml', xml);
 function sanitizeHtml(html: string | null | undefined) {
     return html
         ? DOMPurify.sanitize(html, {
-            ALLOWED_TAGS: ['span', 'p'],
-            ALLOWED_ATTR: ['class'],
-        })
+              ALLOWED_TAGS: ['span', 'p'],
+              ALLOWED_ATTR: ['class'],
+          })
         : '';
 }
 
@@ -45,7 +45,10 @@ export function BlogContent({ content }: { content: string }) {
 
     useEffect(() => {
         const article = articleRef.current;
-        if (!article) return;
+
+        if (!article) {
+            return;
+        }
 
         article.querySelectorAll<HTMLElement>('pre code').forEach((block) => {
             hljs.highlightElement(block);
@@ -69,12 +72,14 @@ export function BlogContent({ content }: { content: string }) {
 
             btn.addEventListener('click', async () => {
                 const code = pre.querySelector('code')?.textContent ?? '';
+
                 try {
                     await navigator.clipboard.writeText(code);
                     btn.textContent = 'Copied!';
                 } catch {
                     btn.textContent = 'Failed';
                 }
+
                 setTimeout(() => {
                     btn.textContent = 'Copy';
                 }, 2000);
@@ -92,7 +97,7 @@ export function BlogContent({ content }: { content: string }) {
     return (
         <article
             ref={articleRef}
-            className="prose prose-neutral max-w-full text-pretty font-sans leading-relaxed dark:prose-invert"
+            className="prose max-w-full font-sans leading-relaxed text-pretty prose-neutral dark:prose-invert"
             dangerouslySetInnerHTML={{ __html: sanitizeHtml(content) }}
         />
     );

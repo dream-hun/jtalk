@@ -1,1 +1,73 @@
-import{r as e}from"./vendor-inertia-C-ctYATJ.js";import{et as t}from"./vendor-radix-C92RFvrB.js";import{n,t as r}from"./utils-DDQLTkD9.js";import{t as i}from"./button-DTg8VAj1.js";import{t as a}from"./separator-CPt1Rane.js";import{t as o}from"./use-current-url-Cb7shc7M.js";import{t as s}from"./profile-DwyqYsO5.js";import{t as c}from"./heading-Bhw47iO9.js";import{t as l}from"./appearance-3V7v0Jtl.js";import{t as u}from"./security-BlQF40A3.js";var d=t(),f=[{title:`Profile`,href:s(),icon:null},{title:`Security`,href:u(),icon:null},{title:`Appearance`,href:l(),icon:null}];function p({children:t}){let{isCurrentOrParentUrl:s}=o();return(0,d.jsxs)(`div`,{className:`px-4 py-6`,children:[(0,d.jsx)(c,{title:`Settings`,description:`Manage your profile and account settings`}),(0,d.jsxs)(`div`,{className:`flex flex-col lg:flex-row lg:space-x-12`,children:[(0,d.jsx)(`aside`,{className:`w-full max-w-xl lg:w-48`,children:(0,d.jsx)(`nav`,{className:`flex flex-col space-y-1 space-x-0`,"aria-label":`Settings`,children:f.map((t,a)=>(0,d.jsx)(i,{size:`sm`,variant:`ghost`,asChild:!0,className:r(`w-full justify-start`,{"bg-muted":s(t.href)}),children:(0,d.jsxs)(e,{href:t.href,children:[t.icon&&(0,d.jsx)(t.icon,{className:`h-4 w-4`}),t.title]})},`${n(t.href)}-${a}`))})}),(0,d.jsx)(a,{className:`my-6 lg:hidden`}),(0,d.jsx)(`div`,{className:`flex-1 md:max-w-2xl`,children:(0,d.jsx)(`section`,{className:`max-w-xl space-y-12`,children:t})})]})]})}export{p as default};
+import { r as e } from './vendor-inertia-C-ctYATJ.js';
+import { et as t } from './vendor-radix-C92RFvrB.js';
+import { n, t as r } from './utils-DDQLTkD9.js';
+import { t as i } from './button-DTg8VAj1.js';
+import { t as a } from './separator-CPt1Rane.js';
+import { t as o } from './use-current-url-Cb7shc7M.js';
+import { t as s } from './profile-DwyqYsO5.js';
+import { t as c } from './heading-Bhw47iO9.js';
+import { t as l } from './appearance-3V7v0Jtl.js';
+import { t as u } from './security-BlQF40A3.js';
+var d = t(),
+    f = [
+        { title: `Profile`, href: s(), icon: null },
+        { title: `Security`, href: u(), icon: null },
+        { title: `Appearance`, href: l(), icon: null },
+    ];
+function p({ children: t }) {
+    let { isCurrentOrParentUrl: s } = o();
+    return (0, d.jsxs)(`div`, {
+        className: `px-4 py-6`,
+        children: [
+            (0, d.jsx)(c, {
+                title: `Settings`,
+                description: `Manage your profile and account settings`,
+            }),
+            (0, d.jsxs)(`div`, {
+                className: `flex flex-col lg:flex-row lg:space-x-12`,
+                children: [
+                    (0, d.jsx)(`aside`, {
+                        className: `w-full max-w-xl lg:w-48`,
+                        children: (0, d.jsx)(`nav`, {
+                            className: `flex flex-col space-y-1 space-x-0`,
+                            'aria-label': `Settings`,
+                            children: f.map((t, a) =>
+                                (0, d.jsx)(
+                                    i,
+                                    {
+                                        size: `sm`,
+                                        variant: `ghost`,
+                                        asChild: !0,
+                                        className: r(`w-full justify-start`, {
+                                            'bg-muted': s(t.href),
+                                        }),
+                                        children: (0, d.jsxs)(e, {
+                                            href: t.href,
+                                            children: [
+                                                t.icon &&
+                                                    (0, d.jsx)(t.icon, {
+                                                        className: `h-4 w-4`,
+                                                    }),
+                                                t.title,
+                                            ],
+                                        }),
+                                    },
+                                    `${n(t.href)}-${a}`,
+                                ),
+                            ),
+                        }),
+                    }),
+                    (0, d.jsx)(a, { className: `my-6 lg:hidden` }),
+                    (0, d.jsx)(`div`, {
+                        className: `flex-1 md:max-w-2xl`,
+                        children: (0, d.jsx)(`section`, {
+                            className: `max-w-xl space-y-12`,
+                            children: t,
+                        }),
+                    }),
+                ],
+            }),
+        ],
+    });
+}
+export { p as default };
