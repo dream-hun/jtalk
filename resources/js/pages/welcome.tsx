@@ -1,5 +1,6 @@
 import type { PageProps } from '@inertiajs/core';
 import { Head } from '@inertiajs/react';
+import DOMPurify from 'dompurify';
 import { FlickeringGrid } from '@/components/magicui/flickering-grid';
 import { BlogSection } from '@/components/portfolio/blog-section';
 import { ContactSection } from '@/components/portfolio/contact-section';
@@ -88,6 +89,15 @@ interface WelcomeProps extends PageProps {
     defaultOgImage: string;
 }
 
+function sanitizeHtml(html: string | null | undefined) {
+    return html
+        ? DOMPurify.sanitize(html, {
+            ALLOWED_TAGS: ['span', 'p'],
+            ALLOWED_ATTR: ['class'],
+        })
+        : '';
+}
+
 export default function Welcome({ setting, projects, works, education, skills, recentPosts, canRegister, siteUrl, defaultOgImage }: WelcomeProps) {
     if (!setting) {
         return (
@@ -130,7 +140,7 @@ export default function Welcome({ setting, projects, works, education, skills, r
             <meta head-key="twitter:image" name="twitter:image" content={defaultOgImage} />
             <script
                 type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
+                dangerouslySetInnerHTML={{ __html: sanitizeHtml(JSON.stringify(personSchema)) }}
             />
         </Head>
         <div className="min-h-screen bg-background font-sans antialiased relative">
