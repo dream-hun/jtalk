@@ -22,10 +22,12 @@ final class SecurityController extends Controller implements HasMiddleware
      */
     public static function middleware(): array
     {
-        return Features::canManageTwoFactorAuthentication()
-            && Features::optionEnabled(Features::twoFactorAuthentication(), 'confirmPassword')
-                ? [new Middleware('password.confirm', only: ['edit'])]
-                : [];
+        $needsConfirm = (Features::canManageTwoFactorAuthentication()
+            && Features::optionEnabled(Features::twoFactorAuthentication(), 'confirmPassword'))
+            || (Features::canManagePasskeys()
+            && Features::optionEnabled(Features::passkeys(), 'confirmPassword'));
+
+        return $needsConfirm ? [new Middleware('password.confirm', only: ['edit'])] : [];
     }
 
     /**
@@ -35,6 +37,8 @@ final class SecurityController extends Controller implements HasMiddleware
     {
         $props = [
             'canManageTwoFactor' => Features::canManageTwoFactorAuthentication(),
+            'canManagePasskeys' => Features::canManagePasskeys(),
+            'passkeys' => [],
         ];
 
         if (Features::canManageTwoFactorAuthentication()) {
@@ -44,6 +48,24 @@ final class SecurityController extends Controller implements HasMiddleware
             $user = $request->user();
             $props['twoFactorEnabled'] = $user->hasEnabledTwoFactorAuthentication();
             $props['requiresConfirmation'] = Features::optionEnabled(Features::twoFactorAuthentication(), 'confirm');
+        }
+
+        if (Features::canManagePasskeys()) {
+            /** @var User $user */
+            $user = $request->user();
+            $props['passkeys'] = $user->passkeys()
+                ->select(['id', 'name', 'credential', 'created_at', 'last_used_at'])
+                ->latest()
+                ->get()
+                ->map(fn ($passkey) => [
+                    'id' => $passkey->id,
+                    'name' => $passkey->name,
+                    'authenticator' => $passkey->authenticator,
+                    'created_at_diff' => $passkey->created_at->diffForHumans(),
+                    'last_used_at_diff' => $passkey->last_used_at?->diffForHumans(),
+                ])
+                ->values()
+                ->all();
         }
 
         return Inertia::render('settings/security', $props);

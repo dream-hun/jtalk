@@ -7,6 +7,7 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Spinner } from '@/components/ui/spinner';
+import PasskeyVerify from '@/components/passkey-verify';
 import { register } from '@/routes';
 import { store } from '@/routes/login';
 import { request } from '@/routes/password';
@@ -25,6 +26,8 @@ export default function Login({
     return (
         <>
             <Head title="Log in" />
+
+            <PasskeyVerify />
 
             <Form
                 {...store.form()}

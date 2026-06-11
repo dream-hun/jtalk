@@ -51,7 +51,7 @@ final class FortifyServiceProvider extends ServiceProvider
     {
         Fortify::loginView(fn (Request $request) => Inertia::render('auth/login', [
             'canResetPassword' => Features::enabled(Features::resetPasswords()),
-            'canRegister' => Features::enabled(Features::registration()),
+            'canRegister' => false,
             'status' => $request->session()->get('status'),
         ]));
 
@@ -87,6 +87,12 @@ final class FortifyServiceProvider extends ServiceProvider
             $throttleKey = Str::transliterate(Str::lower(is_string($input) ? $input : '').'|'.$request->ip());
 
             return Limit::perMinute(5)->by($throttleKey);
+        });
+
+        RateLimiter::for('passkeys', function (Request $request) {
+            return Limit::perMinute(10)->by(
+                ($request->input('credential.id') ?: $request->session()->getId()).'|'.$request->ip(),
+            );
         });
     }
 }

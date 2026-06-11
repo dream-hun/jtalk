@@ -13,7 +13,6 @@ use App\Models\Work;
 use Illuminate\Support\Facades\Storage;
 use Inertia\Inertia;
 use Inertia\Response;
-use Laravel\Fortify\Features;
 
 final class WelcomeController extends Controller
 {
@@ -40,7 +39,7 @@ final class WelcomeController extends Controller
                     }
                     return $post;
                 }),
-            'canRegister' => Features::enabled(Features::registration()),
+            'canRegister' => false,
             'siteUrl' => url('/'),
             'defaultOgImage' => asset('photos/jacques-mbabazi.avif'),
         ]);
