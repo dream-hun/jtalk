@@ -6,7 +6,7 @@ namespace App\Actions;
 
 use App\Enums\PostStatus;
 use App\Models\Post;
-use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Date;
 use Illuminate\Support\Str;
 
 final readonly class UpdatePost
@@ -25,7 +25,7 @@ final readonly class UpdatePost
             && $post->status !== PostStatus::Published
             && empty($data['published_at'])
         ) {
-            $data['published_at'] = Carbon::now();
+            $data['published_at'] = Date::now();
         }
 
         $post->update($data);

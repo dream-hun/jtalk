@@ -44,7 +44,7 @@ it('sets published_at when storing a published post', function (): void {
         'status' => 'published',
     ])->assertRedirect(route('posts.index'));
 
-    $dbPost = Post::where('slug', 'published-post')->first();
+    $dbPost = Post::query()->where('slug', 'published-post')->first();
     expect($dbPost->published_at)->not->toBeNull();
 });
 

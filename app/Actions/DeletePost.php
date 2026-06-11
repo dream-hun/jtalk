@@ -14,6 +14,7 @@ final readonly class DeletePost
         if ($post->cover_image) {
             Storage::disk('public')->delete($post->cover_image);
         }
+
         $post->delete();
     }
 }

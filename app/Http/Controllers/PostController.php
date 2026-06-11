@@ -28,14 +28,14 @@ final class PostController extends Controller
     {
         return Inertia::render('posts/index', [
             'posts' => Post::with('category')->latest()->get(),
-            'categories' => Category::orderBy('name')->get(),
+            'categories' => Category::query()->orderBy('name')->get(),
         ]);
     }
 
     public function create(): Response
     {
         return Inertia::render('posts/create', [
-            'categories' => Category::orderBy('name')->get(),
+            'categories' => Category::query()->orderBy('name')->get(),
         ]);
     }
 
@@ -65,7 +65,7 @@ final class PostController extends Controller
     {
         return Inertia::render('posts/edit', [
             'post' => $post->load('category'),
-            'categories' => Category::orderBy('name')->get(),
+            'categories' => Category::query()->orderBy('name')->get(),
         ]);
     }
 
@@ -77,6 +77,7 @@ final class PostController extends Controller
             if ($post->cover_image) {
                 Storage::disk('public')->delete($post->cover_image);
             }
+
             $data['cover_image'] = $request->file('cover_image')->store('posts', 'public');
         } else {
             unset($data['cover_image']);

@@ -19,24 +19,26 @@ final class WelcomeController extends Controller
     public function index(): Response
     {
         return Inertia::render('welcome', [
-            'setting' => Setting::first(),
+            'setting' => Setting::query()->first(),
             'projects' => Project::with('tags')->latest()->get()->map(function ($project) {
                 if ($project->featured_image) {
                     $project->featured_image = Storage::url($project->featured_image);
                 }
+
                 return $project;
             }),
-            'works' => Work::orderBy('start_date', 'desc')->get(),
-            'education' => Education::orderBy('start_date', 'desc')->get(),
+            'works' => Work::query()->latest('start_date')->get(),
+            'education' => Education::query()->latest('start_date')->get(),
             'skills' => [],
-            'recentPosts' => Post::where('status', PostStatus::Published)
-                ->orderByDesc('published_at')
+            'recentPosts' => Post::query()->where('status', PostStatus::Published)
+                ->latest('published_at')
                 ->limit(3)
                 ->get(['uuid', 'title', 'slug', 'excerpt', 'published_at', 'cover_image'])
                 ->map(function ($post) {
                     if ($post->cover_image) {
                         $post->cover_image = Storage::url($post->cover_image);
                     }
+
                     return $post;
                 }),
             'canRegister' => false,

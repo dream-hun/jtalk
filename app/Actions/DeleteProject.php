@@ -14,6 +14,7 @@ final readonly class DeleteProject
         if ($project->featured_image) {
             Storage::disk('public')->delete($project->featured_image);
         }
+
         $project->tags()->detach();
         $project->delete();
     }

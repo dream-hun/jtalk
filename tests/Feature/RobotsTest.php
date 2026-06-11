@@ -1,6 +1,8 @@
 <?php
 
-it('returns a plain text robots.txt', function () {
+declare(strict_types=1);
+
+it('returns a plain text robots.txt', function (): void {
     $response = $this->get('/robots.txt');
 
     $response->assertStatus(200);
@@ -10,7 +12,7 @@ it('returns a plain text robots.txt', function () {
     $response->assertSee('Disallow: /dashboard', false);
 });
 
-it('includes the sitemap url in robots.txt', function () {
+it('includes the sitemap url in robots.txt', function (): void {
     $response = $this->get('/robots.txt');
 
     $response->assertSee('Sitemap: '.url('/sitemap.xml'), false);

@@ -25,7 +25,7 @@ final class CategoryController extends Controller
     public function index(): Response
     {
         return Inertia::render('categories/index', [
-            'categories' => Category::withCount('posts')->orderBy('name')->get(),
+            'categories' => Category::query()->withCount('posts')->orderBy('name')->get(),
         ]);
     }
 

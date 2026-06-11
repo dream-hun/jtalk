@@ -12,12 +12,12 @@ final class SitemapController extends Controller
 {
     public function index(): Response
     {
-        $posts = Post::where('status', PostStatus::Published)
-            ->orderByDesc('published_at')
+        $posts = Post::query()->where('status', PostStatus::Published)
+            ->latest('published_at')
             ->get(['slug', 'updated_at']);
 
         return response(
-            view('sitemap', compact('posts'))->render(),
+            view('sitemap', ['posts' => $posts])->render(),
             200,
             ['Content-Type' => 'application/xml'],
         );

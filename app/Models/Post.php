@@ -37,6 +37,11 @@ final class Post extends Model
         return 'uuid';
     }
 
+    public function category(): BelongsTo
+    {
+        return $this->belongsTo(Category::class);
+    }
+
     protected static function boot(): void
     {
         parent::boot();
@@ -55,10 +60,5 @@ final class Post extends Model
             'status' => PostStatus::class,
             'published_at' => 'datetime',
         ];
-    }
-
-    public function category(): BelongsTo
-    {
-        return $this->belongsTo(Category::class);
     }
 }

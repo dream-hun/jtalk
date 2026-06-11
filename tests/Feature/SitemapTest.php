@@ -1,9 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 use App\Enums\PostStatus;
 use App\Models\Post;
 
-it('returns xml with home and blog urls', function () {
+it('returns xml with home and blog urls', function (): void {
     $response = $this->get('/sitemap.xml');
 
     $response->assertStatus(200);
@@ -12,7 +14,7 @@ it('returns xml with home and blog urls', function () {
     $response->assertSee(url('/blog'), false);
 });
 
-it('includes published posts in the sitemap', function () {
+it('includes published posts in the sitemap', function (): void {
     $post = Post::factory()->create([
         'status' => PostStatus::Published,
         'published_at' => now(),
@@ -24,7 +26,7 @@ it('includes published posts in the sitemap', function () {
     $response->assertSee(route('blog.show', $post->slug), false);
 });
 
-it('does not include draft posts in the sitemap', function () {
+it('does not include draft posts in the sitemap', function (): void {
     $post = Post::factory()->create([
         'status' => PostStatus::Draft,
     ]);

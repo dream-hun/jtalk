@@ -16,12 +16,12 @@ final class LlmController extends Controller
 {
     public function index(): Response
     {
-        $setting = Setting::first();
+        $setting = Setting::query()->first();
         $projects = Project::with('tags')->latest()->get();
-        $works = Work::orderBy('start_date', 'desc')->get();
-        $education = Education::orderBy('start_date', 'desc')->get();
-        $posts = Post::where('status', PostStatus::Published)
-            ->orderByDesc('published_at')
+        $works = Work::query()->latest('start_date')->get();
+        $education = Education::query()->latest('start_date')->get();
+        $posts = Post::query()->where('status', PostStatus::Published)
+            ->latest('published_at')
             ->get(['title', 'slug', 'excerpt']);
 
         $lines = [];
@@ -39,6 +39,7 @@ final class LlmController extends Controller
                 $period .= ' – '.($work->is_current ? 'Present' : $work->end_date?->format('Y'));
                 $lines[] = '- **'.$work->title.'** at '.$work->company.' ('.$period.'): '.$work->description;
             }
+
             $lines[] = '';
         }
 
@@ -50,6 +51,7 @@ final class LlmController extends Controller
                 $period .= ' – '.($edu->is_current ? 'Present' : $edu->end_date?->format('Y'));
                 $lines[] = '- **'.$edu->degree.'** — '.$edu->institution.' ('.$period.')';
             }
+
             $lines[] = '';
         }
 
@@ -60,9 +62,10 @@ final class LlmController extends Controller
                 $tags = $project->tags->pluck('name')->implode(', ');
                 $url = $project->live_url ?? $project->source_code_url ?? url('/');
                 $desc = $project->description ?? $project->title;
-                $suffix = $tags ? " [{$tags}]" : '';
+                $suffix = $tags ? sprintf(' [%s]', $tags) : '';
                 $lines[] = '- ['.$project->title.']('.$url.'): '.$desc.$suffix;
             }
+
             $lines[] = '';
         }
 
@@ -73,6 +76,7 @@ final class LlmController extends Controller
                 $postUrl = url('/blog/'.$post->slug);
                 $lines[] = '- ['.$post->title.']('.$postUrl.')'.($post->excerpt ? ': '.$post->excerpt : '');
             }
+
             $lines[] = '';
         }
 
@@ -81,9 +85,11 @@ final class LlmController extends Controller
         if ($setting?->email) {
             $lines[] = '- Email: '.$setting->email;
         }
+
         if ($setting?->phone) {
             $lines[] = '- Phone: '.$setting->phone;
         }
+
         if ($setting?->address) {
             $lines[] = '- Location: '.$setting->address;
         }

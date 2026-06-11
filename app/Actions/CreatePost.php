@@ -6,7 +6,7 @@ namespace App\Actions;
 
 use App\Enums\PostStatus;
 use App\Models\Post;
-use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Date;
 use Illuminate\Support\Str;
 
 final readonly class CreatePost
@@ -19,7 +19,7 @@ final readonly class CreatePost
         $data['slug'] = $this->uniqueSlug(Str::slug($data['title']));
 
         if (($data['status'] ?? null) === PostStatus::Published->value && empty($data['published_at'])) {
-            $data['published_at'] = Carbon::now();
+            $data['published_at'] = Date::now();
         }
 
         return Post::query()->create($data);

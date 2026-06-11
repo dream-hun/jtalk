@@ -2,26 +2,15 @@
 
 declare(strict_types=1);
 
-use Laravel\Fortify\Features;
-
-beforeEach(function (): void {
-    $this->skipUnlessFortifyHas(Features::registration());
+test('GET /register returns 404', function (): void {
+    $this->get('/register')->assertNotFound();
 });
 
-test('registration screen can be rendered', function (): void {
-    $response = $this->get(route('register'));
-
-    $response->assertOk();
-});
-
-test('new users can register', function (): void {
-    $response = $this->post(route('register.store'), [
+test('POST /register returns 404', function (): void {
+    $this->post('/register', [
         'name' => 'Test User',
         'email' => 'test@example.com',
         'password' => 'password',
         'password_confirmation' => 'password',
-    ]);
-
-    $this->assertAuthenticated();
-    $response->assertRedirect(route('dashboard', absolute: false));
+    ])->assertNotFound();
 });

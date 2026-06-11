@@ -77,6 +77,7 @@ final class ProjectController extends Controller
             if ($project->featured_image) {
                 Storage::disk('public')->delete($project->featured_image);
             }
+
             $data['featured_image'] = $request->file('featured_image')->store('projects', 'public');
         } else {
             unset($data['featured_image']);

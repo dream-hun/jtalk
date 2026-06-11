@@ -48,5 +48,3 @@ it('passes education to the inertia component', function (): void {
         ->assertOk()
         ->assertInertia(fn ($page) => $page->component('welcome')->has('education', 2));
 });
-
-
