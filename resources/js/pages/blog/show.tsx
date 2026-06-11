@@ -3,6 +3,7 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { BlogContent } from '@/components/blog/blog-content';
 import { PortfolioNavbar } from '@/components/portfolio/portfolio-navbar';
 import { show as blogShow } from '@/routes/blog';
+import DOMPurify from 'dompurify';
 
 type Post = {
     uuid: string;
@@ -18,6 +19,15 @@ type AdjacentPost = {
     title: string;
     slug: string;
 };
+
+function sanitizeHtml(html: string | null | undefined) {
+    return html
+        ? DOMPurify.sanitize(html, {
+            ALLOWED_TAGS: ['span', 'p'],
+            ALLOWED_ATTR: ['class'],
+        })
+        : '';
+}
 
 export default function BlogShow({
     post,
@@ -69,7 +79,7 @@ export default function BlogShow({
                 <meta head-key="twitter:image" name="twitter:image" content={ogImage} />
                 <script
                     type="application/ld+json"
-                    dangerouslySetInnerHTML={{ __html: JSON.stringify(blogPostingSchema) }}
+                    dangerouslySetInnerHTML={{ __html: sanitizeHtml(JSON.stringify(blogPostingSchema)) }}
                 />
             </Head>
 
