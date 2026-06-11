@@ -33,7 +33,7 @@ export function HeroSection({ name, description }: HeroSectionProps) {
                             src="/photos/jacques-mbabazi.avif"
                             alt={name}
                             className="object-cover object-top"
-                            fetchpriority="high"
+                            fetchPriority="high"
                             width={128}
                             height={128}
                         />

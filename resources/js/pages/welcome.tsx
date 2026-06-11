@@ -100,11 +100,11 @@ function sanitizeHtml(html: string | null | undefined) {
 
 export default function Welcome({
     setting,
-    projects,
-    works,
-    education,
-    skills,
-    recentPosts,
+    projects = [],
+    works = [],
+    education = [],
+    skills = [],
+    recentPosts = [],
     canRegister,
     siteUrl,
     defaultOgImage,
