@@ -54,7 +54,7 @@
         "@radix-ui/react-tooltip": "^1.2.9",
         "@tailwindcss/typography": "^0.5.20",
         "@tailwindcss/vite": "^4.3.0",
-        "@tiptap/extension-link": "^3.26.1",
+        "@tiptap/extension-link": "^3.27.0",
         "@tiptap/extension-placeholder": "^3.26.1",
         "@tiptap/extension-underline": "^3.26.1",
         "@tiptap/react": "^3.26.1",
