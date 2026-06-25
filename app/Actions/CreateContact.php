@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Actions;
 
+use App\Jobs\SendContactNotification;
 use App\Models\Contact;
 
 final readonly class CreateContact
@@ -13,6 +14,10 @@ final readonly class CreateContact
      */
     public function handle(array $data): Contact
     {
-        return Contact::query()->create($data);
+        $contact = Contact::query()->create($data);
+
+        SendContactNotification::dispatch($contact);
+
+        return $contact;
     }
 }

@@ -23,7 +23,7 @@ Route::get('sitemap.xml', [SitemapController::class, 'index'])->name('sitemap');
 Route::get('robots.txt', [RobotsController::class, 'index'])->name('robots');
 Route::get('llm.txt', [LlmController::class, 'index'])->name('llm');
 
-Route::post('contacts', [ContactController::class, 'store'])->name('contacts.store');
+Route::post('contacts', [ContactController::class, 'store'])->name('contacts.store')->middleware('throttle:3,10');
 
 Route::get('blog', [BlogController::class, 'index'])->name('blog.index');
 Route::get('blog/{slug}', [BlogController::class, 'show'])->name('blog.show');
