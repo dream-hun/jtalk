@@ -95,5 +95,8 @@
     },
     "allowScripts": {
         "unrs-resolver@1.12.2": true
+    },
+    "overrides": {
+        "enhanced-resolve@<5.22.1": "5.22.1"
     }
 }
