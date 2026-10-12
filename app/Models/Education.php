@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Models;
 
 use Database\Factories\EducationFactory;
+use Illuminate\Database\Eloquent\Attributes\RouteKey;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Carbon;
@@ -22,15 +23,11 @@ use Illuminate\Support\Str;
  * @property Carbon $created_at
  * @property Carbon $updated_at
  */
+#[RouteKey('uuid')]
 final class Education extends Model
 {
     /** @use HasFactory<EducationFactory> */
     use HasFactory;
-
-    public function getRouteKeyName(): string
-    {
-        return 'uuid';
-    }
 
     protected static function boot(): void
     {

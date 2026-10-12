@@ -16,7 +16,7 @@ final readonly class CreateContact
     {
         $contact = Contact::query()->create($data);
 
-        SendContactNotification::dispatch($contact);
+        dispatch(new SendContactNotification($contact));
 
         return $contact;
     }

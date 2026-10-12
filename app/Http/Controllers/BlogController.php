@@ -46,7 +46,7 @@ final class BlogController extends Controller
             ->latest('published_at')
             ->get(['id', 'title', 'slug']);
 
-        $currentIndex = $allPosts->search(fn ($p): bool => $p->slug === $slug);
+        $currentIndex = $allPosts->search(fn (Post $p): bool => $p->slug === $slug);
 
         $previousPost = $currentIndex > 0 ? $allPosts[$currentIndex - 1] : null;
         $nextPost = $currentIndex < $allPosts->count() - 1 ? $allPosts[$currentIndex + 1] : null;

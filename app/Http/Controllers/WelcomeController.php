@@ -20,7 +20,7 @@ final class WelcomeController extends Controller
     {
         return Inertia::render('welcome', [
             'setting' => Setting::query()->first(),
-            'projects' => Project::with('tags')->latest()->get()->map(function ($project) {
+            'projects' => Project::with('tags')->latest()->get()->map(function (Project $project): Project {
                 if ($project->featured_image) {
                     $project->featured_image = Storage::url($project->featured_image);
                 }
@@ -34,7 +34,7 @@ final class WelcomeController extends Controller
                 ->latest('published_at')
                 ->limit(3)
                 ->get(['uuid', 'title', 'slug', 'excerpt', 'published_at', 'cover_image'])
-                ->map(function ($post) {
+                ->map(function (Post $post): Post {
                     if ($post->cover_image) {
                         $post->cover_image = Storage::url($post->cover_image);
                     }

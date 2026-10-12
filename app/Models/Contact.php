@@ -6,6 +6,7 @@ namespace App\Models;
 
 use App\Enums\ContactStatus;
 use Database\Factories\ContactFactory;
+use Illuminate\Database\Eloquent\Attributes\RouteKey;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Carbon;
@@ -21,15 +22,11 @@ use Illuminate\Support\Str;
  * @property Carbon $created_at
  * @property Carbon $updated_at
  */
+#[RouteKey('uuid')]
 final class Contact extends Model
 {
     /** @use HasFactory<ContactFactory> */
     use HasFactory;
-
-    public function getRouteKeyName(): string
-    {
-        return 'uuid';
-    }
 
     protected static function boot(): void
     {

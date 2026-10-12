@@ -46,12 +46,26 @@ function sanitizeHtml(html: string | null | undefined) {
     return html
         ? DOMPurify.sanitize(html, {
               ALLOWED_TAGS: [
-                  'p', 'span', 'br',
-                  'h1', 'h2', 'h3', 'h4', 'h5', 'h6',
-                  'strong', 'em', 'u', 's',
-                  'ul', 'ol', 'li',
-                  'blockquote', 'hr',
-                  'pre', 'code',
+                  'p',
+                  'span',
+                  'br',
+                  'h1',
+                  'h2',
+                  'h3',
+                  'h4',
+                  'h5',
+                  'h6',
+                  'strong',
+                  'em',
+                  'u',
+                  's',
+                  'ul',
+                  'ol',
+                  'li',
+                  'blockquote',
+                  'hr',
+                  'pre',
+                  'code',
                   'a',
               ],
               ALLOWED_ATTR: ['class', 'href', 'target', 'rel'],
@@ -64,13 +78,22 @@ export function BlogContent({ content }: { content: string }) {
 
     useEffect(() => {
         const article = articleRef.current;
-        if (!article) return;
 
-        const wrappers: Array<{ wrapper: HTMLDivElement; pre: HTMLPreElement }> = [];
+        if (!article) {
+            return;
+        }
+
+        const wrappers: Array<{
+            wrapper: HTMLDivElement;
+            pre: HTMLPreElement;
+        }> = [];
 
         article.querySelectorAll<HTMLPreElement>('pre').forEach((pre) => {
             const code = pre.querySelector('code');
-            if (code) hljs.highlightElement(code);
+
+            if (code) {
+                hljs.highlightElement(code);
+            }
 
             const lang = code?.className.match(/language-(\w+)/)?.[1] ?? '';
 
@@ -83,7 +106,8 @@ export function BlogContent({ content }: { content: string }) {
 
             const langLabel = document.createElement('span');
             langLabel.textContent = lang || 'code';
-            langLabel.className = 'text-xs font-mono text-muted-foreground select-none';
+            langLabel.className =
+                'text-xs font-mono text-muted-foreground select-none';
 
             const copyBtn = document.createElement('button');
             copyBtn.type = 'button';
@@ -96,21 +120,33 @@ export function BlogContent({ content }: { content: string }) {
 
             copyBtn.addEventListener('click', async () => {
                 const text = pre.querySelector('code')?.textContent ?? '';
+
                 try {
                     await navigator.clipboard.writeText(text);
                     copyBtn.innerHTML = `${CHECK_ICON}<span>Copied!</span>`;
-                    copyBtn.classList.add('text-green-500', 'dark:text-green-400');
+                    copyBtn.classList.add(
+                        'text-green-500',
+                        'dark:text-green-400',
+                    );
                 } catch {
                     const s = copyBtn.querySelector('span');
-                    if (s) s.textContent = 'Failed';
+
+                    if (s) {
+                        s.textContent = 'Failed';
+                    }
                 }
+
                 setTimeout(() => {
                     copyBtn.innerHTML = `${COPY_ICON}<span>Copy</span>`;
-                    copyBtn.classList.remove('text-green-500', 'dark:text-green-400');
+                    copyBtn.classList.remove(
+                        'text-green-500',
+                        'dark:text-green-400',
+                    );
                 }, 2000);
             });
 
             header.appendChild(langLabel);
+
             header.appendChild(copyBtn);
 
             // Wrap pre: container holds header + pre

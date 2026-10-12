@@ -6,6 +6,7 @@ namespace App\Models;
 
 use App\Enums\PostStatus;
 use Database\Factories\PostFactory;
+use Illuminate\Database\Eloquent\Attributes\RouteKey;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -27,15 +28,11 @@ use Illuminate\Support\Str;
  * @property Carbon $updated_at
  * @property-read Category|null $category
  */
+#[RouteKey('uuid')]
 final class Post extends Model
 {
     /** @use HasFactory<PostFactory> */
     use HasFactory;
-
-    public function getRouteKeyName(): string
-    {
-        return 'uuid';
-    }
 
     public function category(): BelongsTo
     {
