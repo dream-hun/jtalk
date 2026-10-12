@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Models;
 
 use Database\Factories\CategoryFactory;
+use Illuminate\Database\Eloquent\Attributes\RouteKey;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -21,15 +22,11 @@ use Illuminate\Support\Str;
  * @property Carbon $updated_at
  * @property-read Collection<int, Post> $posts
  */
+#[RouteKey('uuid')]
 final class Category extends Model
 {
     /** @use HasFactory<CategoryFactory> */
     use HasFactory;
-
-    public function getRouteKeyName(): string
-    {
-        return 'uuid';
-    }
 
     public function posts(): HasMany
     {

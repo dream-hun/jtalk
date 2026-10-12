@@ -10,15 +10,15 @@ use App\Models\Setting;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Queue\Queueable;
 use Illuminate\Mail\Mailables\Address;
+use Illuminate\Queue\Attributes\Backoff;
+use Illuminate\Queue\Attributes\Tries;
 use Illuminate\Support\Facades\Mail;
 
+#[Backoff(60)]
+#[Tries(3)]
 final class SendContactNotification implements ShouldQueue
 {
     use Queueable;
-
-    public int $tries = 3;
-
-    public int $backoff = 60;
 
     public function __construct(public readonly Contact $contact) {}
 

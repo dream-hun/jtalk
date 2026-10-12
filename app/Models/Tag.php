@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Models;
 
 use Database\Factories\TagFactory;
+use Illuminate\Database\Eloquent\Attributes\RouteKey;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -18,15 +19,11 @@ use Illuminate\Support\Str;
  * @property Carbon $created_at
  * @property Carbon $updated_at
  */
+#[RouteKey('uuid')]
 final class Tag extends Model
 {
     /** @use HasFactory<TagFactory> */
     use HasFactory;
-
-    public function getRouteKeyName(): string
-    {
-        return 'uuid';
-    }
 
     /** @return BelongsToMany<Project, $this> */
     public function projects(): BelongsToMany
